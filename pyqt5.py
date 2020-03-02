@@ -46,8 +46,8 @@ class App(QWidget):
 
     Button_number = 0
 
-    
-    data = dev.read(ep_in.bEndpointAddress, ep_in.bLength, 0)
+    try:
+        data = dev.read(ep_in.bEndpointAddress, ep_in.bLength, 0)
     if data[0] == 3:
         if data[1]== 0:
             print("push button : ", Button_number)
