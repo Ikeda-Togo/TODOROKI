@@ -120,7 +120,8 @@ class SubWindow(QWidget):
 if __name__ == "__main__":
     app = QApplication(sys.argv)
     ex = App()
-
+    sys.exit(app.exec_())
+    
     dev = usb.core.find(idVendor=0x46d, idProduct=0xc626)
     if dev is None:
         raise ValueError('SpaceNavigator not found');
@@ -171,4 +172,3 @@ if __name__ == "__main__":
         except usb.core.USBError:
             print("USB error")  
 
-    sys.exit(app.exec_())
