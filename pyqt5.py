@@ -12,41 +12,7 @@ from PyQt5.QtGui import *
 from PyQt5.QtCore import *
 
 class App(QWidget):
-    dev = usb.core.find(idVendor=0x46d, idProduct=0xc626)
-    if dev is None:
-        raise ValueError('SpaceNavigator not found');
-    else:
-        print('SpaceNavigator found')
-        print(dev)
-
-    cfg = dev.get_active_configuration()
-    print('cfg is ', cfg)
-    intf = cfg[(0,0)]
-    print('intf is ', intf)
-    ep = usb.util.find_descriptor(intf, custom_match = lambda e: usb.util.endpoint_direction(e.bEndpointAddress) == usb.util.ENDPOINT_IN)
-    print('ep is ', ep)
-
-    reattach = False
-    if dev.is_kernel_driver_active(0):
-        reattach = True
-        dev.detach_kernel_driver(0)
-
-    ep_in = dev[0][(0,0)][0]
-    ep_out = dev[0][(0,0)][1]
-
-    print('')
-    print('Exit by pressing any button on the SpaceNavigator')
-    print('')
-
-    Z_push = 0
-    old_Z_push = 0
-
-    R_list = [0,0,0]
-    old_R_list = 0
-
-    Button_number = 0
-
-
+    
     def __init__(self):
         super().__init__()
         self.title = "PyQt5 simple window - pythonspot.com"
@@ -154,6 +120,40 @@ class SubWindow(QWidget):
 if __name__ == "__main__":
     app = QApplication(sys.argv)
     ex = App()
+
+    dev = usb.core.find(idVendor=0x46d, idProduct=0xc626)
+    if dev is None:
+        raise ValueError('SpaceNavigator not found');
+    else:
+        print('SpaceNavigator found')
+        print(dev)
+
+    cfg = dev.get_active_configuration()
+    print('cfg is ', cfg)
+    intf = cfg[(0,0)]
+    print('intf is ', intf)
+    ep = usb.util.find_descriptor(intf, custom_match = lambda e: usb.util.endpoint_direction(e.bEndpointAddress) == usb.util.ENDPOINT_IN)
+    print('ep is ', ep)
+
+    reattach = False
+    if dev.is_kernel_driver_active(0):
+        reattach = True
+        dev.detach_kernel_driver(0)
+
+    ep_in = dev[0][(0,0)][0]
+    ep_out = dev[0][(0,0)][1]
+
+    print('')
+    print('Exit by pressing any button on the SpaceNavigator')
+    print('')
+
+    Z_push = 0
+    old_Z_push = 0
+
+    R_list = [0,0,0]
+    old_R_list = 0
+
+    Button_number = 0
 
     while True:
         try:
