@@ -57,8 +57,6 @@ class App(QWidget):
 
     except KeyboardInterrupt:
         print("end")
-        break
-
     except usb.core.USBError:
         print("USB error")
 
