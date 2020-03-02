@@ -46,19 +46,6 @@ class App(QWidget):
 
     Button_number = 0
 
-    try:
-        data = dev.read(ep_in.bEndpointAddress, ep_in.bLength, 0)
-        if data[0] == 3:
-            if data[1]== 0:
-                print("push button : ", Button_number)
-                Button_number = 0
-            else:
-                Button_number = data[1]
-
-    except KeyboardInterrupt:
-        print("end")
-    except usb.core.USBError:
-        print("USB error")
 
     def __init__(self):
         super().__init__()
@@ -139,7 +126,22 @@ class App(QWidget):
         self.yeah.setStyleSheet('QPushButton {background-color: #AAAAAA}')
         self.yeah.clicked.connect(self.makeWindow)
         self.show()
-   
+
+    while True:
+        try:
+            data = dev.read(ep_in.bEndpointAddress, ep_in.bLength, 0)
+            if data[0] == 3:
+                if data[1]== 0:
+                    print("push button : ", Button_number)
+                    Button_number = 0
+                else:
+                    Button_number = data[1]
+
+        except KeyboardInterrupt:
+            print("end")
+            break
+        except usb.core.USBError:
+            print("USB error")  
 
     def makeWindow(self):
         # サブウィンドウの作成
