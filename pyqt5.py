@@ -127,22 +127,6 @@ class App(QWidget):
         self.yeah.clicked.connect(self.makeWindow)
         self.show()
 
-    while True:
-        try:
-            data = dev.read(ep_in.bEndpointAddress, ep_in.bLength, 0)
-            if data[0] == 3:
-                if data[1]== 0:
-                    print("push button : ", Button_number)
-                    Button_number = 0
-                else:
-                    Button_number = data[1]
-
-        except KeyboardInterrupt:
-            print("end")
-            break
-        except usb.core.USBError:
-            print("USB error")  
-
     def makeWindow(self):
         # サブウィンドウの作成
         subWindow = SubWindow()
@@ -171,3 +155,19 @@ if __name__ == "__main__":
     app = QApplication(sys.argv)
     ex = App()
     sys.exit(app.exec_())
+
+    while True:
+        try:
+            data = dev.read(ep_in.bEndpointAddress, ep_in.bLength, 0)
+            if data[0] == 3:
+                if data[1]== 0:
+                    print("push button : ", Button_number)
+                    Button_number = 0
+                else:
+                    Button_number = data[1]
+
+        except KeyboardInterrupt:
+            print("end")
+            break
+        except usb.core.USBError:
+            print("USB error")  
