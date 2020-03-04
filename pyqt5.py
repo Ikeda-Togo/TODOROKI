@@ -173,6 +173,8 @@ class App(QWidget):
                             self.btn1.setStyleSheet('QPushButton {background-color: #AAAAAA}')
                             self.btn2.setStyleSheet('QPushButton {background-color: #AAAAAA}')
                             self.btn3.setStyleSheet('QPushButton {background-color: #00ff00}')
+                        
+                        self.show()
 
                         Button_number = 0
 
