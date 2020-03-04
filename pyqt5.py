@@ -80,19 +80,6 @@ class TestWorker1(QThread):
                         elif Button_number == 3:
                             break
                         print("Now Mode:",Mode)
-                        if Mode == 0:
-                            print("hello")
-                            self.btn1.setStyleSheet('QPushButton {background-color: #00ff00}')
-                            self.btn2.setStyleSheet('QPushButton {background-color: #AAAAAA}')
-                            self.btn3.setStyleSheet('QPushButton {background-color: #AAAAAA}')
-                        elif Mode == 1:
-                            self.btn1.setStyleSheet('QPushButton {background-color: #AAAAAA}')
-                            self.btn2.setStyleSheet('QPushButton {background-color: #00ff00}')
-                            self.btn3.setStyleSheet('QPushButton {background-color: #AAAAAA}')
-                        elif Mode == 2:
-                            self.btn1.setStyleSheet('QPushButton {background-color: #AAAAAA}')
-                            self.btn2.setStyleSheet('QPushButton {background-color: #AAAAAA}')
-                            self.btn3.setStyleSheet('QPushButton {background-color: #00ff00}')
                         
                         self.show()
 
