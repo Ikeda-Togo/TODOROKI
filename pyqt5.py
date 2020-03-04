@@ -225,10 +225,8 @@ class SubWindow(QWidget):
     def show(self):
         self.w.exec_()
 
-def Play(self):
-    self.app = QApplication(sys.argv)
-    self.ex = App()
-    sys.exit(self.app.exec_())
-
 if __name__ == "__main__":
-    Play()
+    app = QApplication(sys.argv)
+    ex = App()
+    sys.exit(app.exec_())
+    print("hello")
