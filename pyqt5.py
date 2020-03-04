@@ -183,6 +183,7 @@ class App(QWidget):
                             self.btn3.setStyleSheet('QPushButton {background-color: #00ff00}')
                         
                         self.show()
+                        self.Play()
 
                         Button_number = 0
 
@@ -225,9 +226,10 @@ class SubWindow(QWidget):
     def show(self):
         self.w.exec_()
 
+def Play(self):
+    self.app = QApplication(sys.argv)
+    self.ex = App()
+    sys.exit(self.app.exec_())
 
 if __name__ == "__main__":
-    while True:
-        app = QApplication(sys.argv)
-        ex = App()
-        sys.exit(app.exec_())
+    self.Play
