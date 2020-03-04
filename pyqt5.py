@@ -231,4 +231,4 @@ def Play(self):
     sys.exit(self.app.exec_())
 
 if __name__ == "__main__":
-    self.Play
+    Play()
