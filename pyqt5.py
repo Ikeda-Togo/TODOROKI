@@ -161,6 +161,7 @@ class App(QWidget):
                             break
                         print("Now Mode:",Mode)
                         if Mode == 0:
+                            print("hello")
                             self.btn1.setStyleSheet('QPushButton {background-color: #00ff00}')
                             self.btn2.setStyleSheet('QPushButton {background-color: #AAAAAA}')
                             self.btn3.setStyleSheet('QPushButton {background-color: #AAAAAA}')
