@@ -184,7 +184,6 @@ class App(QWidget):
         self.yeah.resize(120,60)
         self.yeah.move(260,350)
         self.yeah.setStyleSheet('QPushButton {background-color: #AAAAAA}')
-        self.yeah.clicked.connect(self.getdata)
         self.yeah.clicked.connect(self.pushbutton1_clicked)
         self.show()
 
