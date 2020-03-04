@@ -20,6 +20,7 @@ class App(QWidget):
         self.top = 100
         self.width = 640
         self.height = 480
+        self.i = 0
         self.initUI()
 
     def changeColor(self):
@@ -56,7 +57,6 @@ class App(QWidget):
         self.setWindowTitle(self.title)
         self.setGeometry(self.left, self.top, self.width, self.height)
 
-        
         self.btn1 = QPushButton('button1', self)
         self.btn1.setCheckable(True)
         self.btn1.setToolTip("This is an example button")
@@ -92,6 +92,12 @@ class App(QWidget):
         self.yeah.setStyleSheet('QPushButton {background-color: #AAAAAA}')
         self.yeah.clicked.connect(self.getdata)
         self.show()
+
+        if self.i == 1:
+            print("Hello")
+            self.getdata
+
+        self.i=1
 
     def makeWindow(self):
         # サブウィンドウの作成
