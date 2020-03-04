@@ -190,7 +190,8 @@ class App(QWidget):
                 print("end")
                 break
             except usb.core.USBError:
-                print("USB error") 
+                print("USB error")
+                break 
         usb.util.dispose_resources(dev)
 
         if reattach:
