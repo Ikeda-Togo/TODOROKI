@@ -93,6 +93,8 @@ class App(QWidget):
         self.yeah.clicked.connect(self.getdata)
         self.show()
 
+        print(self.i)
+
         if self.i == 1:
             print("Hello")
             self.getdata
