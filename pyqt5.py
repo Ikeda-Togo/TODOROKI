@@ -11,6 +11,19 @@ import threading
 from PyQt5.QtWidgets import *
 from PyQt5.QtGui import *
 from PyQt5.QtCore import *
+from PyQt5.QtCore import QObject, pyqtSignal, QThread
+
+class TestWorker1(QThread):
+    _signal = pyqtSignal(int)
+
+    def __init__(self):
+        super(TestWorker1, self).__init__()
+
+    def run(self):
+        for i in range(101):
+            print(i)
+            self._signal.emit(i)
+            time.sleep(0.01)
 
 class App(QWidget):
     
@@ -95,12 +108,18 @@ class App(QWidget):
         self.show()
 
         print(self.i)
+        self.pushbutton1_clicked
 
         if self.i == 1:
             print("Hello")
             self.getdata
 
         self.i=1
+    
+    def pushbutton1_clicked(self):
+        self.test_worker1 = TestWorker1()
+        self.test_worker1._signal.connect(self.progress.setValue)
+        self.test_worker1.start()
 
     def makeWindow(self):
         # サブウィンドウの作成
@@ -230,16 +249,12 @@ def Play():
     app = QApplication(sys.argv)
     ex = App()
     print("hello")
-    app.exec_()
+    sys.exit(app.exec_())
 def Play2():
-    app2 = QApplication(sys.argv)
-    ex2 = App()
-    print("hello")
-    app2.exec_()
+    print("hello world")
+    App.getdata
 
     
 if __name__ == "__main__":
     th1 =threading.Thread(target=Play)
-    th2 =threading.Thread(target=Play2)
     th1.start()
-    th2.start()
