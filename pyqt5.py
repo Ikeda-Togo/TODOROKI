@@ -227,7 +227,10 @@ class SubWindow(QWidget):
         self.w.exec_()
 
 def Play():
+    app = QApplication(sys.argv)
+    ex = App()
     print("hello")
+    app.exec_()
 def Play2():
     print("hello world")
     App.getdata
