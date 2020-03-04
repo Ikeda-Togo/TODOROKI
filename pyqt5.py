@@ -177,3 +177,9 @@ if __name__ == "__main__":
     if reattach:
         dev.attach_kernel_driver(0)
 
+    app = QApplication(sys.argv)
+    ex = App()
+    sys.exit(app.exec_()
+
+        
+
