@@ -4,6 +4,7 @@ import usb.util
 from time import gmtime, strftime
 import time
 import copy
+import threading
 #from PyQt5.QtWidgets import QApplication, QWidget,QPushButton,QColorDialog,QDialog,QLabel
 #from PyQt5.QtGui import QIcon
 #from PyQt5.QtCore import pyqtSlot
@@ -225,8 +226,12 @@ class SubWindow(QWidget):
     def show(self):
         self.w.exec_()
 
-if __name__ == "__main__":
+def Play():
     app = QApplication(sys.argv)
     ex = App()
     print("hello")
     sys.exit(app.exec_())
+    
+if __name__ == "__main__":
+    th1 =threading.Thread(target=play)
+    th1.start()
