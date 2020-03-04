@@ -79,6 +79,7 @@ class App(QWidget):
         self.btn1.setStyleSheet('QPushButton {background-color: #AAAAAA}')
         self.btn1.clicked.connect(self.on_click)
         self.btn1.clicked.connect(self.changeColor)
+        self.btn1.clicked.connect(self.pushbutton1_clicked)
     
         self.btn2 = QPushButton('button2', self)
         self.btn2.setCheckable(True)
