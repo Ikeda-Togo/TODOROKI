@@ -232,8 +232,7 @@ def Play():
     print("hello")
     sys.exit(app.exec_())
 def Play2():
-    app = QApplication(sys.argv)
-    ex = App()
+    App.getdata
 
     
 if __name__ == "__main__":
