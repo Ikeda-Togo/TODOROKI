@@ -183,7 +183,6 @@ class App(QWidget):
                             self.btn3.setStyleSheet('QPushButton {background-color: #00ff00}')
                         
                         self.show()
-                        self.Play()
 
                         Button_number = 0
 
