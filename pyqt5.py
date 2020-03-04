@@ -170,5 +170,9 @@ if __name__ == "__main__":
             print("end")
             break
         except usb.core.USBError:
-            print("USB error")  
+            print("USB error") 
+    usb.util.dispose_resources(dev)
+
+    if reattach:
+    dev.attach_kernel_driver(0)v
 
