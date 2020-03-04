@@ -227,6 +227,7 @@ class SubWindow(QWidget):
 
 
 if __name__ == "__main__":
-    app = QApplication(sys.argv)
-    ex = App()
-    sys.exit(app.exec_())
+    while True:
+        app = QApplication(sys.argv)
+        ex = App()
+        sys.exit(app.exec_())
