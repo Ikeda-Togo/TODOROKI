@@ -233,5 +233,5 @@ def Play():
     sys.exit(app.exec_())
     
 if __name__ == "__main__":
-    th1 =threading.Thread(target=play)
+    th1 =threading.Thread(target=Play)
     th1.start()
