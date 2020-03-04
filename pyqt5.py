@@ -233,6 +233,7 @@ def Play():
     sys.exit(app.exec_())
 def Play2():
     App.getdata
+    print("hello world")
 
     
 if __name__ == "__main__":
