@@ -80,8 +80,6 @@ class TestWorker1(QThread):
                         elif Button_number == 3:
                             break
                         print("Now Mode:",Mode)
-                        
-                        self.show()
 
                         Button_number = 0
 
