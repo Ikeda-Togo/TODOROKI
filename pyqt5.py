@@ -232,8 +232,14 @@ def Play():
     print("hello")
     sys.exit(app.exec_())
     
+def Play2():
+    app2 = QApplication(sys.argv)
+    ex2 = App()
+    print("hello")
+    sys.exit(app2.exec_())
+
 if __name__ == "__main__":
     th1 =threading.Thread(target=Play)
-    th2 =threading.Thread(target=Play)
+    th2 =threading.Thread(target=Play2)
     th1.start()
     th2.start()
