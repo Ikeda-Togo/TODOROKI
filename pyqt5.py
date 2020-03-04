@@ -16,8 +16,8 @@ class App(QWidget):
     def __init__(self):
         super().__init__()
         self.title = "PyQt5 simple window - pythonspot.com"
-        self.left = 10
-        self.top = 10
+        self.left = 100
+        self.top = 100
         self.width = 640
         self.height = 480
         self.initUI()
@@ -156,7 +156,8 @@ if __name__ == "__main__":
 
     Button_number = 0
 
-    while True:
+    run=True
+    while run:
         try:
             data = dev.read(ep_in.bEndpointAddress, ep_in.bLength, 0)
             if data[0] == 3:
