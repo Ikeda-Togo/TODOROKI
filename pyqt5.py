@@ -64,7 +64,6 @@ class App(QWidget):
         self.btn1.move(130,70)
         self.btn1.setStyleSheet('QPushButton {background-color: #AAAAAA}')
         self.btn1.clicked.connect(self.on_click)
-        self.btn1.clicked.connect(self.getdata)
         self.btn1.clicked.connect(self.changeColor)
     
         self.btn2 = QPushButton('button2', self)
@@ -91,7 +90,7 @@ class App(QWidget):
         self.yeah.resize(120,60)
         self.yeah.move(260,350)
         self.yeah.setStyleSheet('QPushButton {background-color: #AAAAAA}')
-        self.yeah.clicked.connect(self.makeWindow)
+        self.yeah.clicked.connect(self.getdata)
         self.show()
 
     def makeWindow(self):
@@ -114,6 +113,8 @@ class App(QWidget):
         print('intf is ', intf)
         ep = usb.util.find_descriptor(intf, custom_match = lambda e: usb.util.endpoint_direction(e.bEndpointAddress) == usb.util.ENDPOINT_IN)
         print('ep is ', ep)
+
+        Mode = 0
 
         reattach = False
         if dev.is_kernel_driver_active(0):
@@ -142,9 +143,48 @@ class App(QWidget):
                 if data[0] == 3:
                     if data[1]== 0:
                         print("push button : ", Button_number)
+                        if Button_number == 1:
+                            if Mode == 2:
+                                Mode = 0
+                            else:
+                                Mode += 1
+                            if Mode == 1:
+                                RC_flag = 0
+                        elif Button_number == 2:
+                            if Mode == 0:
+                                Mode = 2
+                            else:
+                                Mode -= 1
+                            if Mode == 1:
+                                RC_flag = 0
+                        elif Button_number == 3:
+                            break
+                        print("Now Mode:",Mode)
+                        if Mode == 0:
+                            self.btn1.setStyleSheet('QPushButton {background-color: #00ff00}')
+                            self.btn2.setStyleSheet('QPushButton {background-color: #AAAAAA}')
+                            self.btn3.setStyleSheet('QPushButton {background-color: #AAAAAA}')
+                        elif Mode == 1:
+                            self.btn1.setStyleSheet('QPushButton {background-color: #AAAAAA}')
+                            self.btn2.setStyleSheet('QPushButton {background-color: #00ff00}')
+                            self.btn3.setStyleSheet('QPushButton {background-color: #AAAAAA}')
+                        elif Mode == 2:
+                            self.btn1.setStyleSheet('QPushButton {background-color: #AAAAAA}')
+                            self.btn2.setStyleSheet('QPushButton {background-color: #AAAAAA}')
+                            self.btn3.setStyleSheet('QPushButton {background-color: #00ff00}')
+
+                        Button_number = 0
+
+                    else:
+                        Button_number = data[1]
+
+                    '''
+                    if data[1]== 0:
+                        print("push button : ", Button_number)
                         Button_number = 0
                     else:
                         Button_number = data[1]
+                    '''
 
             except KeyboardInterrupt:
                 print("end")
@@ -178,58 +218,3 @@ if __name__ == "__main__":
     app = QApplication(sys.argv)
     ex = App()
     sys.exit(app.exec_())
-    
-    dev = usb.core.find(idVendor=0x46d, idProduct=0xc626)
-    if dev is None:
-        raise ValueError('SpaceNavigator not found');
-    else:
-        print('SpaceNavigator found')
-        print(dev)
-
-    cfg = dev.get_active_configuration()
-    print('cfg is ', cfg)
-    intf = cfg[(0,0)]
-    print('intf is ', intf)
-    ep = usb.util.find_descriptor(intf, custom_match = lambda e: usb.util.endpoint_direction(e.bEndpointAddress) == usb.util.ENDPOINT_IN)
-    print('ep is ', ep)
-
-    reattach = False
-    if dev.is_kernel_driver_active(0):
-        reattach = True
-        dev.detach_kernel_driver(0)
-
-    ep_in = dev[0][(0,0)][0]
-    ep_out = dev[0][(0,0)][1]
-
-    print('')
-    print('Exit by pressing any button on the SpaceNavigator')
-    print('')
-
-    Z_push = 0
-    old_Z_push = 0
-
-    R_list = [0,0,0]
-    old_R_list = 0
-
-    Button_number = 0
-
-    run=True
-    while run:
-        try:
-            data = dev.read(ep_in.bEndpointAddress, ep_in.bLength, 0)
-            if data[0] == 3:
-                if data[1]== 0:
-                    print("push button : ", Button_number)
-                    Button_number = 0
-                else:
-                    Button_number = data[1]
-
-        except KeyboardInterrupt:
-            print("end")
-            break
-        except usb.core.USBError:
-            print("USB error") 
-    usb.util.dispose_resources(dev)
-
-    if reattach:
-        dev.attach_kernel_driver(0)
