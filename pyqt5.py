@@ -117,7 +117,6 @@ class App(QWidget):
         self.height = 480
         self.i = 0
         self.initUI()
-        self.Mode
 
     def changeColor3dmouse(self):
         
