@@ -14,7 +14,7 @@ from PyQt5.QtCore import *
 from PyQt5.QtCore import QObject, pyqtSignal, QThread
 
 class TestWorker1(QThread):
-    _signal = pyqtSignal(int)
+    _signal = pyqtSignal(str)
 
     def __init__(self):
         super(TestWorker1, self).__init__()
@@ -80,7 +80,7 @@ class TestWorker1(QThread):
                         elif Button_number == 3:
                             break
                         print("Now Mode:",Mode)
-                        self._signal.emit(int(Mode))
+                        self._signal.emit(str(Mode))
 
                         Button_number = 0
 
