@@ -117,9 +117,10 @@ class App(QWidget):
         self.height = 480
         self.i = 0
         self.initUI()
+        self.Mode
 
     def changeColor3dmouse(self):
-        self.Mode=0
+        
 
         if self.Mode==0:
             self.btn1.setStyleSheet('QPushButton {background-color: #00ff00}')
