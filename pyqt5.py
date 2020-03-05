@@ -218,7 +218,7 @@ class App(QWidget):
     
     def pushbutton1_clicked(self):
         self.test_worker1 = TestWorker1()
-        self.test_worker1._signal.connect(self.changeColor3dmouse.Mode)
+        self.test_worker1._signal.connect(self.changeColor3dmouse)
         self.test_worker1.start()
 
     def makeWindow(self):
