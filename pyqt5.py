@@ -14,7 +14,7 @@ from PyQt5.QtCore import *
 from PyQt5.QtCore import QObject, pyqtSignal, QThread
 
 class TestWorker1(QThread):
-    _signal = pyqtSignal(str)
+    _signal = pyqtSignal(int)
 
     def __init__(self):
         super(TestWorker1, self).__init__()
@@ -80,7 +80,7 @@ class TestWorker1(QThread):
                         elif Button_number == 3:
                             break
                         print("Now Mode:",Mode)
-                        self._signal.emit(str(Mode))
+                        self._signal.emit(int(Button_number))
 
                         Button_number = 0
 
@@ -117,21 +117,34 @@ class App(QWidget):
         self.height = 480
         self.i = 0
         self.initUI()
+        self.button_data=0
 
-    def changeColor3dmouse(mode):
-        print("mode:"+str(mode))
+    def changeColor3dmouse(self,bt_num):
+        print("mode:"+str(bt_num))
 
-        if mode==0:
+        if bt_num==1:
+            if self.button_data==2:
+                self.button_data=0
+            else:
+                self.button_data+=1
+
+        elif bt_num==2:
+            if self.button_data==0:
+                self.button_data=2
+            else:
+                self.button_data-=1
+
+        if self.button_data==0:
             self.btn1.setStyleSheet('QPushButton {background-color: #00ff00}')
             self.btn2.setStyleSheet('QPushButton {background-color: #AAAAAA}')
             self.btn3.setStyleSheet('QPushButton {background-color: #AAAAAA}')
 
-        elif mode==1:
+        elif self.button_data==1:
             self.btn1.setStyleSheet('QPushButton {background-color: #AAAAAA}')
             self.btn2.setStyleSheet('QPushButton {background-color: #00ff00}')
             self.btn3.setStyleSheet('QPushButton {background-color: #AAAAAA}')
  
-        elif mode==2:
+        elif self.button_data==2:
             self.btn1.setStyleSheet('QPushButton {background-color: #AAAAAA}')
             self.btn2.setStyleSheet('QPushButton {background-color: #AAAAAA}')
             self.btn3.setStyleSheet('QPushButton {background-color: #00ff00}')
@@ -141,16 +154,19 @@ class App(QWidget):
         source=self.sender()
 
         if source.text()=="button1":
+            self.button_data=0
             self.btn1.setStyleSheet('QPushButton {background-color: #00ff00}')
             self.btn2.setStyleSheet('QPushButton {background-color: #AAAAAA}')
             self.btn3.setStyleSheet('QPushButton {background-color: #AAAAAA}')
 
         elif source.text()=="button2": 
+            self.button_data=1
             self.btn1.setStyleSheet('QPushButton {background-color: #AAAAAA}')
             self.btn2.setStyleSheet('QPushButton {background-color: #00ff00}')
             self.btn3.setStyleSheet('QPushButton {background-color: #AAAAAA}')
  
         elif source.text()=="button3": 
+            self.button_data=2
             self.btn1.setStyleSheet('QPushButton {background-color: #AAAAAA}')
             self.btn2.setStyleSheet('QPushButton {background-color: #AAAAAA}')
             self.btn3.setStyleSheet('QPushButton {background-color: #00ff00}')
@@ -207,6 +223,10 @@ class App(QWidget):
         self.yeah.clicked.connect(self.pushbutton1_clicked)
         self.show()
 
+        self.test_worker1 = TestWorker1()
+        self.test_worker1._signal.connect(self.changeColor3dmouse)
+        self.test_worker1.start()
+
         print(self.i)
         self.pushbutton1_clicked
 
@@ -218,9 +238,9 @@ class App(QWidget):
     
     def pushbutton1_clicked(self):
         self.Mode=0
-        self.test_worker1 = TestWorker1()
-        self.test_worker1._signal.connect(self.changeColor3dmouse)
-        self.test_worker1.start()
+        #self.test_worker1 = TestWorker1()
+        #self.test_worker1._signal.connect(self.changeColor3dmouse)
+        #self.test_worker1.start()
 
     def makeWindow(self):
         # サブウィンドウの作成
