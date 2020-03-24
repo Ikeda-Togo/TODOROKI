@@ -78,7 +78,7 @@ class TestWorker1(QThread):
                             if Mode == 1:
                                 RC_flag = 0
                         elif Button_number == 3:
-                            break
+                            pass
                         print("Now Mode:",Mode)
                         self._signal.emit(int(Button_number))
 
