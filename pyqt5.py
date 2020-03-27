@@ -63,10 +63,6 @@ class TestWorker1(QThread):
                 if data[0] == 3:
                     if data[1]== 0:
                         print("push button : ", Button_number)
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 70aba682fba1d0b844e810fc8f4c9e11d9fffde4
                         if Button_number == 1:
                             if Mode == 2:
                                 Mode = 0
@@ -82,32 +78,8 @@ class TestWorker1(QThread):
                             if Mode == 1:
                                 RC_flag = 0
                         elif Button_number == 3:
-<<<<<<< HEAD
                             pass
                         print("Now Mode:",Mode)
-=======
-#                       if Button_number == 1:
-#                            if Mode == 2:
-#                                Mode = 0
-#                            else:
-#                                Mode += 1
-#                            if Mode == 1:
-#                                RC_flag = 0
-#                        elif Button_number == 2:
-#                            if Mode == 0:
-#                                Mode = 2
-#                            else:
-#                                Mode -= 1
-#                            if Mode == 1:
-#                                RC_flag = 0
-#                        elif Button_number == 3:
-#                            break
-#                       print("Now Mode:",Mode)
->>>>>>> 1e4f76aacbc1a3e2854544fba607c484d248c7f9
-=======
-                            break
-                        print("Now Mode:",Mode)
->>>>>>> 70aba682fba1d0b844e810fc8f4c9e11d9fffde4
                         self._signal.emit(int(Button_number))
 
                         Button_number = 0
