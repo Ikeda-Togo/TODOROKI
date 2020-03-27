@@ -3,6 +3,7 @@ import usb.util
 import sys
 from time import gmtime, strftime
 import time
+import threading
 import copy
 import lcm
 from exlcm import example_t
