@@ -142,7 +142,6 @@ while run:
                     pass
                 print("Now Mode:",msg.mode)
                 lc.publish("EXAMPLE", msg.encode())
-                self._signal.emit(int(Button_number))
 
                 Button_number = 0
 
