@@ -48,6 +48,8 @@ old_R_list = 0
 
 Button_number = 0
 
+Mode = 0
+
 
 ######publishされたら動く#########################
 def my_handler(channel, data):
@@ -58,6 +60,8 @@ def my_handler(channel, data):
     print("   position    = %s" % str(msg.position))
     print("")
     print("number only type:")
+
+    Mode = msg.mode
 
 def subscribe_handler(handle):
     while True:
@@ -71,7 +75,6 @@ subscription = lc.subscribe("EXAMPLE", my_handler)
 thread1 = threading.Thread(target=subscribe_handler, args=(lc.handle,))
 thread1.start()
 print("EXAMPLEチャンネルを読んでTAMAGOチャンネルに送る")
-lc.publish("EXAMPLE", msg.encode())
 
 
 run = True
@@ -123,6 +126,7 @@ while run:
         #ボタンの判定(左が2,右が1,同時押しが3)
         if data[0] == 3:
             if data[1]== 0:
+                msg.mode = Mode
                 print("push button : ", Button_number)
                 if Button_number == 1:
                     if msg.mode == 2:
