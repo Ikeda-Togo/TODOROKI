@@ -146,6 +146,7 @@ while run:
                     pass
                 print("Now Mode:",msg.mode)
                 lc.publish("EXAMPLE", msg.encode())
+                Mode = msg.mode
 
                 Button_number = 0
 
