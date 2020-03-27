@@ -158,6 +158,7 @@ while run:
 
     except usb.core.USBError:
         print("USB error")
+        break
     
 
 # end while
