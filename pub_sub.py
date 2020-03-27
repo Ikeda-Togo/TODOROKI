@@ -2,20 +2,20 @@ import time
 import threading
 import lcm
 from exlcm import example_t
+
+######publishされたら動く#########################
 def my_handler(channel, data):
     msg = example_t.decode(data)
     
     print("Received message on channel \"%s\"" % channel)
     print("   mode   = %s" % str(msg.mode))
-    '''
     print("   position    = %s" % str(msg.position))
-    print("   orientation = %s" % str(msg.orientation))
-    print("   ranges: %s" % str(msg.ranges))
-    print("   name        = '%s'" % msg.name)
-    print("   enabled     = %s" % str(msg.enabled))
-    '''
-    #print(msg.name)
-    #print("")
+    #print("   orientation = %s" % str(msg.orientation))
+    #print("   ranges: %s" % str(msg.ranges))
+    #print("   name        = '%s'" % msg.name)
+    #print("   enabled     = %s" % str(msg.enabled))
+    print("")
+    print("number only type:")
 
 def subscribe_handler(handle):
     while True:
@@ -32,6 +32,8 @@ msg.enabled = True
 
 lc = lcm.LCM()
 subscription = lc.subscribe("EXAMPLE", my_handler)
+
+########handleをwhileでぶん回すのをサブスレッドで行う############
 thread1 = threading.Thread(target=subscribe_handler, args=(lc.handle,))
 thread1.start()
 print("EXAMPLEチャンネルを読んでTAMAGOチャンネルに送る")

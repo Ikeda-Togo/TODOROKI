@@ -4,6 +4,8 @@ import sys
 from time import gmtime, strftime
 import time
 import copy
+import lcm
+from exlcm import example_t
 
 DED_ZONE = 120
 Z_DED_ZONE = 250
@@ -39,10 +41,36 @@ print('')
 Z_push = 0
 old_Z_push = 0
 
+#######X,Y,Zの値###########
 R_list = [0,0,0]
 old_R_list = 0
 
 Button_number = 0
+
+
+######publishされたら動く#########################
+def my_handler(channel, data):
+    msg = example_t.decode(data)
+    
+    print("Received message on channel \"%s\"" % channel)
+    print("   mode   = %s" % str(msg.mode))
+    print("   position    = %s" % str(msg.position))
+    print("")
+    print("number only type:")
+
+def subscribe_handler(handle):
+    while True:
+        handle()
+
+msg = example_t()
+lc = lcm.LCM()
+subscription = lc.subscribe("EXAMPLE", my_handler)
+
+########handleをwhileでぶん回すのをサブスレッドで行う############
+thread1 = threading.Thread(target=subscribe_handler, args=(lc.handle,))
+thread1.start()
+print("EXAMPLEチャンネルを読んでTAMAGOチャンネルに送る")
+lc.publish("EXAMPLE", msg.encode())
 
 
 run = True
@@ -95,7 +123,28 @@ while run:
         if data[0] == 3:
             if data[1]== 0:
                 print("push button : ", Button_number)
+                if Button_number == 1:
+                    if msg.mode == 2:
+                        msg.mode = 0
+                    else:
+                        msg.mode += 1
+                    if msg.mode == 1:
+                        RC_flag = 0
+                elif Button_number == 2:
+                    if msg.mode == 0:
+                        msg.mode = 2
+                    else:
+                        msg.mode -= 1
+                    if msg.mode == 1:
+                        RC_flag = 0
+                elif Button_number == 3:
+                    pass
+                print("Now Mode:",msg.mode)
+                lc.publish("EXAMPLE", msg.encode())
+                self._signal.emit(int(Button_number))
+
                 Button_number = 0
+
             else:
                 Button_number = data[1]
 
