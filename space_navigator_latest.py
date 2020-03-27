@@ -4,10 +4,6 @@ import sys
 from time import gmtime, strftime
 import time
 import copy
-import pyqt5
-from PyQt5.QtWidgets import *
-from PyQt5.QtGui import *
-from PyQt5.QtCore import *
 
 DED_ZONE = 120
 Z_DED_ZONE = 250
@@ -102,14 +98,6 @@ while run:
                 Button_number = 0
             else:
                 Button_number = data[1]
-
-        if Button_number==1:
-            self.btn3.clicked.connect(self.changeColor)
-
-
-        app = QApplication(sys.argv)
-        ex = pyqt5.App()
-        sys.exit(app.exec_())
 
     except KeyboardInterrupt:
         print("end")
