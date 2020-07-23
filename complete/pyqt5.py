@@ -21,6 +21,8 @@ class App(QWidget):
         self.top = 10
         self.width = 640
         self.height = 480
+        self.msg = example_t()
+        self.msg.mode = 0
         self.lc=lcm.LCM()
         self.initUI()
         
@@ -105,6 +107,7 @@ class App(QWidget):
 
         self.show()
 
+
         #self.lc = lcm.LCM()
         lcm_handler =  LcmHandler()
         lcm_handler._signal.connect(self.changeColor3dmouse)
@@ -112,6 +115,7 @@ class App(QWidget):
         ## kakikae
         thread1 = threading.Thread(target=subscribe_handler, args=(self.lc.handle,))
         thread1.start()
+        self.lc.publish("EXAMPLE",self.msg.encode())
 
 
 

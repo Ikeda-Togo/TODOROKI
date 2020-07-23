@@ -12,8 +12,7 @@ DED_ZONE = 120
 Z_DED_ZONE = 250
 DIFF_SIZE = 5
 Z_DIFF_SIZE = 10
-
-dev = usb.core.find(idVendor=0x46d, idProduct=0xc626)
+dev = usb.core.find(idVendor=0x256f, idProduct=0xc635)
 if dev is None:
     raise ValueError('SpaceNavigator not found');
 else:
@@ -50,8 +49,9 @@ Button_number = 0
 
 Mode = 0
 
+#####################################  LCM      #########################################################
 
-######publishされたら動く#########################
+######publishされたら動く############
 def my_handler(channel, data):
     msg = example_t.decode(data)
     
@@ -59,13 +59,14 @@ def my_handler(channel, data):
     print("   mode   = %s" % str(msg.mode))
     print("   position    = %s" % str(msg.position))
     print("")
-    print("number only type:")
+    global Mode
+    Mode = msg.mode
 
-   # Mode = msg.mode
 
 def subscribe_handler(handle):
     while True:
         handle()
+
 
 msg = example_t()
 lc = lcm.LCM()
@@ -74,8 +75,9 @@ subscription = lc.subscribe("EXAMPLE", my_handler)
 ########handleをwhileでぶん回すのをサブスレッドで行う############
 thread1 = threading.Thread(target=subscribe_handler, args=(lc.handle,))
 thread1.start()
-print("EXAMPLEチャンネルを読んでTAMAGOチャンネルに送る")
+print("入力待ち")
 
+####################################=========================================####################################
 
 run = True
 while run:
@@ -126,7 +128,7 @@ while run:
         #ボタンの判定(左が2,右が1,同時押しが3)
         if data[0] == 3:
             if data[1]== 0:
-               # msg.mode = Mode
+                msg.mode = Mode
                 print("push button : ", Button_number)
                 if Button_number == 1:
                     if msg.mode == 2:
@@ -152,6 +154,7 @@ while run:
 
             else:
                 Button_number = data[1]
+                print("   mode   = %s" % str(Mode))
 
     except KeyboardInterrupt:
         print("end")
