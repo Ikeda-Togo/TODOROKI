@@ -12,7 +12,8 @@ DED_ZONE = 120
 Z_DED_ZONE = 250
 DIFF_SIZE = 5
 Z_DIFF_SIZE = 10
-dev = usb.core.find(idVendor=0x256f, idProduct=0xc635)
+#dev = usb.core.find(idVendor=0x256f, idProduct=0xc635)
+dev = usb.core.find(idVendor=0x46d, idProduct=0xc626)
 if dev is None:
     raise ValueError('SpaceNavigator not found');
 else:
@@ -57,7 +58,8 @@ def my_handler(channel, data):
     
     print("Received message on channel \"%s\"" % channel)
     print("   mode   = %s" % str(msg.mode))
-    print("   position    = %s" % str(msg.position))
+    print("   R_list    = %s" % str(msg.R_list))
+    print("   Z_push    = %s" % str(msg.Z_push))
     print("")
     global Mode
     Mode = msg.mode
@@ -99,6 +101,9 @@ while run:
             #感度の処理
             diff = abs(Z_push - old_Z_push)
             if diff > Z_DIFF_SIZE and sum(R_list) == 0:
+                msg.Z_push=Z_push
+                print("Pub ZPush:",msg.Z_push)
+                lc.publish("EXAMPLE", msg.encode())
                 print("Push: ",Z_push)
 
         #回転の移動判定
@@ -124,6 +129,9 @@ while run:
             diff = abs(sum(R_list) - sum(old_R_list))
             if diff > DIFF_SIZE and abs(Z_push) < Z_DED_ZONE:
                 print("R: ", R_list[0], R_list[1], R_list[2])
+                msg.R_list[0],msg.R_list[1],msg.R_list[2]= R_list[0], R_list[1], R_list[2]
+                print("Pub R:",msg.R_list)
+                lc.publish("EXAMPLE", msg.encode())
 
         #ボタンの判定(左が2,右が1,同時押しが3)
         if data[0] == 3:

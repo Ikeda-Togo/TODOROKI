@@ -10,6 +10,8 @@ def my_handler(channel, data):
     print("Received message on channel \"%s\"" % channel)
     print("   mode   = %s" % str(msg.mode))
     print("   position    = %s" % str(msg.position))
+    print("   R_list    = %s" % str(msg.R_list))
+    print("   Zpush    = %s" % str(msg.Z_push))
     #print("   orientation = %s" % str(msg.orientation))
     #print("   ranges: %s" % str(msg.ranges))
     #print("   name        = '%s'" % msg.name)

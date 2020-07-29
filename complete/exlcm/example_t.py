@@ -10,14 +10,16 @@ except ImportError:
 import struct
 
 class example_t(object):
-    __slots__ = ["mode", "position", "orientation", "num_ranges", "ranges", "name", "enabled"]
+    __slots__ = ["mode", "R_list", "Z_push", "position", "orientation", "num_ranges", "ranges", "name", "enabled"]
 
-    __typenames__ = ["int64_t", "double", "double", "int32_t", "int16_t", "string", "boolean"]
+    __typenames__ = ["int64_t", "double", "double", "double", "double", "int32_t", "int16_t", "string", "boolean"]
 
-    __dimensions__ = [None, [3], [4], None, ["num_ranges"], None, None]
+    __dimensions__ = [None, [3], None, [3], [4], None, ["num_ranges"], None, None]
 
     def __init__(self):
         self.mode = 0
+        self.R_list = [ 0.0 for dim0 in range(3) ]
+        self.Z_push = 0.0
         self.position = [ 0.0 for dim0 in range(3) ]
         self.orientation = [ 0.0 for dim0 in range(4) ]
         self.num_ranges = 0
@@ -33,6 +35,8 @@ class example_t(object):
 
     def _encode_one(self, buf):
         buf.write(struct.pack(">q", self.mode))
+        buf.write(struct.pack('>3d', *self.R_list[:3]))
+        buf.write(struct.pack(">d", self.Z_push))
         buf.write(struct.pack('>3d', *self.position[:3]))
         buf.write(struct.pack('>4d', *self.orientation[:4]))
         buf.write(struct.pack(">i", self.num_ranges))
@@ -56,6 +60,8 @@ class example_t(object):
     def _decode_one(buf):
         self = example_t()
         self.mode = struct.unpack(">q", buf.read(8))[0]
+        self.R_list = struct.unpack('>3d', buf.read(24))
+        self.Z_push = struct.unpack(">d", buf.read(8))[0]
         self.position = struct.unpack('>3d', buf.read(24))
         self.orientation = struct.unpack('>4d', buf.read(32))
         self.num_ranges = struct.unpack(">i", buf.read(4))[0]
@@ -69,7 +75,7 @@ class example_t(object):
     _hash = None
     def _get_hash_recursive(parents):
         if example_t in parents: return 0
-        tmphash = (0x305351136454c516) & 0xffffffffffffffff
+        tmphash = (0x602c30a3ea5fa66b) & 0xffffffffffffffff
         tmphash  = (((tmphash<<1)&0xffffffffffffffff) + (tmphash>>63)) & 0xffffffffffffffff
         return tmphash
     _get_hash_recursive = staticmethod(_get_hash_recursive)
