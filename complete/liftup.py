@@ -52,17 +52,14 @@ thread1.start()
 
 ###########################################################################################################
 
+client = serial.Serial("/dev/ttyXRUSB0", 115200, timeout=0.1, parity=serial.PARITY_EVEN,stopbits=serial.STOPBITS_ONE) # COMポートは自分の奴を入れる
 
 # client = serial.Serial("/dev/ttyXRUSB0",115200,timeout=0.1,parity=serial.PARITY_EVEN,stopbits=serial.STOPBITS_ONE)
 #モータのインスタンス化##############################
 # motor3 = az_lib_direct.az_motor_direct(client,3) #リフトアップ右
-# motor4 = az_lib_direct.az_motor_direct(client,4) #リフトアップ左
+motor4 = az_lib_direct.az_motor_direct(client,4) #リフトアップ左
 # motor5 = az_lib_direct.az_motor_direct(client,5,[0,58436,90000,116750]) #リモートセンタ
 #####################################################
-
-
-
-#client = serial.Serial("/dev/ttyXRUSB0", 115200, timeout=0.1, parity=serial.PARITY_EVEN,stopbits=serial.STOPBITS_ONE) # COMポートは自分の奴を入れる
 
 #LU_motor1 = az_lib_direct.az_motor_direct(client,3) #リフトアップ右
 #LU_motor2 = az_lib_direct.az_motor_direct(client,4) #リフトアップ左
@@ -75,9 +72,9 @@ while True :
             print("lift == UP")
             LU_mode = 2
             # motor5.go_list(3)
-            time.sleep(5)
+            #time.sleep(5)
             # motor3.go(point=13200,speed=200,rate=1)
-            # motor4.go(point=13200,speed=200,rate=1)
+            motor4.go(point=901200,speed=50000,rate=10000,stop_rate=10000)
             # motor5.go_list(RC_mode)
         ########################################################
             
@@ -86,7 +83,9 @@ while True :
             print("lift == DOWN")
             LU_mode = 0
             # motor3.go(point=0)
-            # motor4.go(point=0)
+            motor4.go(point=800000,speed=50000,rate=10000,stop_rate=10000)
+            time.sleep(5)
+            motor4.go(point=0,speed=50000,rate=10000,stop_rate=10000)
         ########################################################
 
         #リモートセンターの判定##########################################
@@ -114,9 +113,9 @@ while True :
         if abs(msg.R_list[2]) > 340:
             LU_mode = 1
             # motor3.set_position_deviation(30000)
-            # motor4.set_position_deviation(30000)
+            motor4.set_position_deviation(30000)
             # motor3.go_torque_pos(point=9000,op_current=150)
-            # motor4.go_torque_pos(point=9000,op_current=150)
+            motor4.go_torque_pos(point=9000,op_current=150)
         ##################################################################
 
 
