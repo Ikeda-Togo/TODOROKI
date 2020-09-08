@@ -1,4 +1,3 @@
-
 import serial
 import time
 import sys
@@ -11,11 +10,10 @@ import blv_lib
 import az_lib_direct
 client = serial.Serial("/dev/ttyXRUSB0",115200,timeout=0.1,parity=serial.PARITY_EVEN,stopbits=serial.STOPBITS_ONE)
 
-RC_mode=1
+RC_mode=0
 
-motor5=az_lib_direct.az_motor_direct(client,4,[0,58436,90000,135000])
+motor4 = az_lib_direct.az_motor_direct(client,4)
 
-motor5.go_list(RC_mode)
 
 
 while True:
@@ -38,13 +36,18 @@ while True:
 
     print(ch)
     #print(ch.encode('utf-8'))
-    if ch=='w'and RC_mode<3:
+    if ch=='w':
         print("Advance foward")
-        RC_mode+=1
-        motor5.go_list(RC_mode)
-    elif ch=='s'and RC_mode>0:
+        RC_mode+=100000
+        motor4.go(point=RC_mode,speed=50000,rate=20000,stop_rate=20000)
+        print("RC_mode", RC_mode)
+
+    elif ch=='s':
         print("Back")
-        RC_mode-=1
-        motor5.go_list(RC_mode)
+        RC_mode-=50000
+        if RC_mode < 0 :
+            RC_mode = 0
+        motor4.go(point=RC_mode,speed=50000,rate=20000,stop_rate=20000)
+        print("RC_mode", RC_mode)
     elif ch=="q":
         break

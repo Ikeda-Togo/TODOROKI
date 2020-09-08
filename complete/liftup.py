@@ -56,9 +56,9 @@ client = serial.Serial("/dev/ttyXRUSB0", 115200, timeout=0.1, parity=serial.PARI
 
 # client = serial.Serial("/dev/ttyXRUSB0",115200,timeout=0.1,parity=serial.PARITY_EVEN,stopbits=serial.STOPBITS_ONE)
 #モータのインスタンス化##############################
-# motor3 = az_lib_direct.az_motor_direct(client,3) #リフトアップ右
+motor3 = az_lib_direct.az_motor_direct(client,3) #リフトアップ右
 motor4 = az_lib_direct.az_motor_direct(client,4) #リフトアップ左
-# motor5 = az_lib_direct.az_motor_direct(client,5,[0,58436,90000,116750]) #リモートセンタ
+motor5 = az_lib_direct.az_motor_direct(client,5,[0,58436,90000,116750]) #リモートセンタ
 #####################################################
 
 #LU_motor1 = az_lib_direct.az_motor_direct(client,3) #リフトアップ右
@@ -73,8 +73,8 @@ while True :
             LU_mode = 2
             # motor5.go_list(3)
             #time.sleep(5)
-            # motor3.go(point=13200,speed=200,rate=1)
-            motor4.go(point=901200,speed=50000,rate=10000,stop_rate=10000)
+            motor3.go(point=0,speed=50000,rate=20000,stop_rate=20000)
+            motor4.go(point=0,speed=50000,rate=20000,stop_rate=20000)
             # motor5.go_list(RC_mode)
         ########################################################
             
@@ -82,10 +82,8 @@ while True :
         elif msg.Z_push < -250:
             print("lift == DOWN")
             LU_mode = 0
-            # motor3.go(point=0)
-            motor4.go(point=800000,speed=50000,rate=10000,stop_rate=10000)
-            time.sleep(5)
-            motor4.go(point=0,speed=50000,rate=10000,stop_rate=10000)
+            motor3.go(point=890000,speed=50000,rate=20000,stop_rate=20000)
+            motor4.go(point=890000,speed=50000,rate=20000,stop_rate=20000)
         ########################################################
 
         #リモートセンターの判定##########################################
@@ -97,7 +95,7 @@ while True :
             else:#移動処理
                 RC_mode+=1
                 print("remote == front")
-                # motor5.go_list(RC_mode)
+                motor5.go_list(RC_mode)
             RC_flag = 1
         elif msg.R_list[0] < -170 and RC_flag==0:#後ろへの移動
             if RC_mode == 0:
@@ -105,16 +103,16 @@ while True :
             else:#移動処理
                 RC_mode -=1
                 print("remote == back")
-                # motor5.go_list(RC_mode)
+                motor5.go_list(RC_mode)
             RC_flag = 1
         ##################################################################
 
         #リフトアップの判定###############################################
         if abs(msg.R_list[2]) > 340:
             LU_mode = 1
-            # motor3.set_position_deviation(30000)
+            motor3.set_position_deviation(30000)
             motor4.set_position_deviation(30000)
-            # motor3.go_torque_pos(point=9000,op_current=150)
+            motor3.go_torque_pos(point=9000,op_current=150)
             motor4.go_torque_pos(point=9000,op_current=150)
         ##################################################################
 
