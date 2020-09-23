@@ -1,0 +1,117 @@
+remote == front
+b'\xeaT'
+remote == back
+b'\xe0\x1d'
+lift == DOWN
+b'V\\'
+b'k\xd8'
+lift == DOWN
+b'V\\'
+b'k\xd8'
+lift == DOWN
+b'V\\'
+b'k\xd8'
+lift == UP
+b'\x04\xdb'
+b'9_'
+lift == UP
+b'\x04\xdb'
+b'9_'
+lift == UP
+b'\x04\xdb'
+b'9_'
+remote == front
+b'\xeaT'
+remote == back
+b'\xe0\x1d'
+lift == DOWN
+b'V\\'
+b'k\xd8'
+lift == UP
+b'\x04\xdb'
+b'9_'
+b'K\xba'
+b'Q\xce'
+b'\xf0\xaf'
+b'\xcd+'
+b'K\xba'
+b'Q\xce'
+b'\xf0\xaf'
+b'\xcd+'
+remote == back
+b'@\xe8'
+remote == front
+b'\xe0\x1d'
+remote == back
+b'@\xe8'
+remote == front
+b'\xe0\x1d'
+lift == DOWN
+b'V\\'
+b'k\xd8'
+lift == DOWN
+b'V\\'
+b'k\xd8'
+lift == DOWN
+b'V\\'
+b'k\xd8'
+lift == DOWN
+b'V\\'
+b'k\xd8'
+lift == DOWN
+b'V\\'
+b'k\xd8'
+lift == UP
+b'\x04\xdb'
+b'9_'
+lift == UP
+b'\x04\xdb'
+b'9_'
+lift == DOWN
+b'V\\'
+b'k\xd8'
+lift == DOWN
+b'V\\'
+b'k\xd8'
+lift == DOWN
+b'V\\'
+b'k\xd8'
+lift == DOWN
+b'V\\'
+b'k\xd8'
+lift == DOWN
+b'V\\'
+b'k\xd8'
+b'K\xba'
+b'Q\xce'
+b'\xf0\xaf'
+b'\xcd+'
+lift == DOWN
+b'V\\'
+b'k\xd8'
+lift == DOWN
+b'V\\'
+b'k\xd8'
+lift == DOWN
+b'V\\'
+b'k\xd8'
+lift == DOWN
+b'V\\'
+b'k\xd8'
+lift == DOWN
+b'V\\'
+b'k\xd8'
+lift == UP
+b'\x04\xdb'
+\xd8'
+lift == DOWN
+b'V\\'
+b'k\xd8'
+lift == DOWN
+b'V\\'
+b'k\xd8'
+lift == DOWN
+b'V\\'
+b'k\xd8'
+lift == UP
+b'\x04\xdb'

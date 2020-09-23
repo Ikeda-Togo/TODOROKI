@@ -25,6 +25,7 @@ class App(QWidget):
         self.msg.mode = 0
         self.lc=lcm.LCM()
         self.initUI()
+        self.showMaximized() 
         
     def comentout(self,coment):
         self.coment= str(coment)
@@ -114,6 +115,7 @@ class App(QWidget):
         subscription = self.lc.subscribe("EXAMPLE", lcm_handler.my_handler)
         ## kakikae
         thread1 = threading.Thread(target=subscribe_handler, args=(self.lc.handle,))
+        thread1.setDaemon(True)
         thread1.start()
         self.lc.publish("EXAMPLE",self.msg.encode())
 

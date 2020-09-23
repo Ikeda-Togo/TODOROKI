@@ -48,6 +48,7 @@ subscription = lc.subscribe("EXAMPLE", my_handler)
 
 ########handleをwhileでぶん回すのをサブスレッドで行う############
 thread1 = threading.Thread(target=subscribe_handler, args=(lc.handle,))
+thread1.setDaemon(True)
 thread1.start()
 
 ###########################################################################################################

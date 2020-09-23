@@ -1,0 +1,1587 @@
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 1
+mode:1
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 1
+mode:1
+Received message on channel "EXAMPLE"
+   mode   = 1
+mode:1
+Received message on channel "EXAMPLE"
+   mode   = 1
+mode:1
+Received message on channel "EXAMPLE"
+   mode   = 1
+mode:1
+Received message on channel "EXAMPLE"
+   mode   = 1
+mode:1
+Received message on channel "EXAMPLE"
+   mode   = 1
+mode:1
+Received message on channel "EXAMPLE"
+   mode   = 1
+mode:1
+Received message on channel "EXAMPLE"
+   mode   = 1
+mode:1
+Received message on channel "EXAMPLE"
+   mode   = 1
+mode:1
+Received message on channel "EXAMPLE"
+   mode   = 1
+mode:1
+Received message on channel "EXAMPLE"
+   mode   = 1
+mode:1
+Received message on channel "EXAMPLE"
+   mode   = 1
+mode:1
+Received message on channel "EXAMPLE"
+   mode   = 1
+mode:1
+Received message on channel "EXAMPLE"
+   mode   = 1
+mode:1
+Received message on channel "EXAMPLE"
+   mode   = 1
+mode:1
+Received message on channel "EXAMPLE"
+   mode   = 1
+mode:1
+Received message on channel "EXAMPLE"
+   mode   = 1
+mode:1
+Received message on channel "EXAMPLE"
+   mode   = 1
+mode:1
+Received message on channel "EXAMPLE"
+   mode   = 1
+mode:1
+Received message on channel "EXAMPLE"
+   mode   = 1
+mode:1
+Received message on channel "EXAMPLE"
+   mode   = 1
+mode:1
+Received message on channel "EXAMPLE"
+   mode   = 1
+mode:1
+Received message on channel "EXAMPLE"
+   mode   = 1
+mode:1
+Received message on channel "EXAMPLE"
+   mode   = 1
+mode:1
+Received message on channel "EXAMPLE"
+   mode   = 1
+mode:1
+Received message on channel "EXAMPLE"
+   mode   = 1
+mode:1
+Received message on channel "EXAMPLE"
+   mode   = 1
+mode:1
+Received message on channel "EXAMPLE"
+   mode   = 1
+mode:1
+Received message on channel "EXAMPLE"
+   mode   = 1
+mode:1
+Received message on channel "EXAMPLE"
+   mode   = 1
+mode:1
+Received message on channel "EXAMPLE"
+   mode   = 1
+mode:1
+Received message on channel "EXAMPLE"
+   mode   = 1
+mode:1
+Received message on channel "EXAMPLE"
+   mode   = 1
+mode:1
+Received message on channel "EXAMPLE"
+   mode   = 1
+mode:1
+Received message on channel "EXAMPLE"
+   mode   = 1
+mode:1
+Received message on channel "EXAMPLE"
+   mode   = 1
+mode:1
+Received message on channel "EXAMPLE"
+   mode   = 1
+mode:1
+Received message on channel "EXAMPLE"
+   mode   = 1
+mode:1
+Received message on channel "EXAMPLE"
+   mode   = 1
+mode:1
+Received message on channel "EXAMPLE"
+   mode   = 1
+mode:1
+Received message on channel "EXAMPLE"
+   mode   = 1
+mode:1
+Received message on channel "EXAMPLE"
+   mode   = 1
+mode:1
+Received message on channel "EXAMPLE"
+   mode   = 1
+mode:1
+Received message on channel "EXAMPLE"
+   mode   = 1
+mode:1
+Received message on channel "EXAMPLE"
+   mode   = 1
+mode:1
+Received message on channel "EXAMPLE"
+   mode   = 1
+mode:1
+Received message on channel "EXAMPLE"
+   mode   = 1
+mode:1
+Received message on channel "EXAMPLE"
+   mode   = 1
+mode:1
+Received message on channel "EXAMPLE"
+   mode   = 1
+mode:1
+Received message on channel "EXAMPLE"
+   mode   = 1
+mode:1
+Received message on channel "EXAMPLE"
+   mode   = 1
+mode:1
+Received message on channel "EXAMPLE"
+   mode   = 1
+mode:1
+Received message on channel "EXAMPLE"
+   mode   = 1
+mode:1
+Received message on channel "EXAMPLE"
+   mode   = 1
+mode:1
+Received message on channel "EXAMPLE"
+   mode   = 1
+mode:1
+Received message on channel "EXAMPLE"
+   mode   = 1
+mode:1
+Received message on channel "EXAMPLE"
+   mode   = 1
+mode:1
+Received message on channel "EXAMPLE"
+   mode   = 1
+mode:1
+Received message on channel "EXAMPLE"
+   mode   = 1
+mode:1
+Received message on channel "EXAMPLE"
+   mode   = 1
+mode:1
+Received message on channel "EXAMPLE"
+   mode   = 1
+mode:1
+Received message on channel "EXAMPLE"
+   mode   = 1
+mode:1
+Received message on channel "EXAMPLE"
+   mode   = 1
+mode:1
+Received message on channel "EXAMPLE"
+   mode   = 1
+mode:1
+Received message on channel "EXAMPLE"
+   mode   = 1
+mode:1
+Received message on channel "EXAMPLE"
+   mode   = 1
+mode:1
+Received message on channel "EXAMPLE"
+   mode   = 1
+mode:1
+Received message on channel "EXAMPLE"
+   mode   = 1
+mode:1
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 1
+mode:1
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 0
+mode:0
+Received message on channel "EXAMPLE"
+   mode   = 1
+mode:1
+Received message on channel "EXAMPLE"
+   mode   = 1
+mode:1
+Received message on channel "EXAMPLE"
+   mode   = 1
+mode:1
+Received message on channel "EXAMPLE"
+   mode   = 1
+mode:1
+Received message on channel "EXAMPLE"
+   mode   = 1
+mode:1
+Received message on channel "EXAMPLE"
+   mode   = 1
+mode:1
+Received message on channel "EXAMPLE"
+   mode   = 1
+mode:1
+Received message on channel "EXAMPLE"
+   mode   = 1
+mode:1
+Received message on channel "EXAMPLE"
+   mode   = 1
+mode:1
+Received message on channel "EXAMPLE"
+   mode   = 1
+mode:1
+Received message on channel "EXAMPLE"
+   mode   = 1
+mode:1
+Received message on channel "EXAMPLE"
+   mode   = 1
+mode:1
+Received message on channel "EXAMPLE"
+   mode   = 1
+mode:1
+Received message on channel "EXAMPLE"
+   mode   = 1
+mode:1
+Received message on channel "EXAMPLE"
+   mode   = 1
+mode:1
+Received message on channel "EXAMPLE"
+   mode   = 1
+mode:1
+Received message on channel "EXAMPLE"
+   mode   = 1
+mode:1
+Received message on channel "EXAMPLE"
+   mode   = 1
+mode:1
+Received message on channel "EXAMPLE"
+   mode   = 1
+mode:1
+Received message on channel "EXAMPLE"
+   mode   = 1
+mode:1
+Received message on channel "EXAMPLE"
+   mode   = 1
+mode:1
+Received message on channel "EXAMPLE"
+   mode   = 1
+mode:1
+Received message on channel "EXAMPLE"
+   mode   = 1
+mode:1
+Received message on channel "EXAMPLE"
+   mode   = 1
+mode:1
+Received message on channel "EXAMPLE"
+   mode   = 1
+mode:1
+Received message on channel "EXAMPLE"
+   mode   = 1
+mode:1
+Received message on channel "EXAMPLE"
+   mode   = 1
+mode:1
+Received message on channel "EXAMPLE"
+   mode   = 1
+mode:1
+Received message on channel "EXAMPLE"
+   mode   = 1
+mode:1
+Received message on channel "EXAMPLE"
+   mode   = 1
+mode:1
+Received message on channel "EXAMPLE"
+   mode   = 1
+mode:1
+Received message on channel "EXAMPLE"
+   mode   = 1
+mode:1
+Received message on channel "EXAMPLE"
+   mode   = 1
+mode:1
+Received message on channel "EXAMPLE"
+   mode   = 1
+mode:1
+Received message on channel "EXAMPLE"
+   mode   = 1
+mode:1
+Received message on channel "EXAMPLE"
+   mode   = 1
+mode:1
+Received message on channel "EXAMPLE"
+   mode   = 1
+mode:1
+Received message on channel "EXAMPLE"
+   mode   = 1
+mode:1
+Received message on channel "EXAMPLE"
+   mode   = 1
+mode:1
+Received message on channel "EXAMPLE"
+   mode   = 1
+mode:1
+Received message on channel "EXAMPLE"
+   mode   = 1
+mode:1
+Received message on channel "EXAMPLE"
+   mode   = 1
+mode:1
+Received message on channel "EXAMPLE"
+   mode   = 1
+mode:1
+Received message on channel "EXAMPLE"
+   mode   = 1
+mode:1
+Received message on channel "EXAMPLE"
+   mode   = 1
+mode:1
+Received message on channel "EXAMPLE"
+   mode   = 1
+mode:1
+Received message on channel "EXAMPLE"
+   mode   = 1
+mode:1
+Received message on channel "EXAMPLE"
+   mode   = 1
+mode:1
+Received message on channel "EXAMPLE"
+   mode   = 1
+mode:1
+Received message on channel "EXAMPLE"
+   mode   = 1
+mode:1
+Received message on channel "EXAMPLE"
+   mode   = 1
+mode:1
+Received message on channel "EXAMPLE"
+   mode   = 1
+mode:1
+Received message on channel "EXAMPLE"
+   mode   = 1
+mode:1
+Received message on channel "EXAMPLE"
+   mode   = 1
+mode:1
+Received message on channel "EXAMPLE"
+   mode   = 1
+mode:1
+Received message on channel "EXAMPLE"
+   mode   = 1
+mode:1
+Received message on channel "EXAMPLE"
+   mode   = 1
+mode:1
+Received message on channel "EXAMPLE"
+   mode   = 1
+mode:1
+Received message on channel "EXAMPLE"
+   mode   = 1
+mode:1
+Received message on channel "EXAMPLE"
+   mode   = 1
+mode:1
+Received message on channel "EXAMPLE"
+   mode   = 1
+mode:1
+Received message on channel "EXAMPLE"
+   mode   = 1
+mode:1
+Received message on channel "EXAMPLE"
+   mode   = 1
+mode:1
+Received message on channel "EXAMPLE"
+   mode   = 1
+mode:1
+Received message on channel "EXAMPLE"
+   mode   = 1
+mode:1
+Received message on channel "EXAMPLE"
+   mode   = 1
+mode:1
+Received message on channel "EXAMPLE"
+   mode   = 1
+mode:1
+Received message on channel "EXAMPLE"
+   mode   = 1
+mode:1
+Received message on channel "EXAMPLE"
+   mode   = 1
+mode:1
+Received message on channel "EXAMPLE"
+   mode   = 1
+mode:1
+Received message on channel "EXAMPLE"
+   mode   = 1
+mode:1
+Received message on channel "EXAMPLE"
+   mode   = 1
+mode:1
+Received message on channel "EXAMPLE"
+   mode   = 1
+mode:1
+Received message on channel "EXAMPLE"
+   mode   = 1
+mode:1
+Received message on channel "EXAMPLE"
+   mode   = 1
+mode:1

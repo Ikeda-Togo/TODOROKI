@@ -17,6 +17,7 @@ LU_mode = 1 #0:収納, 1:テンション維持モード 2:リフトアップ
 RC_mode = 1 #0:階段降り, 1:真ん中, 2:椅子座り, 3:階段上り
 #RC変数#################################################
 RC_flag = 1         #クリックの判定(1の時は次への移動をしない)
+LU_flag = 1
 ########################################################
 
 
@@ -48,6 +49,7 @@ subscription = lc.subscribe("EXAMPLE", my_handler)
 
 ########handleをwhileでぶん回すのをサブスレッドで行う############
 thread1 = threading.Thread(target=subscribe_handler, args=(lc.handle,))
+thread1.setDaemon(True)
 thread1.start()
 
 ###########################################################################################################
@@ -68,23 +70,52 @@ motor5 = az_lib_direct.az_motor_direct(client,5,[0,58436,90000,116750]) #リモ�
 while True :
     if msg.mode == 1:
         #アップ#################################################
-        if msg.Z_push > 300:
-            print("lift == UP")
-            LU_mode = 2
-            # motor5.go_list(3)
-            #time.sleep(5)
-            motor3.go(point=0,speed=50000,rate=20000,stop_rate=20000)
-            motor4.go(point=0,speed=50000,rate=20000,stop_rate=20000)
-            # motor5.go_list(RC_mode)
+        # if msg.Z_push > 300:
+        #     print("lift == DOWN")
+        #     LU_mode = 2
+        #     # motor5.go_list(3)
+        #     #time.sleep(5)
+        #     motor3.go(point=0,speed=50000,rate=20000,stop_rate=20000)
+        #     motor4.go(point=0,speed=50000,rate=20000,stop_rate=20000)
+        #     # motor5.go_list(RC_mode)
         ########################################################
             
         #ダウン#################################################
-        elif msg.Z_push < -250:
-            print("lift == DOWN")
-            LU_mode = 0
-            motor3.go(point=890000,speed=50000,rate=20000,stop_rate=20000)
-            motor4.go(point=890000,speed=50000,rate=20000,stop_rate=20000)
+        # elif msg.Z_push < -250:
+        #     print("lift == UP")
+        #     LU_mode = 0
+        #     motor3.go(point=700000,speed=50000,rate=20000,stop_rate=20000)
+        #     motor4.go(point=700000,speed=50000,rate=20000,stop_rate=20000)
         ########################################################
+
+        #リフトアップ##########################################
+        if msg.Z_push == 0 and LU_flag==1:
+            LU_flag = 0
+            if LU_mode == 0:
+                motor3.go(point=0,speed=40000,rate=20000,stop_rate=20000)
+                motor4.go(point=0,speed=40000,rate=20000,stop_rate=20000) 
+            elif LU_mode == 1:
+                motor3.go(point=420000,speed=40000,rate=20000,stop_rate=20000)
+                motor4.go(point=420000,speed=40000,rate=20000,stop_rate=20000)
+            elif LU_mode == 2:
+                motor3.go(point=700000,speed=40000,rate=20000,stop_rate=20000)
+                motor4.go(point=700000,speed=40000,rate=20000,stop_rate=20000)
+        
+        elif msg.Z_push > 300 and LU_flag==0:#前への移動
+            if LU_mode == 2:
+                pass
+            else:#移動処理
+                LU_mode+=1
+                print("LiftUp_mode",LU_mode)
+            LU_flag = 1
+        elif msg.Z_push < -170 and LU_flag==0:#後ろへの移動
+            if LU_mode == 0:
+                pass
+            else:#移動処理
+                LU_mode -=1
+                print("LiftUp_mode",LU_mode)
+            LU_flag = 1
+        ##################################################################
 
         #リモートセンターの判定##########################################
         if msg.R_list[0] == 0 and RC_flag==1:

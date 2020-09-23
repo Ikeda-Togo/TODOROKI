@@ -76,6 +76,7 @@ subscription = lc.subscribe("EXAMPLE", my_handler)
 
 ########handleをwhileでぶん回すのをサブスレッドで行う############
 thread1 = threading.Thread(target=subscribe_handler, args=(lc.handle,))
+thread1.setDaemon(True)
 thread1.start()
 print("入力待ち")
 
@@ -88,6 +89,7 @@ while run:
 
         #Z軸のプッシュ判定
         if data[0] == 1:
+            msg.R_list[0],msg.R_list[1],msg.R_list[2]= 0,0,0
             old_Z_push = copy.deepcopy(Z_push)
             Z_push = data[5] + (data[6]*256)
 
@@ -108,6 +110,7 @@ while run:
 
         #回転の移動判定
         if data[0] == 2:
+            msg.Z_push = 0#Z_Pushとのエラーの兼ね合いでこの処理を入れる
             old_R_list = copy.deepcopy(R_list)
             R_list[0] = data[1] + (data[2]*256)
             R_list[1] = data[3] + (data[4]*256)

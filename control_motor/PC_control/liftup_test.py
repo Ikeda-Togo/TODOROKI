@@ -12,8 +12,8 @@ client = serial.Serial("/dev/ttyXRUSB0",115200,timeout=0.1,parity=serial.PARITY_
 
 RC_mode=0
 
+motor3 = az_lib_direct.az_motor_direct(client,3)
 motor4 = az_lib_direct.az_motor_direct(client,4)
-
 
 
 while True:
@@ -38,8 +38,9 @@ while True:
     #print(ch.encode('utf-8'))
     if ch=='w':
         print("Advance foward")
-        RC_mode+=100000
-        motor4.go(point=RC_mode,speed=50000,rate=20000,stop_rate=20000)
+        RC_mode+=50000
+        # motor4.go(point=RC_mode,speed=40000,rate=20000,stop_rate=20000)
+        motor3.go(point=RC_mode,speed=40000,rate=20000,stop_rate=20000)
         print("RC_mode", RC_mode)
 
     elif ch=='s':
@@ -47,7 +48,8 @@ while True:
         RC_mode-=50000
         if RC_mode < 0 :
             RC_mode = 0
-        motor4.go(point=RC_mode,speed=50000,rate=20000,stop_rate=20000)
+        # motor4.go(point=RC_mode,speed=40000,rate=20000,stop_rate=20000)
+        motor3.go(point=RC_mode,speed=40000,rate=20000,stop_rate=20000)
         print("RC_mode", RC_mode)
     elif ch=="q":
         break
