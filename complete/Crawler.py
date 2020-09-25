@@ -66,6 +66,7 @@ motor2 = blv_lib.blv_motor(client,2) #左のクローラ
 while True :
     #Mode:0 クローラモード
     if msg.mode == 0:
+        print(int(abs(80*msg.R_list[0]*0.01)) + int(msg.R_list[2]*0.04))
         if msg.R_list[0] == 0 and msg.R_list[1] == 0 and msg.R_list[2]==0: #停止
             print("Stop")
             #motor1.set_speed(0)
@@ -76,9 +77,9 @@ while True :
             print("Advance forward")
             if msg.R_list[1] >= 0:#左をはやく
                 motor1.set_speed(int(abs(80*msg.R_list[0]*0.01)))
-                motor2.set_speed(int(abs(80*msg.R_list[0]*0.01)) + int(msg.R_list[2]*0.04))
+                motor2.set_speed(int(abs(80*msg.R_list[0]*0.01)) + int(msg.R_list[1]*0.04))
             elif msg.R_list[1] < 0:#右をはやく
-                motor1.set_speed(int(abs(80*msg.R_list[0]*0.01)) + int(msg.R_list[2]*0.04))
+                motor1.set_speed(int(abs(80*msg.R_list[0]*0.01)) + int(msg.R_list[1]*0.04))
                 motor2.set_speed(int(abs(80*msg.R_list[0]*0.01)))
             #motor1.go(1,0)
             #motor2.go(0,1)
@@ -88,10 +89,10 @@ while True :
             print("fall back")
             if msg.R_list[1] >= 0:#左をはやく
                 motor1.set_speed(int(abs(80*msg.R_list[0]*0.01)))
-                motor2.set_speed(int(abs(80*msg.R_list[0]*0.01)) + int(abs(msg.R_list[2]*0.04)))
+                motor2.set_speed(int(abs(80*msg.R_list[0]*0.01)) + int(abs(msg.R_list[1]*0.04)))
             elif msg.R_list[1] < 0:#右をはやく
-                motor1.set_speed(int(abs(80*msg.R_list[0]*0.01)))
-                motor2.set_speed(int(abs(80*msg.R_list[0]*0.01)) + int(abs(msg.R_list[2]*0.04)))
+                motor1.set_speed(int(abs(80*msg.R_list[0]*0.01)) + int(abs(msg.R_list[1]*0.04)))
+                motor2.set_speed(int(abs(80*msg.R_list[0]*0.01))) 
             #motor1.go(0,1)
             #motor2.go(1,0)
             motor1.go(1,0)

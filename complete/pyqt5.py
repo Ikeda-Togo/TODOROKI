@@ -53,21 +53,21 @@ class App(QWidget):
         source=self.sender()
         msg=example_t()
 
-        if source.text()=="button1":
+        if source.text()=="移動":
             msg.mode = 0
             self.lc.publish("EXAMPLE",msg.encode())
             self.btn1.setStyleSheet('QPushButton {background-color: #00ff00}')
             self.btn2.setStyleSheet('QPushButton {background-color: #AAAAAA}')
             self.btn3.setStyleSheet('QPushButton {background-color: #AAAAAA}')
 
-        elif source.text()=="button2": 
+        elif source.text()=="リフトアップ": 
             msg.mode = 1
             self.lc.publish("EXAMPLE",msg.encode())
             self.btn1.setStyleSheet('QPushButton {background-color: #AAAAAA}')
             self.btn2.setStyleSheet('QPushButton {background-color: #00ff00}')
             self.btn3.setStyleSheet('QPushButton {background-color: #AAAAAA}')
  
-        elif source.text()=="button3": 
+        elif source.text()=="アーム操作": 
             msg.mode = 2
             self.lc.publish("EXAMPLE",msg.encode())
             self.btn1.setStyleSheet('QPushButton {background-color: #AAAAAA}')
@@ -79,29 +79,33 @@ class App(QWidget):
         self.setGeometry(self.left, self.top, self.width, self.height)
 
         
-        self.btn1 = QPushButton('button1', self)
+        self.btn1 = QPushButton('移動', self)
+        self.btn1.setFont(QFont('Arial', 20)) 
         self.btn1.setCheckable(True)
         self.btn1.setToolTip("This is an example button")
-        self.btn1.resize(120,240)
-        self.btn1.move(130,70)
+        # self.btn1.resize(120,240)
+        self.btn1.resize(240,480)
+        self.btn1.move(160,70)
         self.btn1.setStyleSheet('QPushButton {background-color: #AAAAAA}')
         self.btn1.clicked.connect(self.on_click)
         self.btn1.clicked.connect(self.changeColor)
     
-        self.btn2 = QPushButton('button2', self)
+        self.btn2 = QPushButton('リフトアップ', self)
+        self.btn2.setFont(QFont('Arial', 20)) 
         self.btn2.setCheckable(True)
         self.btn2.setToolTip("This is an example button")
-        self.btn2.resize(120,240)
-        self.btn2.move(260,70)
+        self.btn2.resize(240,480)
+        self.btn2.move(500,70)
         self.btn2.setStyleSheet('QPushButton {background-color: #AAAAAA}')
         self.btn2.clicked.connect(self.on_click)
         self.btn2.clicked.connect(self.changeColor)
 
-        self.btn3 = QPushButton('button3', self)
+        self.btn3 = QPushButton('アーム操作', self)
+        self.btn3.setFont(QFont('Arial', 20)) 
         self.btn3.setCheckable(True)
         self.btn3.setToolTip("This is an example button")
-        self.btn3.resize(120,240)
-        self.btn3.move(390,70)
+        self.btn3.resize(240,480)
+        self.btn3.move(840,70)
         self.btn3.setStyleSheet('QPushButton {background-color: #AAAAAA}')
         self.btn3.clicked.connect(self.on_click)
         self.btn3.clicked.connect(self.changeColor)

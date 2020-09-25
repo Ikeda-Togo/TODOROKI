@@ -6,8 +6,8 @@
 	double Z_push;
  	double  position[3];
  	double  orientation[4];
- 	int32_t num_ranges;
- 	int16_t ranges[num_ranges];
+ 	int32_t LU_mode;
+ 	//int16_t ranges[num_ranges];
  	string  name;
  	boolean enabled;
  }
