@@ -1,0 +1,13 @@
+ package exlcm;
+ struct example_t
+ {
+ 	int64_t mode;
+	double R_list[3];
+	double Z_push;
+ 	double  position[3];
+ 	double  orientation[4];
+ 	int32_t LU_mode;
+ 	//int16_t ranges[num_ranges];
+ 	string  name;
+ 	boolean enabled;
+ }
