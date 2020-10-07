@@ -1,8 +1,8 @@
 #!/bin/sh 
-sudo python3 ~/git/TODOROKI/old_ver/liftup.py & 
+sudo python3 liftup.py & 
 sleep 2
-sudo python3 ~/git/TODOROKI/old_ver/Crawler.py > ~/git/TODOROKI/log/Crawler.txt &
+sudo python3 Crawler.py > ../log/Crawler.txt &
 sleep 2
-sudo python3 ~/git/TODOROKI/old_ver/space_navigator_latest.py &
+sudo python3 space_navigator_latest.py &
 sleep 2
-sudo python3 ~/git/TODOROKI/old_ver/pyqt5.py &
+sudo python3 pyqt5.py &
