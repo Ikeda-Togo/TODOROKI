@@ -20,6 +20,8 @@ RC_flag = 1         #クリックの判定(1の時は次への移動をしない
 LU_flag = 1
 ########################################################
 
+id ="/dev/ttyACM0"
+#id ="/dev/ttyXRUSB0"
 
 #####################################  LCM      #########################################################
 
@@ -54,7 +56,7 @@ thread1.start()
 
 ###########################################################################################################
 
-client = serial.Serial("/dev/ttyXRUSB0", 115200, timeout=0.1, parity=serial.PARITY_EVEN,stopbits=serial.STOPBITS_ONE) # COMポートは自分の奴を入れる
+client = serial.Serial(id, 115200, timeout=0.1, parity=serial.PARITY_EVEN,stopbits=serial.STOPBITS_ONE) # COMポートは自分の奴を入れる
 
 # client = serial.Serial("/dev/ttyXRUSB0",115200,timeout=0.1,parity=serial.PARITY_EVEN,stopbits=serial.STOPBITS_ONE)
 #モータのインスタンス化##############################

@@ -19,6 +19,8 @@ RC_mode = 1 #0:階段降り, 1:真ん中, 2:椅子座り, 3:階段上り
 RC_flag = 1         #クリックの判定(1の時は次への移動をしない)
 ########################################################
 stop_flag=1
+id ="/dev/ttyACM0"
+#id ="/dev/ttyXRUSB0"
 
 #####################################  LCM      #########################################################
 
@@ -54,7 +56,7 @@ thread1.start()
 ###########################################################################################################
 
 
-client = serial.Serial("/dev/ttyXRUSB0", 115200, timeout=0.1, parity=serial.PARITY_EVEN,stopbits=serial.STOPBITS_ONE) # COMポートは自分の奴を入れる
+client = serial.Serial(id, 115200, timeout=0.1, parity=serial.PARITY_EVEN,stopbits=serial.STOPBITS_ONE) # COMポートは自分の奴を入れる
 # client = serial.Serial("/dev/ttyUSB0", 115200, timeout=0.1, parity=serial.PARITY_EVEN,stopbits=serial.STOPBITS_ONE) # COMポートは自分の奴を入れる
 #モータのインスタンス化##############################
 motor1 = blv_lib.blv_motor(client,1) #右クローラ
