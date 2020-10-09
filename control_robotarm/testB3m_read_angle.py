@@ -10,7 +10,8 @@ if __name__ == '__main__':
     aaa = b3mCtrl.B3mClass()
     aaa.begin("/dev/ttyUSB0",1500000)
     
-    idx= [0,1,3]
+    # idx= [0,1,3]
+    idx= [0]
 
     for id in idx:
         run =1
