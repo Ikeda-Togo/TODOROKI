@@ -14,7 +14,8 @@ if __name__ == '__main__':
     target_angle = [-5,-5,-5]
     diff_angle = [-3,3]
     
-    idx= [2,1,3]
+    # idx= [2,1,3]
+    idx= [0]
     for id in range(len(idx)):
         print(aaa.setMode(idx[id],"FREE"))
         time.sleep(0.01)

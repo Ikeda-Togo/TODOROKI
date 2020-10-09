@@ -20,7 +20,7 @@ if __name__ == '__main__':
             if(hoge[0] != False):
                 print(id)
                 print(hoge[0])
-                run=1
+                run=0
             if(hoge is not False):
                 #print(id)
                 pass
