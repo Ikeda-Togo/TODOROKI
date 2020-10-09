@@ -11,7 +11,7 @@ class B3M_class():
         self.robot_arm.begin("/dev/ttyUSB0",1500000)
         self.now_angle = [0,0,0]
         self.diff_angle = [-2.0, 2.0] #精度
-        self.idx = [2,1,3]
+        self.idx = [0,1,3]
 
     def start_arm(self):
         self.go_target_angle([160,0,0])
