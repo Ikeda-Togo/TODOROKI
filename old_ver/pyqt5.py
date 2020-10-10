@@ -31,52 +31,82 @@ class App(QWidget):
         self.coment= str(coment)
         # print("result:"+self.coment)
     
-    def changeColor3dmouse(self,mode):
+    ###############------------3Dマウスの値をうけてボタンの色を変化させる-----------############
+    def changeColor3dmouse(self,data):
         # print("mode:"+str(mode))
+        self.msg = example_t.decode(data)
+        self.labelA.setText(str(self.msg.mode)) 
 
-        if mode==0:
+        if self.msg.mode==0:
             self.btn1.setStyleSheet('QPushButton {background-color: #00ff00}')
             self.btn2.setStyleSheet('QPushButton {background-color: #AAAAAA}')
             self.btn3.setStyleSheet('QPushButton {background-color: #AAAAAA}')
 
-        elif mode==1:
+        elif self.msg.mode==1:
             self.btn1.setStyleSheet('QPushButton {background-color: #AAAAAA}')
             self.btn2.setStyleSheet('QPushButton {background-color: #00ff00}')
             self.btn3.setStyleSheet('QPushButton {background-color: #AAAAAA}')
  
-        elif mode==2:
+        elif self.msg.mode==2:
             self.btn1.setStyleSheet('QPushButton {background-color: #AAAAAA}')
             self.btn2.setStyleSheet('QPushButton {background-color: #AAAAAA}')
             self.btn3.setStyleSheet('QPushButton {background-color: #00ff00}')
 
+
+#################--------タッチパネルでの操作で色が変化する------###################
     def changeColor(self):
         source=self.sender()
-        msg=example_t()
+        #msg=example_t()
 
         if source.text()=="移動":
-            msg.mode = 0
-            self.labelA.setText(str(msg.mode)) 
-            self.lc.publish("EXAMPLE",msg.encode())
+            self.msg.mode = 0
+            self.labelA.setText(str(self.msg.mode)) 
+            self.lc.publish("EXAMPLE",self.msg.encode())
             self.btn1.setStyleSheet('QPushButton {background-color: #00ff00}')
             self.btn2.setStyleSheet('QPushButton {background-color: #AAAAAA}')
             self.btn3.setStyleSheet('QPushButton {background-color: #AAAAAA}')
 
         elif source.text()=="リフトアップ": 
-            msg.mode = 1
-            self.labelA.setText(str(msg.mode)) 
-            self.lc.publish("EXAMPLE",msg.encode())
+            self.msg.mode = 1
+            self.labelA.setText(str(self.msg.mode)) 
+            self.lc.publish("EXAMPLE",self.msg.encode())
             self.btn1.setStyleSheet('QPushButton {background-color: #AAAAAA}')
             self.btn2.setStyleSheet('QPushButton {background-color: #00ff00}')
             self.btn3.setStyleSheet('QPushButton {background-color: #AAAAAA}')
  
         elif source.text()=="アーム操作": 
-            msg.mode = 2
-            self.labelA.setText(str(msg.mode)) 
-            self.lc.publish("EXAMPLE",msg.encode())
+            self.msg.mode = 2
+            self.labelA.setText(str(self.msg.mode)) 
+            self.lc.publish("EXAMPLE",self.msg.encode())
             self.btn1.setStyleSheet('QPushButton {background-color: #AAAAAA}')
             self.btn2.setStyleSheet('QPushButton {background-color: #AAAAAA}')
             self.btn3.setStyleSheet('QPushButton {background-color: #00ff00}')
 
+        #############---------リフトアップチェンジカラー------------#######################
+        if source.text()=="Lift UP":
+            self.msg.LU_mode = 0
+            self.lc.publish("EXAMPLE",self.msg.encode())
+            self.LU_btn1.setStyleSheet('QPushButton {background-color: #0000FF}')
+            self.LU_btn2.setStyleSheet('QPushButton {background-color: #fff}')
+            self.LU_btn3.setStyleSheet('QPushButton {background-color: #fff}')
+
+        elif source.text()=="Center": 
+            self.msg.LU_mode = 1
+            self.lc.publish("EXAMPLE",self.msg.encode())
+            self.LU_btn1.setStyleSheet('QPushButton {background-color: #fff}')
+            self.LU_btn2.setStyleSheet('QPushButton {background-color: #0000ff}')
+            self.LU_btn3.setStyleSheet('QPushButton {background-color: #ff}')
+ 
+        elif source.text()=="Lift Down": 
+            self.msg.LU_mode = 2
+            self.lc.publish("EXAMPLE",self.msg.encode())
+            self.LU_btn1.setStyleSheet('QPushButton {background-color: #fff}')
+            self.LU_btn2.setStyleSheet('QPushButton {background-color: #fff}')
+            self.LU_btn3.setStyleSheet('QPushButton {background-color: #0000ff}')
+
+        self.labelA.setText(str(self.msg.mode)) 
+
+###################--------ボタンや配置の初期化-----------#####################
     def initUI(self):
         self.setWindowTitle(self.title)
         self.setGeometry(self.left, self.top, self.width, self.height)
@@ -86,7 +116,6 @@ class App(QWidget):
         self.btn1.setFont(QFont('Arial', 20)) 
         #self.btn1.setCheckable(True)
         self.btn1.setToolTip("This is an example button")
-        # self.btn1.resize(120,240)
         self.btn1.resize(240,480)
         self.btn1.move(50,50)
         self.btn1.setStyleSheet('QPushButton {background-color: #AAAAAA}')
@@ -113,24 +142,27 @@ class App(QWidget):
         self.btn3.clicked.connect(self.on_click)
         self.btn3.clicked.connect(self.changeColor)
 
-
+        ################-----リフトアップボタン-----##############################
         self.LU_btn1 = QPushButton('Lift UP', self)
         self.LU_btn1.setFont(QFont('Arial', 20)) 
         self.LU_btn1.setToolTip("This is an example button")
         self.LU_btn1.resize(240,120)
         self.LU_btn1.move(800,50)
+        self.LU_btn1.clicked.connect(self.changeColor)
 
         self.LU_btn2 = QPushButton('Center', self)
         self.LU_btn2.setFont(QFont('Arial', 20)) 
         self.LU_btn2.setToolTip("This is an example button")
         self.LU_btn2.resize(240,120)
         self.LU_btn2.move(800,170)
+        self.LU_btn2.clicked.connect(self.changeColor)
 
         self.LU_btn3 = QPushButton('Lift Down', self)
         self.LU_btn3.setFont(QFont('Arial', 20)) 
         self.LU_btn3.setToolTip("This is an example button")
         self.LU_btn3.resize(240,120)
         self.LU_btn3.move(800,290)
+        self.LU_btn3.clicked.connect(self.changeColor)
 
         self.labelA = QLabel(self)
         self.labelA.move(800, 410)      
@@ -140,7 +172,7 @@ class App(QWidget):
 
         #self.lc = lcm.LCM()
         lcm_handler =  LcmHandler()
-        lcm_handler._signal.connect(self.changeColor3dmouse)
+        lcm_handler._signal.connect(self.changeColor3dmouse)  
         subscription = self.lc.subscribe("EXAMPLE", lcm_handler.my_handler)
         ## kakikae
         thread1 = threading.Thread(target=subscribe_handler, args=(self.lc.handle,))
@@ -157,16 +189,12 @@ class App(QWidget):
 
 
 class LcmHandler(QObject):
-    _signal = pyqtSignal(int)
+    _signal = pyqtSignal(bytes)
 
     def my_handler(self,channel, data):
         msg = example_t.decode(data)
-
         # print("Received message on channel \"%s\"" % str(channel))
-        # print("   mode   = %s" % str(msg.mode))
-        self._signal.emit(int(msg.mode))
-        #print(msg.name)
-        #print("")
+        self._signal.emit(bytes(data))
 
 def subscribe_handler(handle):
     while True:
