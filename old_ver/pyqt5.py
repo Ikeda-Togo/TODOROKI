@@ -76,7 +76,6 @@ class App(QWidget):
         if source.text()=="移動":
             self.msg.mode = 0
             self.labelA.setText(str(self.msg.mode)) 
-            self.lc.publish("EXAMPLE",self.msg.encode())
             self.btn1.setStyleSheet('QPushButton {background-color: #00ff00}')
             self.btn2.setStyleSheet('QPushButton {background-color: #AAAAAA}')
             self.btn3.setStyleSheet('QPushButton {background-color: #AAAAAA}')
@@ -84,7 +83,6 @@ class App(QWidget):
         elif source.text()=="リフトアップ": 
             self.msg.mode = 1
             self.labelA.setText(str(self.msg.mode)) 
-            self.lc.publish("EXAMPLE",self.msg.encode())
             self.btn1.setStyleSheet('QPushButton {background-color: #AAAAAA}')
             self.btn2.setStyleSheet('QPushButton {background-color: #00ff00}')
             self.btn3.setStyleSheet('QPushButton {background-color: #AAAAAA}')
@@ -92,33 +90,37 @@ class App(QWidget):
         elif source.text()=="アーム操作": 
             self.msg.mode = 2
             self.labelA.setText(str(self.msg.mode)) 
-            self.lc.publish("EXAMPLE",self.msg.encode())
             self.btn1.setStyleSheet('QPushButton {background-color: #AAAAAA}')
             self.btn2.setStyleSheet('QPushButton {background-color: #AAAAAA}')
             self.btn3.setStyleSheet('QPushButton {background-color: #00ff00}')
 
         #############---------リフトアップチェンジカラー------------#######################
         if source.text()=="Lift UP":
-            # self.msg.LU_mode = 2
+            self.msg.LU_mode = 2
+            self.msg.mode = 1
             # self.lc.publish("EXAMPLE",self.msg.encode())
             self.LU_btn1.setStyleSheet('QPushButton {background-color: #0000FF}')
             self.LU_btn2.setStyleSheet('QPushButton {background-color: #fff}')
             self.LU_btn3.setStyleSheet('QPushButton {background-color: #fff}')
 
         elif source.text()=="Center": 
-            # self.msg.LU_mode = 1
+            self.msg.LU_mode = 1
+            self.msg.mode =1
             # self.lc.publish("EXAMPLE",self.msg.encode())
             self.LU_btn1.setStyleSheet('QPushButton {background-color: #fff}')
             self.LU_btn2.setStyleSheet('QPushButton {background-color: #0000ff}')
             self.LU_btn3.setStyleSheet('QPushButton {background-color: #fff}')
  
         elif source.text()=="Lift Down": 
-            # self.msg.LU_mode = 0
+            self.msg.LU_mode = 0
+            self.msg.mode =1
             # self.lc.publish("EXAMPLE",self.msg.encode())
             self.LU_btn1.setStyleSheet('QPushButton {background-color: #fff}')
             self.LU_btn2.setStyleSheet('QPushButton {background-color: #fff}')
             self.LU_btn3.setStyleSheet('QPushButton {background-color: #0000ff}')
 
+
+        self.lc.publish("EXAMPLE",self.msg.encode())
         self.labelA.setText(str(self.msg.mode)) 
 
 ###################--------ボタンや配置の初期化-----------#####################

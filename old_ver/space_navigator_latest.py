@@ -54,17 +54,19 @@ Mode = 0
 
 ######publishされたら動く############
 def my_handler(channel, data):
+    global msg
     msg = example_t.decode(data)
     
     print("Received message on channel \"%s\"" % channel)
     print("   mode   = %s" % str(msg.mode))
     print("   LU_mode   = %s" % str(msg.LU_mode))
-    print("   R_list    = %s" % str(msg.R_list))
+    print("   R_list    = %s" % type(msg.R_list))
     print("   Z_push    = %s" % str(msg.Z_push))
     print("")
-    global Mode
-    Mode = msg.mode
+    msg.R_list = list(msg.R_list)
 
+    # global Mode 
+    # Mode = msg.mode
 
 def subscribe_handler(handle):
     while True:
@@ -140,7 +142,7 @@ while run:
         #ボタンの判定(左が2,右が1,同時押しが3)
         if data[0] == 3:
             if data[1]== 0:
-                msg.mode = Mode
+                # msg.mode = Mode
                 print("push button : ", Button_number)
                 if Button_number == 1:
                     if msg.mode == 2:
@@ -166,7 +168,7 @@ while run:
 
             else:
                 Button_number = data[1]
-                print("   mode   = %s" % str(Mode))
+                # print("   mode   = %s" % str(Mode))
 
     except KeyboardInterrupt:
         print("end")

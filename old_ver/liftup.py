@@ -21,6 +21,7 @@ LU_flag = 1
 ########################################################
 
 # id ="/dev/ttyACM0"
+# id ="/dev/ttyXRUSB0"
 id ="/dev/ttyUSB0"
 
 #####################################  LCM      #########################################################
@@ -90,6 +91,9 @@ while True :
             elif LU_mode == 2:
                 motor3.go(point=700000,speed=40000,rate=20000,stop_rate=20000)
                 motor4.go(point=700000,speed=40000,rate=20000,stop_rate=20000)
+            msg.LU_mode =LU_mode
+            lc.publish("EXAMPLE",msg.encode())
+        
         
         elif msg.Z_push > 300 and LU_flag==0:#前への移動
             if LU_mode == 0:
@@ -99,8 +103,6 @@ while True :
                 LU_mode-=1
                 # print("LiftUp_mode",LU_mode)
             LU_flag = 1
-            msg.LU_mode = LU_mode
-            lc.publish("EXAMPLE",msg.encode())
 
         elif msg.Z_push < -170 and LU_flag==0:#後ろへの移動
             print("test#############################")
@@ -110,10 +112,8 @@ while True :
                 LU_mode +=1
                 print("LiftUp_mode",LU_mode)
             LU_flag = 1
-            msg.LU_mode = LU_mode
-            lc.publish("EXAMPLE",msg.encode())
         ##################################################################
-
+        
         #リモートセンターの判定##########################################
         if msg.R_list[0] == 0 and RC_flag==1:
             RC_flag = 0
