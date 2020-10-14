@@ -12,8 +12,8 @@ DED_ZONE = 120
 Z_DED_ZONE = 250
 DIFF_SIZE = 5
 Z_DIFF_SIZE = 10
-dev = usb.core.find(idVendor=0x256f, idProduct=0xc635)
-# dev = usb.core.find(idVendor=0x46d, idProduct=0xc626)
+# dev = usb.core.find(idVendor=0x256f, idProduct=0xc635)
+dev = usb.core.find(idVendor=0x46d, idProduct=0xc626)
 if dev is None:
     raise ValueError('SpaceNavigator not found');
 else:
@@ -92,6 +92,7 @@ while run:
 
         #Z軸のプッシュ判定
         if data[0] == 1:
+            msg.R_list = list(msg.R_list)
             msg.R_list[0],msg.R_list[1],msg.R_list[2]= 0,0,0
             old_Z_push = copy.deepcopy(Z_push)
             Z_push = data[5] + (data[6]*256)
