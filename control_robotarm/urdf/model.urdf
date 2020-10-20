@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot name="RobotArm_latest_v4">
+	<link name="1axisUnit_V2_v1:1">
+		<inertial>
+			<mass value="1.6492919058275461"/>
+			<origin rpy="0 0 0" xyz="-0.000576388088246092 0.0016491640558422408 0.0015186369656774057"/>
+			<inertia ixx="0.003919393469982381" ixy="-3.2319365894090847e-06" ixz="2.1439122441835943e-05" iyy="0.003813861655533455" iyz="-1.3107000977914124e-05" izz="0.005373773666601636"/>
+		</inertial>
+		<collision name="1axisUnit_V2_v1:1_collision">
+			<origin rpy="1.5707963267948915 6.523902405371839e-23 -1.6940658945086007e-21" xyz="4.440892098500635e-18 -9.769962616701378e-17 -1.509903313490213e-16"/>
+			<geometry>
+				<mesh filename="../meshes/1axisUnit_V2_v1.stl" scale="1.0 1.0 1.0"/>
+			</geometry>
+		</collision>
+		<visual name="1axisUnit_V2_v1:1_visual">
+			<origin rpy="1.5707963267948915 6.523902405371839e-23 -1.6940658945086007e-21" xyz="4.440892098500635e-18 -9.769962616701378e-17 -1.509903313490213e-16"/>
+			<geometry>
+				<mesh filename="../meshes/1axisUnit_V2_v1.stl" scale="1.0 1.0 1.0"/>
+			</geometry>
+		</visual>
+	</link>
+	<link name="2axisUnit_V2_v1:1">
+		<inertial>
+			<mass value="1.2904396303449601"/>
+			<origin rpy="0 0 0" xyz="2.4656351633139383e-06 -2.8915223362521925e-06 0.04025801037904122"/>
+			<inertia ixx="0.003359360159203426" ixy="-2.7205016441996785e-07" ixz="8.705883460394097e-08" iyy="0.002901837881422392" iyz="-1.8124689093922272e-07" izz="0.004350868283339188"/>
+		</inertial>
+		<collision name="2axisUnit_V2_v1:1_collision">
+			<origin rpy="1.5707963267948906 6.523902405371838e-23 -1.6940658945086007e-21" xyz="0.0 0.0 0.0"/>
+			<geometry>
+				<mesh filename="../meshes/2axisUnit_V2_v1.stl" scale="1.0 1.0 1.0"/>
+			</geometry>
+		</collision>
+		<visual name="2axisUnit_V2_v1:1_visual">
+			<origin rpy="1.5707963267948906 6.523902405371838e-23 -1.6940658945086007e-21" xyz="0.0 0.0 0.0"/>
+			<geometry>
+				<mesh filename="../meshes/2axisUnit_V2_v1.stl" scale="1.0 1.0 1.0"/>
+			</geometry>
+		</visual>
+	</link>
+	<link name="3axisUnit_V3_v1:1">
+		<inertial>
+			<mass value="0.24656823524718646"/>
+			<origin rpy="0 0 0" xyz="0.02255647088429151 0.01071370705918008 0.1903083823864123"/>
+			<inertia ixx="0.00414005444517233" ixy="5.23365524210864e-06" ixz="7.708919417689804e-05" iyy="0.0040981689273819144" iyz="-0.00028010926245052123" izz="0.00012200890992039978"/>
+		</inertial>
+		<collision name="3axisUnit_V3_v1:1_collision">
+			<origin rpy="-3.141592653589787 4.0371743676253047e-16 -3.1415926535897927" xyz="0.04 0.031000000000002068 0.2964999999999997"/>
+			<geometry>
+				<mesh filename="../meshes/3axisUnit_V3_v1.stl" scale="1.0 1.0 1.0"/>
+			</geometry>
+		</collision>
+		<visual name="3axisUnit_V3_v1:1_visual">
+			<origin rpy="-3.141592653589787 4.0371743676253047e-16 -3.1415926535897927" xyz="0.04 0.031000000000002068 0.2964999999999997"/>
+			<geometry>
+				<mesh filename="../meshes/3axisUnit_V3_v1.stl" scale="1.0 1.0 1.0"/>
+			</geometry>
+		</visual>
+	</link>
+	<link name="4axisUnit_V3_v1:1">
+		<inertial>
+			<mass value="0.22835968151193015"/>
+			<origin rpy="0 0 0" xyz="0.022527227877253635 -0.011567967503123396 0.2152054112615837"/>
+			<inertia ixx="0.003458123011900193" ixy="6.333484787883625e-06" ixz="-9.830290084979084e-05" iyy="0.0034133992070581372" iyz="0.0002407567649558505" izz="0.00011322979019264717"/>
+		</inertial>
+		<collision name="4axisUnit_V3_v1:1_collision">
+			<origin rpy="3.1415926535779786 -6.566118286595108e-16 -1.9338981913259723e-15" xyz="0.027399327255467502 -0.01560367610838086 0.2922499996913254"/>
+			<geometry>
+				<mesh filename="../meshes/4axisUnit_V3_v1.stl" scale="1.0 1.0 1.0"/>
+			</geometry>
+		</collision>
+		<visual name="4axisUnit_V3_v1:1_visual">
+			<origin rpy="3.1415926535779786 -6.566118286595108e-16 -1.9338981913259723e-15" xyz="0.027399327255467502 -0.01560367610838086 0.2922499996913254"/>
+			<geometry>
+				<mesh filename="../meshes/4axisUnit_V3_v1.stl" scale="1.0 1.0 1.0"/>
+			</geometry>
+		</visual>
+	</link>
+	<link name="5axisUnit_V2_v1:1">
+		<inertial>
+			<mass value="0.15898340253563104"/>
+			<origin rpy="0 0 0" xyz="-0.032330261371653984 1.1835534350135143e-05 0.021640892702850745"/>
+			<inertia ixx="0.00011681316189311702" ixy="3.1570735792074495e-08" ixz="4.5503994442626095e-07" iyy="0.00013277822169795853" iyz="-3.057968772300513e-08" izz="7.633901854223706e-05"/>
+		</inertial>
+		<collision name="5axisUnit_V2_v1:1_collision">
+			<origin rpy="-1.8166746468720625 -1.5707963267948943 1.817381524874677" xyz="-0.008000000000000009 -1.9436126427891806e-16 -2.220446049250313e-16"/>
+			<geometry>
+				<mesh filename="../meshes/5axisUnit_V2_v1.stl" scale="1.0 1.0 1.0"/>
+			</geometry>
+		</collision>
+		<visual name="5axisUnit_V2_v1:1_visual">
+			<origin rpy="-1.8166746468720625 -1.5707963267948943 1.817381524874677" xyz="-0.008000000000000009 -1.9436126427891806e-16 -2.220446049250313e-16"/>
+			<geometry>
+				<mesh filename="../meshes/5axisUnit_V2_v1.stl" scale="1.0 1.0 1.0"/>
+			</geometry>
+		</visual>
+	</link>
+	<link name="6axisUnit_V2_v1:1">
+		<inertial>
+			<mass value="0.155294452473962"/>
+			<origin rpy="0 0 0" xyz="-0.00019868381399057997 0.0008707799634595213 0.08131429843948212"/>
+			<inertia ixx="0.00025461657762102733" ixy="-3.154100817581795e-07" ixz="-2.043171342398531e-06" iyy="0.0002581275245912366" iyz="4.081389396346191e-06" izz="4.467764847505855e-05"/>
+		</inertial>
+		<collision name="6axisUnit_V2_v1:1_collision">
+			<origin rpy="-3.141592653589775 -6.440245808144577e-15 -4.570451759405106e-06" xyz="-0.010452005194530973 -0.02074995222983164 0.019999999999998908"/>
+			<geometry>
+				<mesh filename="../meshes/6axisUnit_V2_v1.stl" scale="1.0 1.0 1.0"/>
+			</geometry>
+		</collision>
+		<visual name="6axisUnit_V2_v1:1_visual">
+			<origin rpy="-3.141592653589775 -6.440245808144577e-15 -4.570451759405106e-06" xyz="-0.010452005194530973 -0.02074995222983164 0.019999999999998908"/>
+			<geometry>
+				<mesh filename="../meshes/6axisUnit_V2_v1.stl" scale="1.0 1.0 1.0"/>
+			</geometry>
+		</visual>
+	</link>
+	<link name="7axisUnit_V2_v1:1">
+		<inertial>
+			<mass value="0.09420837413767698"/>
+			<origin rpy="0 0 0" xyz="-0.011722505262838257 0.021969912068283973 0.04174325396554135"/>
+			<inertia ixx="4.3079417761919105e-05" ixy="3.2853663984358514e-08" ixz="9.229365199608708e-07" iyy="4.0408524237523126e-05" iyz="-8.273741230857556e-09" izz="3.538526789725462e-05"/>
+		</inertial>
+		<collision name="7axisUnit_V2_v1:1_collision">
+			<origin rpy="1.5707963267830969 -7.660538730665756e-15 -1.5708054676865917" xyz="-0.009499890595103339 0.021950086164177575 0.030000000000111604"/>
+			<geometry>
+				<mesh filename="../meshes/7axisUnit_V2_v1.stl" scale="1.0 1.0 1.0"/>
+			</geometry>
+		</collision>
+		<visual name="7axisUnit_V2_v1:1_visual">
+			<origin rpy="1.5707963267830969 -7.660538730665756e-15 -1.5708054676865917" xyz="-0.009499890595103339 0.021950086164177575 0.030000000000111604"/>
+			<geometry>
+				<mesh filename="../meshes/7axisUnit_V2_v1.stl" scale="1.0 1.0 1.0"/>
+			</geometry>
+		</visual>
+	</link>
+	<link name="RobotHandUnit_v1:1">
+		<inertial>
+			<mass value="0.17069797278417315"/>
+			<origin rpy="0 0 0" xyz="0.00014835427835340625 0.005990671856333019 0.06235743656459469"/>
+			<inertia ixx="0.0001920533040766486" ixy="9.567758909769614e-08" ixz="1.4613630495019293e-06" iyy="0.00019598360062871053" iyz="-2.664575053557936e-05" izz="8.587431142091076e-05"/>
+		</inertial>
+		<collision name="RobotHandUnit_v1:1_collision">
+			<origin rpy="3.1268194674078814e-06 1.1796908009783832e-11 -9.14090351295226e-06" xyz="-0.0021078530678332098 0.015999882602897218 0.06400006819415038"/>
+			<geometry>
+				<mesh filename="../meshes/RobotHandUnit_v1.stl" scale="1.0 1.0 1.0"/>
+			</geometry>
+		</collision>
+		<visual name="RobotHandUnit_v1:1_visual">
+			<origin rpy="3.1268194674078814e-06 1.1796908009783832e-11 -9.14090351295226e-06" xyz="-0.0021078530678332098 0.015999882602897218 0.06400006819415038"/>
+			<geometry>
+				<mesh filename="../meshes/RobotHandUnit_v1.stl" scale="1.0 1.0 1.0"/>
+			</geometry>
+		</visual>
+	</link>
+	<joint name="rev0" type="continuous">
+		<parent link="1axisUnit_V2_v1:1"/>
+		<child link="2axisUnit_V2_v1:1"/>
+		<origin rpy="0 0 0" xyz="3.552713678800501e-17 2.3980817331903383e-16 0.04799999999999983"/>
+		<axis xyz="2.0816698767959734e-16 -6.158584260590885e-15 -1.0"/>
+	</joint>
+	<joint name="rev1" type="continuous">
+		<parent link="2axisUnit_V2_v1:1"/>
+		<child link="3axisUnit_V3_v1:1"/>
+		<origin rpy="0 0 0" xyz="-0.025999999999999995 8.320618415054219e-16 0.11450000000000005"/>
+		<axis xyz="-1.0 -4.0371576943416255e-16 6.523902654259343e-23"/>
+	</joint>
+	<joint name="rev2" type="continuous">
+		<parent link="3axisUnit_V3_v1:1"/>
+		<child link="4axisUnit_V3_v1:1"/>
+		<origin rpy="0 0 0" xyz="0.04550000000005672 0.030999999999995993 0.29650000000128046"/>
+		<axis xyz="-1.0 -9.844131683898484e-17 -5.301650432419836e-16"/>
+	</joint>
+	<joint name="rev3" type="continuous">
+		<parent link="4axisUnit_V3_v1:1"/>
+		<child link="5axisUnit_V2_v1:1"/>
+		<origin rpy="0 0 0" xyz="-5.608707942528213e-14 -0.030999999996372648 0.3065000000016464"/>
+		<axis xyz="1.0 -2.3501954084031312e-15 5.301642221836653e-16"/>
+	</joint>
+	<joint name="rev4" type="continuous">
+		<parent link="5axisUnit_V2_v1:1"/>
+		<child link="6axisUnit_V2_v1:1"/>
+		<origin rpy="0 0 0" xyz="-0.01999999091727354 2.0682211801997738e-08 0.06149999999619804"/>
+		<axis xyz="6.240610788446815e-15 1.8161855574136197e-14 -0.9999999999999992"/>
+	</joint>
+	<joint name="rev5" type="continuous">
+		<parent link="6axisUnit_V2_v1:1"/>
+		<child link="7axisUnit_V2_v1:1"/>
+		<origin rpy="0 0 0" xyz="-9.940860663077648e-08 -0.021749999995972314 0.11499999999999366"/>
+		<axis xyz="4.57045175377596e-06 0.9999999999895557 1.0152997878510744e-14"/>
+	</joint>
+	<joint name="rev6" type="continuous">
+		<parent link="7axisUnit_V2_v1:1"/>
+		<child link="RobotHandUnit_v1:1"/>
+		<origin rpy="0 0 0" xyz="1.0940496034898134e-07 0.021949999326987008 0.0694999999961976"/>
+		<axis xyz="-1.18050314673078e-11 1.0498257834049587e-14 -0.9999999999999994"/>
+	</joint>
+</robot>
