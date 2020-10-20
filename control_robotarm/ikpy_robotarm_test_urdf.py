@@ -5,7 +5,8 @@ from mpl_toolkits.mplot3d import Axes3D
 ax = matplotlib.pyplot.figure().add_subplot(111, projection='3d')
 
 #my_chain = Chain.from_urdf_file("test_robot.URDF")
-my_chain = Chain.from_urdf_file("cybathlon_robotarm.URDF")
+# my_chain = Chain.from_urdf_file("cybathlon_robotarm.URDF")
+my_chain = Chain.from_urdf_file("urdf/model.URDF")
 
 print("start")
 #my_chain.plot(my_chain.inverse_kinematics([

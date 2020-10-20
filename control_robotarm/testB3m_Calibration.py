@@ -10,9 +10,10 @@ if __name__ == '__main__':
     aaa = b3mCtrl.B3mClass()
     aaa.begin("/dev/ttyUSB0",1500000)
     
-    # idx= [0,1,3]
-    idx= [0]
+    # idx= [0]
+    idx= [4,5,6,7,8,9]
     center=0
+    input()
 
     for id in idx:
         print("id = ",str(id))
@@ -66,11 +67,31 @@ if __name__ == '__main__':
                 #print(id)
                 pass
 
-        print (aaa.setTrajectoryType(id,"EVEN"))
-        print (aaa.setMode(id,"POSITION"))
-        print (aaa.positionCmd(id,9000,2))
-        time.sleep(3)
-        print (aaa.positionCmd(id,0,2))
-        time.sleep(2)
-        print (aaa.setMode(id,"FREE"))
+        run=1
+        while run:
+            save = aaa.saveCmd(id)
             
+            if(save[0] != False):
+                print("save RAM to ROM ",save)
+                run=0
+            if(save is not False):
+                pass
+
+
+    input()
+    print (aaa.setTrajectoryType(255,"EVEN"))
+    print (aaa.setMode(255,"POSITION"))
+    print("calib comp")
+
+    for id in idx:
+        print("id = ",str(id))
+        input()
+        print (aaa.positionCmd(id,3000,2))
+        input()
+        print (aaa.positionCmd(id,0,2))
+    
+    print("enter FREE MODE")
+    input()
+    print (aaa.setMode(255,"FREE"))
+            
+
