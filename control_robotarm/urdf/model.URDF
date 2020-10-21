@@ -9,13 +9,13 @@
 		<collision name="1axisUnit_V2_v1:1_collision">
 			<origin rpy="1.5707963267948915 6.523902405371839e-23 -1.6940658945086007e-21" xyz="4.440892098500635e-18 -9.769962616701378e-17 -1.509903313490213e-16"/>
 			<geometry>
-				<mesh filename="../meshes/1axisUnit_V2_v1.stl" scale="1.0 1.0 1.0"/>
+				<mesh filename="package:../meshes/1axisUnit_V2_v1.stl" scale="1.0 1.0 1.0"/>
 			</geometry>
 		</collision>
 		<visual name="1axisUnit_V2_v1:1_visual">
 			<origin rpy="1.5707963267948915 6.523902405371839e-23 -1.6940658945086007e-21" xyz="4.440892098500635e-18 -9.769962616701378e-17 -1.509903313490213e-16"/>
 			<geometry>
-				<mesh filename="../meshes/1axisUnit_V2_v1.stl" scale="1.0 1.0 1.0"/>
+				<mesh filename="package:../meshes/1axisUnit_V2_v1.stl" scale="1.0 1.0 1.0"/>
 			</geometry>
 		</visual>
 	</link>
@@ -28,13 +28,13 @@
 		<collision name="2axisUnit_V2_v1:1_collision">
 			<origin rpy="1.5707963267948906 6.523902405371838e-23 -1.6940658945086007e-21" xyz="0.0 0.0 0.0"/>
 			<geometry>
-				<mesh filename="../meshes/2axisUnit_V2_v1.stl" scale="1.0 1.0 1.0"/>
+				<mesh filename="package:../meshes/2axisUnit_V2_v1.stl" scale="1.0 1.0 1.0"/>
 			</geometry>
 		</collision>
 		<visual name="2axisUnit_V2_v1:1_visual">
 			<origin rpy="1.5707963267948906 6.523902405371838e-23 -1.6940658945086007e-21" xyz="0.0 0.0 0.0"/>
 			<geometry>
-				<mesh filename="../meshes/2axisUnit_V2_v1.stl" scale="1.0 1.0 1.0"/>
+				<mesh filename="package:../meshes/2axisUnit_V2_v1.stl" scale="1.0 1.0 1.0"/>
 			</geometry>
 		</visual>
 	</link>
@@ -47,13 +47,13 @@
 		<collision name="3axisUnit_V3_v1:1_collision">
 			<origin rpy="-3.141592653589787 4.0371743676253047e-16 -3.1415926535897927" xyz="0.04 0.031000000000002068 0.2964999999999997"/>
 			<geometry>
-				<mesh filename="../meshes/3axisUnit_V3_v1.stl" scale="1.0 1.0 1.0"/>
+				<mesh filename="package:../meshes/3axisUnit_V3_v1.stl" scale="1.0 1.0 1.0"/>
 			</geometry>
 		</collision>
 		<visual name="3axisUnit_V3_v1:1_visual">
 			<origin rpy="-3.141592653589787 4.0371743676253047e-16 -3.1415926535897927" xyz="0.04 0.031000000000002068 0.2964999999999997"/>
 			<geometry>
-				<mesh filename="../meshes/3axisUnit_V3_v1.stl" scale="1.0 1.0 1.0"/>
+				<mesh filename="package:../meshes/3axisUnit_V3_v1.stl" scale="1.0 1.0 1.0"/>
 			</geometry>
 		</visual>
 	</link>
