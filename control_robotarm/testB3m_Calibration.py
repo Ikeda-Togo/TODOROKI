@@ -11,14 +11,14 @@ if __name__ == '__main__':
     aaa.begin("/dev/ttyUSB0",1500000)
     
     # idx= [0]
-    idx= [4,5,6,7,8,9]
+    idx= [1,2,3,4,5,6,7,8,9]
     center=0
     input()
 
     for id in idx:
         print("id = ",str(id))
         run =1
-        while run:
+        while run: #オフセットのリセット
             hoge = aaa.setRam(id, 0,"PositionCenterOffset")
                 
             if(hoge[0] != False):
@@ -28,7 +28,7 @@ if __name__ == '__main__':
                 #print(id)
                 pass
         run =1
-        while run:
+        while run: #原点の値を取得
             hoge2 = aaa.getRam(id,"CurrentPosition")
 
             if(hoge2[0] != False):
@@ -46,7 +46,7 @@ if __name__ == '__main__':
                 pass
 
         run=1
-        while run:
+        while run: #取得した値をオフセット
             hoge = aaa.setRam(id, center,"PositionCenterOffset")
                 
             if(hoge[0] != False):
@@ -57,7 +57,7 @@ if __name__ == '__main__':
                 pass
 
         run=1
-        while run:
+        while run: #確認
             hoge2 = aaa.getRam(id,"CurrentPosition")
 
             if(hoge2[0] != False):
@@ -68,7 +68,7 @@ if __name__ == '__main__':
                 pass
 
         run=1
-        while run:
+        while run: #設定した値をROMにセーブ
             save = aaa.saveCmd(id)
             
             if(save[0] != False):
@@ -83,12 +83,12 @@ if __name__ == '__main__':
     print (aaa.setMode(255,"POSITION"))
     print("calib comp")
 
-    for id in idx:
-        print("id = ",str(id))
-        input()
-        print (aaa.positionCmd(id,3000,2))
-        input()
-        print (aaa.positionCmd(id,0,2))
+    # for id in idx:
+    #     print("id = ",str(id))
+    #     input()
+    #     print (aaa.positionCmd(id,3000,2))
+    #     input()
+    #     print (aaa.positionCmd(id,0,2))
     
     print("enter FREE MODE")
     input()
