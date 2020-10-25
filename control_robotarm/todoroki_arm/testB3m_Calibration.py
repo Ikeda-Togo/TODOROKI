@@ -61,7 +61,7 @@ if __name__ == '__main__':
             hoge2 = aaa.getRam(id,"CurrentPosition")
 
             if(hoge2[0] != False):
-                print("hoge2 = ",hoge2[0])
+                print("CurrentPosition is ",hoge2[0])
                 run=0
             if(hoge2 is not False):
                 #print(id)
@@ -77,11 +77,10 @@ if __name__ == '__main__':
             if(save is not False):
                 pass
 
-
+    print("calib comp")
     input()
     print (aaa.setTrajectoryType(255,"EVEN"))
     print (aaa.setMode(255,"POSITION"))
-    print("calib comp")
 
     # for id in idx:
     #     print("id = ",str(id))

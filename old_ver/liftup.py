@@ -95,7 +95,7 @@ while True :
             lc.publish("EXAMPLE",msg.encode())
         
         
-        elif msg.Z_push > 300 and LU_flag==0:#前への移動
+        elif msg.Z_push > 300 and LU_flag==0:#下に押す
             if LU_mode == 0:
                 print("test#############################")
                 pass
@@ -104,7 +104,7 @@ while True :
                 # print("LiftUp_mode",LU_mode)
             LU_flag = 1
 
-        elif msg.Z_push < -170 and LU_flag==0:#後ろへの移動
+        elif msg.Z_push < -170 and LU_flag==0:#上に引く
             print("test#############################")
             if LU_mode == 2:
                 pass
