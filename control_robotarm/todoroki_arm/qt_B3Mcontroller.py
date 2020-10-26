@@ -15,11 +15,14 @@ class Example(QMainWindow):
         self.initUI()
 
         self.pos = [0] * 10
+        self.id = 0
 
         self.aaa = b3mCtrl.B3mClass()
         self.aaa.begin("/dev/ttyUSB0",1500000)
+       
         print (self.aaa.setTrajectoryType(255,"EVEN"))
         print (self.aaa.setMode(255,"POSITION"))
+
         # self.showMaximized() 
 
     def initUI(self):      
@@ -46,13 +49,17 @@ class Example(QMainWindow):
         for id in range(0,10):
             combo.addItem(str(id))
 
+        result_btn =QPushButton("Result", self)
+
         combo.move(30, 20)
         self.lbl.move(30, 80)
+        result_btn.move(30, 130)
         
         self.statusBar()
 
         # アイテムが選択されたらonActivated関数の呼び出し
         combo.activated[str].connect(self.onActivated)        
+        result_btn.clicked.connect(self.result) 
 
         self.setGeometry(300, 300, 300, 200)
         self.setWindowTitle('QComboBox')
@@ -60,6 +67,8 @@ class Example(QMainWindow):
 
 
     def onActivated(self, text):
+        print (self.aaa.setTrajectoryType(255,"EVEN"))
+        print (self.aaa.setMode(255,"POSITION"))
         self.id = int(text)
         # ラベルに選択されたアイテムの名前を設定
         self.lbl.setText(text)
@@ -69,12 +78,14 @@ class Example(QMainWindow):
    
     def buttonClicked(self):
         # ステータスバーへメッセージの表示
+ 
         sender = self.sender()
 
         if sender.text() == "+":
             self.pos[self.id] += 1000 
             if self.pos[self.id] >=32000:
                 self.pos[self.id]=32000
+
             print (self.aaa.positionCmd(self.id, self.pos[self.id], 1))
         elif sender.text() == "-":
             self.pos[self.id] -= 1000 
@@ -88,6 +99,10 @@ class Example(QMainWindow):
         else:
             pass
         self.statusBar().showMessage('id '+ str(self.id) + ' position is ' + str(self.pos[self.id]))
+
+    def result(self):
+        print(self.pos)
+
 
 if __name__ == '__main__':
 
