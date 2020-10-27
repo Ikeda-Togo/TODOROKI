@@ -114,6 +114,7 @@ while run:
 
         #回転の移動判定
         if data[0] == 2:
+            msg.R_list = list(msg.R_list)
             msg.Z_push = 0#Z_Pushとのエラーの兼ね合いでこの処理を入れる
             old_R_list = copy.deepcopy(R_list)
             R_list[0] = data[1] + (data[2]*256)
@@ -136,6 +137,7 @@ while run:
             diff = abs(sum(R_list) - sum(old_R_list))
             if diff > DIFF_SIZE and abs(Z_push) < Z_DED_ZONE:
                 print("R: ", R_list[0], R_list[1], R_list[2])
+                msg.R_list = list(msg.R_list)
                 msg.R_list[0],msg.R_list[1],msg.R_list[2]= R_list[0], R_list[1], R_list[2]
                 print("Pub R:",msg.R_list)
                 lc.publish("EXAMPLE", msg.encode())
