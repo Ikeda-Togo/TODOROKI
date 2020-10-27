@@ -46,7 +46,7 @@ class Example(QMainWindow):
         # QComboBoxオブジェクトの作成
         combo = QComboBox(self)
         # アイテムの名前設定
-        for id in range(0,10):
+        for id in range(1,10):
             combo.addItem(str(id))
 
         result_btn =QPushButton("Result", self)

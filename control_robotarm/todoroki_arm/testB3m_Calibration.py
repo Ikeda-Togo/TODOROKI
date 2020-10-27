@@ -10,13 +10,13 @@ if __name__ == '__main__':
     aaa = b3mCtrl.B3mClass()
     aaa.begin("/dev/ttyUSB0",1500000)
     
-    idx= [0]
-    # idx= [1,2,3,4,5,6,7,8,9]
+    # idx= [0]
+    idx= [1,2,3,4,5,6,7,8,9]
     center=0
-    input()
 
     for id in idx:
         print("id = ",str(id))
+        input()
         run =1
         while run: #オフセットのリセット
             hoge = aaa.setRam(id, 0,"PositionCenterOffset")
@@ -82,12 +82,12 @@ if __name__ == '__main__':
     print (aaa.setTrajectoryType(255,"EVEN"))
     print (aaa.setMode(255,"POSITION"))
 
-    for id in idx:
-        print("id = ",str(id))
-        input()
-        print (aaa.positionCmd(id,3000,2))
-        input()
-        print (aaa.positionCmd(id,0,2))
+    # for id in idx:
+    #     print("id = ",str(id))
+    #     input()
+    #     print (aaa.positionCmd(id,3000,2))
+    #     input()
+    #     print (aaa.positionCmd(id,0,2))
     
     print("enter FREE MODE")
     input()
