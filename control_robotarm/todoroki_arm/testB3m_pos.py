@@ -25,4 +25,4 @@ if __name__ == '__main__':
     
     print("enter FREE MODE")
     input()
-    print (aaa.setMode(255,"FREE"))
+    # print (aaa.setMode(255,"FREE"))
