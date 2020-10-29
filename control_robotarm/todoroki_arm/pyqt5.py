@@ -80,7 +80,7 @@ class App(QWidget):
             self.btn2.setStyleSheet('QPushButton {background-color: #AAAAAA}')
             self.btn3.setStyleSheet('QPushButton {background-color: #AAAAAA}')
 
-        elif source.text()=="リフトアップ": 
+        elif source.text()=="リフトアップ&リモートセンタ": 
             self.msg.mode = 1
             self.labelA.setText(str(self.msg.mode)) 
             self.btn1.setStyleSheet('QPushButton {background-color: #AAAAAA}')
@@ -139,7 +139,7 @@ class App(QWidget):
         self.btn1.clicked.connect(self.on_click)
         self.btn1.clicked.connect(self.changeColor)
     
-        self.btn2 = QPushButton('リフトアップ', self)
+        self.btn2 = QPushButton('リフトアップ&リモートセンタ', self)
         self.btn2.setFont(QFont('Arial', 20)) 
         #self.btn2.setCheckable(True)
         self.btn2.setToolTip("This is an example button")

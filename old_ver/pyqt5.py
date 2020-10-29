@@ -36,14 +36,14 @@ class App(QWidget):
     def changeColor3dmouse(self,data):
         # print("mode:"+str(mode))
         self.msg = example_t.decode(data)
-        self.labelA.setText(str(self.msg.mode)) 
+        # self.labelA.setText(str(self.msg.mode)) 
         print(str(self.msg.LU_mode))
         if self.msg.mode==0:
             self.btn1.setStyleSheet('QPushButton {background-color: #00ff00}')
             self.btn2.setStyleSheet('QPushButton {background-color: #AAAAAA}')
             self.btn3.setStyleSheet('QPushButton {background-color: #AAAAAA}')
 
-        elif self.msg.mode==1:
+        elif self.msg.mode==0:
             self.btn1.setStyleSheet('QPushButton {background-color: #AAAAAA}')
             self.btn2.setStyleSheet('QPushButton {background-color: #00ff00}')
             self.btn3.setStyleSheet('QPushButton {background-color: #AAAAAA}')
@@ -75,21 +75,21 @@ class App(QWidget):
 
         if source.text()=="移動":
             self.msg.mode = 0
-            self.labelA.setText(str(self.msg.mode)) 
+            # self.labelA.setText(str(self.msg.mode)) 
             self.btn1.setStyleSheet('QPushButton {background-color: #00ff00}')
             self.btn2.setStyleSheet('QPushButton {background-color: #AAAAAA}')
             self.btn3.setStyleSheet('QPushButton {background-color: #AAAAAA}')
 
-        elif source.text()=="リフトアップ": 
+        elif source.text()=="リフトアップ＆": 
             self.msg.mode = 1
-            self.labelA.setText(str(self.msg.mode)) 
+            # self.labelA.setText(str(self.msg.mode)) 
             self.btn1.setStyleSheet('QPushButton {background-color: #AAAAAA}')
             self.btn2.setStyleSheet('QPushButton {background-color: #00ff00}')
             self.btn3.setStyleSheet('QPushButton {background-color: #AAAAAA}')
  
         elif source.text()=="アーム操作": 
             self.msg.mode = 2
-            self.labelA.setText(str(self.msg.mode)) 
+            # self.labelA.setText(str(self.msg.mode)) 
             self.btn1.setStyleSheet('QPushButton {background-color: #AAAAAA}')
             self.btn2.setStyleSheet('QPushButton {background-color: #AAAAAA}')
             self.btn3.setStyleSheet('QPushButton {background-color: #00ff00}')
@@ -121,7 +121,7 @@ class App(QWidget):
 
 
         self.lc.publish("EXAMPLE",self.msg.encode())
-        self.labelA.setText(str(self.msg.mode)) 
+        # self.labelA.setText(str(self.msg.mode)) 
 
 ###################--------ボタンや配置の初期化-----------#####################
     def initUI(self):
@@ -139,7 +139,7 @@ class App(QWidget):
         self.btn1.clicked.connect(self.on_click)
         self.btn1.clicked.connect(self.changeColor)
     
-        self.btn2 = QPushButton('リフトアップ', self)
+        self.btn2 = QPushButton('リフトアップ＆', self)
         self.btn2.setFont(QFont('Arial', 20)) 
         #self.btn2.setCheckable(True)
         self.btn2.setToolTip("This is an example button")
@@ -181,8 +181,11 @@ class App(QWidget):
         self.LU_btn3.move(800,290)
         self.LU_btn3.clicked.connect(self.changeColor)
 
-        self.labelA = QLabel(self)
-        self.labelA.move(800, 410)      
+        self.labelA = QLabel("リモートセンタ",self)
+        self.labelA.move(325,320)
+        self.labelA.setFont(QFont('Arial', 20)) 
+        self.labelA.adjustSize()  
+
 
         self.show()
 
