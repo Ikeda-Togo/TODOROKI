@@ -14,7 +14,7 @@ import blv_lib
 import az_lib_direct
 
 LU_mode = 0 #0:収納, 1:テンション維持モード 2:リフトアップ
-RC_mode = 4 #0:階段上り、5階段降り
+RC_mode = 2 #0:階段上り、5階段降り
 #RC変数#################################################
 RC_flag = 1         #クリックの判定(1の時は次への移動をしない)
 LU_flag = 1
@@ -85,8 +85,8 @@ while True :
                 # msg.LU_mode = LU_mode
                 # lc.publish("EXAMPLE",msg.encode())
             elif LU_mode == 1:
-                motor3.go(point=350000,speed=40000,rate=20000,stop_rate=20000)
-                motor4.go(point=350000,speed=40000,rate=20000,stop_rate=20000)
+                motor3.go(point=260000,speed=40000,rate=20000,stop_rate=20000)
+                motor4.go(point=260000,speed=40000,rate=20000,stop_rate=20000)
            
             elif LU_mode == 2:
                 motor3.go(point=500000,speed=40000,rate=20000,stop_rate=20000)
