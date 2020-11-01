@@ -12,8 +12,8 @@ DED_ZONE = 120
 Z_DED_ZONE = 250
 DIFF_SIZE = 5
 Z_DIFF_SIZE = 10
-# dev = usb.core.find(idVendor=0x256f, idProduct=0xc635)
-dev = usb.core.find(idVendor=0x46d, idProduct=0xc626)
+dev = usb.core.find(idVendor=0x256f, idProduct=0xc635)
+# dev = usb.core.find(idVendor=0x46d, idProduct=0xc626)
 if dev is None:
     raise ValueError('SpaceNavigator not found');
 else:

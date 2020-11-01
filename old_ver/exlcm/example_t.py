@@ -10,11 +10,11 @@ except ImportError:
 import struct
 
 class example_t(object):
-    __slots__ = ["mode", "R_list", "Z_push", "position", "orientation", "LU_mode", "name", "enabled"]
+    __slots__ = ["mode", "R_list", "Z_push", "position", "orientation", "LU_mode", "RC_mode", "ARM_mode", "name", "enabled"]
 
-    __typenames__ = ["int64_t", "double", "double", "double", "double", "int32_t", "string", "boolean"]
+    __typenames__ = ["int64_t", "double", "double", "double", "double", "int32_t", "int16_t", "int16_t", "string", "boolean"]
 
-    __dimensions__ = [None, [3], None, [3], [4], None, None, None]
+    __dimensions__ = [None, [3], None, [3], [4], None, None, None, None, None]
 
     def __init__(self):
         self.mode = 0
@@ -23,6 +23,8 @@ class example_t(object):
         self.position = [ 0.0 for dim0 in range(3) ]
         self.orientation = [ 0.0 for dim0 in range(4) ]
         self.LU_mode = 0
+        self.RC_mode = 0
+        self.ARM_mode = 0
         self.name = ""
         self.enabled = False
 
@@ -38,7 +40,7 @@ class example_t(object):
         buf.write(struct.pack(">d", self.Z_push))
         buf.write(struct.pack('>3d', *self.position[:3]))
         buf.write(struct.pack('>4d', *self.orientation[:4]))
-        buf.write(struct.pack(">i", self.LU_mode))
+        buf.write(struct.pack(">ihh", self.LU_mode, self.RC_mode, self.ARM_mode))
         __name_encoded = self.name.encode('utf-8')
         buf.write(struct.pack('>I', len(__name_encoded)+1))
         buf.write(__name_encoded)
@@ -62,7 +64,7 @@ class example_t(object):
         self.Z_push = struct.unpack(">d", buf.read(8))[0]
         self.position = struct.unpack('>3d', buf.read(24))
         self.orientation = struct.unpack('>4d', buf.read(32))
-        self.LU_mode = struct.unpack(">i", buf.read(4))[0]
+        self.LU_mode, self.RC_mode, self.ARM_mode = struct.unpack(">ihh", buf.read(8))
         __name_len = struct.unpack('>I', buf.read(4))[0]
         self.name = buf.read(__name_len)[:-1].decode('utf-8', 'replace')
         self.enabled = bool(struct.unpack('b', buf.read(1))[0])
@@ -72,7 +74,7 @@ class example_t(object):
     _hash = None
     def _get_hash_recursive(parents):
         if example_t in parents: return 0
-        tmphash = (0x7a73c3133667cfd7) & 0xffffffffffffffff
+        tmphash = (0x12f19ead193dc47a) & 0xffffffffffffffff
         tmphash  = (((tmphash<<1)&0xffffffffffffffff) + (tmphash>>63)) & 0xffffffffffffffff
         return tmphash
     _get_hash_recursive = staticmethod(_get_hash_recursive)
