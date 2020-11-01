@@ -97,7 +97,7 @@ class Example(QMainWindow):
     def close(self):
         print (self.aaa.setTrajectoryType(255,"EVEN"))
         print (self.aaa.setMode(255,"POSITION"))
-        self.pos = [0, 0, -14000, 14000, 8000, 9000, 0, 0, 0, 4000]
+        self.pos = [0, 0, -14000, 14000, 8000, 9000, 0, 0, 0, 2000]
         print(self.pos)
         
         for id in range(1,10):
