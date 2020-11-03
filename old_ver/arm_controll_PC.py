@@ -41,34 +41,66 @@ thread1.start()
 ###########------初期化------####################################################################
 
 # my_chain = ikpy.chain.Chain.from_urdf_file("todoroki_robotarm.URDF")
-my_chain = ikpy.chain.Chain.from_urdf_file("todoroki_robotarm.urdf")
+my_chain = ikpy.chain.Chain.from_urdf_file("/home/tamago/git/TODOROKI/control_robotarm/todoroki_arm/todoroki_robotarm.urdf")
+# my_chain = ikpy.chain.Chain.from_urdf_file("/home/pi/git/TODOROKI/control_robotarm/todoroki_arm/todoroki_robotarm.urdf")
 
 aaa = b3mCtrl.B3mClass()
-aaa.begin("/dev/ttyUSB0",1500000)
+# aaa.begin("/dev/ttyUSB0",1500000)
+aaa.begin("/dev/ttyUSB1",1500000)
 idx = [1,2,3,4,5,6,7,8,9]
 print (aaa.setTrajectoryType(255,"EVEN"))
 print (aaa.setMode(255,"POSITION"))
 
 pos = [0]*10
 # rad =[0, 0.785398, -1.5708, -2.0944, 0, 0]
-rad =[0, 0, -0.185398, 0.2944, -0.1618, 0]
-home_pos = my_chain.forward_kinematics(rad)[:,3][0:3]
-run_time = 1
+rad =[0]*6
+run_time =5
 
-print("homepos", home_pos)
 x,y,z = 0,0.2 ,0.5 #home_pos#[:,3][0:3]
-# sampling = [-0.3, -0.2, 0.2, 0.3, 0]
 old_x,old_y,old_z =0,0,0
 print(x,y,z)
-print("forward_kinematics", home_pos)
 ################################################################################################
 
 
 while True :
     #Mode:2 アームモード
     # if msg.mode == 2 and msg.ARM_mode == 2:
+        
+
     if msg.mode == 2 :
 
+        ###########ボタンでの操作######################################
+        if msg.ARM_mode == 0 :
+            print("close")        
+            aaa.setTrajectoryType(255,"EVEN")
+            aaa.setMode(255,"POSITION")
+            pos = [0, 0, -14000, 14000, 8000, 9000, 0, 0, 0, 2000]
+        
+            for id in idx:
+                print (aaa.positionCmd(id,pos[id], 5))
+
+            msg.ARM_mode = 3
+            lc.publish("EXAMPLE",msg.encode())
+
+        elif msg.ARM_mode == 1 :
+            print("stanby")        
+            x,y,z = 0,0.2 ,0.5 #home_pos
+            old_x,old_y,old_z = 0,0,0 
+            msg.ARM_mode = 3
+            lc.publish("EXAMPLE",msg.encode())
+
+        elif msg.ARM_mode == 2:
+            print("catch")
+            for id in range(5,9):
+                aaa.setMode(id,"FREE")
+            
+            msg.ARM_mode = 3
+            lc.publish("EXAMPLE",msg.encode())
+
+
+
+        ################コントローラでの処理##############################
+        ############## 前後動作#####################
         if msg.R_list[0] > 300: #前進移動
             print("前進")
             y+=0.1
@@ -80,19 +112,40 @@ while True :
             y-=0.1
             if y < 0.1:
                 y = 0.1
-        
+
+        ############### 左右動作 ###################       
         if msg.R_list[1] > 200:
             print("→")
-            x+=0.1
+            x+=0.05
             if x > 0.3:
                 x = 0.3
 
         elif msg.R_list[1] < -200:
             print("←")
-            x-=0.1
+            x-=0.05
             if x < -0.3:
                 x = -0.3
+
+        ############# ハンド開閉動作 ##############       
+        if msg.R_list[2] > 200:
+            print("しめる")
+            pos[9]+=1000
+            if pos[9]>3000:
+                pos[9]=3000
+            print (aaa.positionCmd(9,pos[9],run_time))
+            time.sleep(run_time)
+
+
+        elif msg.R_list[2] < -200:
+            print("開ける")
+            pos[9]-=1000
+            if pos[9]<0:
+                pos[9]=0
+            aaa.setMode(255,"POSITION")
+            print (aaa.positionCmd(9,pos[9],run_time))
+            time.sleep(run_time)
         
+        ############# 上下動作 ###################
         if msg.Z_push > 200:
             print("↓")
             z-=0.05
@@ -104,6 +157,8 @@ while True :
             z+= 0.05
             if z > 0.6:
                 z = 0.6
+        ###########################################################
+
 
         if old_x != x or old_y != y or old_z != z :##座標が変わると動作
 
@@ -127,12 +182,6 @@ while True :
 
                 elif i == 3 or i == 4:
                     pos[i+1]=aaa.radToPos(rad[i])-9000
-
-                # if i == 3:
-                #     pos[2] =aaa.radToPos((rad[3] - rad[2])*1.714)
-                #     pos[3] = -pos[2]
-                #     pos[i+1]=-aaa.radToPos(rad[i])-9000
-                #     pos[5]=9000-pos[2]-pos[4]
 
 
             for id in idx:

@@ -123,12 +123,26 @@ class App(QWidget):
         self.lc.publish("EXAMPLE",self.msg.encode())
         # self.labelA.setText(str(self.msg.mode)) 
 
+    def arm_mode_Handler(self):
+        source=self.sender()
+        print(source.text())
+
+        if source.text() == "CLOSE":
+            self.msg.ARM_mode = 0
+        elif source.text() == "STANDBY":
+            self.msg.ARM_mode = 1
+        elif source.text() == "CATCH":
+            self.msg.ARM_mode = 2
+        
+        self.lc.publish("EXAMPLE",self.msg.encode())
+
+
 ###################--------ボタンや配置の初期化-----------#####################
     def initUI(self):
         self.setWindowTitle(self.title)
         self.setGeometry(self.left, self.top, self.width, self.height)
 
-        
+        ############################モードボタン#################################
         self.btn1 = QPushButton('移動', self)
         self.btn1.setFont(QFont('Arial', 20)) 
         #self.btn1.setCheckable(True)
@@ -186,7 +200,31 @@ class App(QWidget):
         self.labelA.setFont(QFont('Arial', 20)) 
         self.labelA.adjustSize()  
 
+        ######################アームモードボタン#########################
+        self.ARM_btn1 = QPushButton('CLOSE', self)
+        self.ARM_btn1.setFont(QFont('Arial', 15)) 
+        self.ARM_btn1.setToolTip("This is an example button")
+        self.ARM_btn1.resize(80,100)
+        self.ARM_btn1.move(810,440)
+        self.ARM_btn1.setStyleSheet('QPushButton {background-color: #FFFF00}')
+        self.ARM_btn1.clicked.connect(self.arm_mode_Handler)
 
+        self.ARM_btn2 = QPushButton('STANDBY', self)
+        self.ARM_btn2.setFont(QFont('Arial', 12)) 
+        self.ARM_btn2.setToolTip("This is an example button")
+        self.ARM_btn2.resize(80,100)
+        self.ARM_btn2.move(910,440)
+        self.ARM_btn2.setStyleSheet('QPushButton {background-color: #FFFF00}')
+        self.ARM_btn2.clicked.connect(self.arm_mode_Handler)
+        
+        self.ARM_btn3 = QPushButton('CATCH', self)
+        self.ARM_btn3.setFont(QFont('Arial', 15)) 
+        self.ARM_btn3.setToolTip("This is an example button")
+        self.ARM_btn3.resize(80,100)
+        self.ARM_btn3.move(1010,440)
+        self.ARM_btn3.setStyleSheet('QPushButton {background-color: #FFFF00}')
+        self.ARM_btn3.clicked.connect(self.arm_mode_Handler)
+        
         self.show()
 
 
