@@ -1,0 +1,39 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "",
+        "limitSymbolsToIncludedHeaders": true
+      },
+      "includePath": [
+        "/home/tamago/ws_moveit/devel/include/**",
+        "/opt/ros/melodic/include/**",
+        "/home/tamago/ws_moveit/src/TODOROKI-arm/include/**",
+        "/home/tamago/ws_moveit/src/moveit/moveit_planners/chomp/chomp_motion_planner/include/**",
+        "/home/tamago/ws_moveit/src/cybathron_robotarm/include/**",
+        "/home/tamago/ws_moveit/src/geometry/eigen_conversions/include/**",
+        "/home/tamago/ws_moveit/src/gazebo_ros_pkgs/gazebo_plugins/include/**",
+        "/home/tamago/ws_moveit/src/gazebo_ros_pkgs/gazebo_ros/include/**",
+        "/home/tamago/ws_moveit/src/gazebo_ros_pkgs/gazebo_ros_control/include/**",
+        "/home/tamago/ws_moveit/src/geometric_shapes/include/**",
+        "/home/tamago/ws_moveit/src/geometry/kdl_conversions/include/**",
+        "/home/tamago/ws_moveit/src/moveit/moveit_planners/chomp/chomp_interface/include/**",
+        "/home/tamago/ws_moveit/src/moveit/moveit_ros/benchmarks/include/**",
+        "/home/tamago/ws_moveit/src/moveit/moveit_plugins/moveit_ros_control_interface/include/**",
+        "/home/tamago/ws_moveit/src/moveit/moveit_ros/move_group/include/**",
+        "/home/tamago/ws_moveit/src/moveit/moveit_ros/occupancy_map_monitor/include/**",
+        "/home/tamago/ws_moveit/src/moveit/moveit_ros/robot_interaction/include/**",
+        "/home/tamago/ws_moveit/src/moveit/moveit_ros/moveit_servo/include/**",
+        "/home/tamago/ws_moveit/src/moveit/moveit_setup_assistant/include/**",
+        "/home/tamago/ws_moveit/src/moveit/moveit_plugins/moveit_simple_controller_manager/include/**",
+        "/home/tamago/ws_moveit/src/moveit_visual_tools/include/**",
+        "/home/tamago/ws_moveit/src/rviz_visual_tools/include/**",
+        "/home/tamago/ws_moveit/src/geometry/tf/include/**",
+        "/home/tamago/ws_moveit/src/geometry/tf_conversions/include/**",
+        "/home/tamago/ws_moveit/src/universal_robot/ur_kinematics/include/**",
+        "/usr/include/**"
+      ],
+      "name": "ROS"
+    }
+  ]
+}
