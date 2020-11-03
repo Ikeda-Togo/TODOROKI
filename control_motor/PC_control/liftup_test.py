@@ -39,7 +39,7 @@ while True:
     if ch=='w':
         print("Advance foward")
         RC_mode+=20000
-        motor3.go(point=RC_mode,speed=40000,rate=20000,stop_rate=20000)
+        # motor3.go(point=RC_mode,speed=40000,rate=20000,stop_rate=20000)
         motor4.go(point=RC_mode,speed=40000,rate=20000,stop_rate=20000)
         print("RC_mode", RC_mode)
 
@@ -48,7 +48,7 @@ while True:
         RC_mode-=20000
         if RC_mode < 0 :
             RC_mode = 0
-        motor3.go(point=RC_mode,speed=40000,rate=20000,stop_rate=20000)
+        # motor3.go(point=RC_mode,speed=40000,rate=20000,stop_rate=20000)
         motor4.go(point=RC_mode,speed=40000,rate=20000,stop_rate=20000)
         print("RC_mode", RC_mode)
     elif ch=="q":

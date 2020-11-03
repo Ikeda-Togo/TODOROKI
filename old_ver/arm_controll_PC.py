@@ -41,12 +41,12 @@ thread1.start()
 ###########------初期化------####################################################################
 
 # my_chain = ikpy.chain.Chain.from_urdf_file("todoroki_robotarm.URDF")
-my_chain = ikpy.chain.Chain.from_urdf_file("/home/tamago/git/TODOROKI/control_robotarm/todoroki_arm/todoroki_robotarm.urdf")
-# my_chain = ikpy.chain.Chain.from_urdf_file("/home/pi/git/TODOROKI/control_robotarm/todoroki_arm/todoroki_robotarm.urdf")
+# my_chain = ikpy.chain.Chain.from_urdf_file("/home/tamago/git/TODOROKI/control_robotarm/todoroki_arm/todoroki_robotarm.urdf")
+my_chain = ikpy.chain.Chain.from_urdf_file("/home/pi/git/TODOROKI/control_robotarm/todoroki_arm/todoroki_robotarm.urdf")
 
 aaa = b3mCtrl.B3mClass()
-# aaa.begin("/dev/ttyUSB0",1500000)
-aaa.begin("/dev/ttyUSB1",1500000)
+aaa.begin("/dev/ttyUSB0",1500000)
+# aaa.begin("/dev/ttyUSB1",1500000)
 idx = [1,2,3,4,5,6,7,8,9]
 print (aaa.setTrajectoryType(255,"EVEN"))
 print (aaa.setMode(255,"POSITION"))
