@@ -18,7 +18,7 @@ class Example(QMainWindow):
         self.id = 1
 
         self.aaa = b3mCtrl.B3mClass()
-        self.aaa.begin("/dev/ttyUSB1",1500000)
+        self.aaa.begin("/dev/ttyUSB0",1500000)
        
         print (self.aaa.setTrajectoryType(255,"EVEN"))
         print (self.aaa.setMode(255,"POSITION"))
@@ -106,7 +106,7 @@ class Example(QMainWindow):
     def home(self):
         print (self.aaa.setTrajectoryType(255,"EVEN"))
         print (self.aaa.setMode(255,"POSITION"))
-        self.pos = [0, 0, 0, 0, -9000, -9000, 0, 0, 0, 0]
+        self.pos = [0, 0, 0, 0, 0, -9000, 0, 0, 0, 0]
         print(self.pos)
         
         for id in range(1,10):

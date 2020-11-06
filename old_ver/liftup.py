@@ -63,7 +63,8 @@ client = serial.Serial(id, 115200, timeout=0.1, parity=serial.PARITY_EVEN,stopbi
 #モータのインスタンス化##############################
 motor3 = az_lib_direct.az_motor_direct(client,3) #リフトアップ右
 motor4 = az_lib_direct.az_motor_direct(client,4) #リフトアップ左
-motor5 = az_lib_direct.az_motor_direct(client,5,[10000,25000,58436,75000,90000,150000]) #リモートセンタ
+# motor5 = az_lib_direct.az_motor_direct(client,5,[10000,25000,58436,75000,90000,150000]) #リモートセンタ
+motor5 = az_lib_direct.az_motor_direct(client,5,[58000,25000+48000,58436+48000,75000+48000,90000+48000,150000+48000]) #リモートセンタ
 #####################################################
 
 #LU_motor1 = az_lib_direct.az_motor_direct(client,3) #リフトアップ右
@@ -85,12 +86,12 @@ while True :
                 # msg.LU_mode = LU_mode
                 # lc.publish("EXAMPLE",msg.encode())
             elif LU_mode == 1:
-                motor3.go(point=260000,speed=40000,rate=20000,stop_rate=20000)
-                motor4.go(point=260000,speed=40000,rate=20000,stop_rate=20000)
+                motor3.go(point=250000,speed=40000,rate=20000,stop_rate=20000)
+                motor4.go(point=250000,speed=40000,rate=20000,stop_rate=20000)
            
             elif LU_mode == 2:
-                motor3.go(point=500000,speed=40000,rate=20000,stop_rate=20000)
-                motor4.go(point=500000,speed=40000,rate=20000,stop_rate=20000)
+                motor3.go(point=380000,speed=40000,rate=20000,stop_rate=20000)
+                motor4.go(point=380000,speed=40000,rate=20000,stop_rate=20000)
             msg.LU_mode =LU_mode
             lc.publish("EXAMPLE",msg.encode())
         
