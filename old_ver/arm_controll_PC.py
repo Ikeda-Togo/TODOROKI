@@ -41,8 +41,8 @@ thread1.start()
 ###########------初期化------####################################################################
 
 # my_chain = ikpy.chain.Chain.from_urdf_file("todoroki_robotarm.URDF")
-my_chain = ikpy.chain.Chain.from_urdf_file("/home/tamago/git/TODOROKI/control_robotarm/todoroki_arm/todoroki_robotarm.urdf")
-# my_chain = ikpy.chain.Chain.from_urdf_file("/home/pi/git/TODOROKI/control_robotarm/todoroki_arm/todoroki_robotarm.urdf")
+# my_chain = ikpy.chain.Chain.from_urdf_file("/home/tamago/git/TODOROKI/control_robotarm/todoroki_arm/todoroki_robotarm.urdf")
+my_chain = ikpy.chain.Chain.from_urdf_file("/home/pi/git/TODOROKI/control_robotarm/todoroki_arm/todoroki_robotarm.urdf")
 
 aaa = b3mCtrl.B3mClass()
 aaa.begin("/dev/ttyUSB0",1500000)

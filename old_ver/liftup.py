@@ -64,7 +64,7 @@ client = serial.Serial(id, 115200, timeout=0.1, parity=serial.PARITY_EVEN,stopbi
 motor3 = az_lib_direct.az_motor_direct(client,3) #リフトアップ右
 motor4 = az_lib_direct.az_motor_direct(client,4) #リフトアップ左
 # motor5 = az_lib_direct.az_motor_direct(client,5,[10000,25000,58436,75000,90000,150000]) #リモートセンタ
-motor5 = az_lib_direct.az_motor_direct(client,5,[58000,25000+48000,58436+48000,75000+48000,90000+48000,150000+48000]) #リモートセンタ
+motor5 = az_lib_direct.az_motor_direct(client,5,[40000,25000+30000,58436+30000,75000+30000,90000+30000,120000+30000,140000+30000]) #リモートセンタ
 #####################################################
 
 #LU_motor1 = az_lib_direct.az_motor_direct(client,3) #リフトアップ右
@@ -86,8 +86,8 @@ while True :
                 # msg.LU_mode = LU_mode
                 # lc.publish("EXAMPLE",msg.encode())
             elif LU_mode == 1:
-                motor3.go(point=250000,speed=40000,rate=20000,stop_rate=20000)
-                motor4.go(point=250000,speed=40000,rate=20000,stop_rate=20000)
+                motor3.go(point=340000,speed=40000,rate=20000,stop_rate=20000)
+                motor4.go(point=340000,speed=40000,rate=20000,stop_rate=20000)
            
             elif LU_mode == 2:
                 motor3.go(point=380000,speed=40000,rate=20000,stop_rate=20000)
@@ -127,7 +127,7 @@ while True :
                 motor5.go_list(RC_mode)
             RC_flag = 1
         elif msg.R_list[0] < -170 and RC_flag==0:#後ろへの移動
-            if RC_mode == 5:
+            if RC_mode == 6:
                 pass
             else:#移動処理
                 RC_mode +=1
