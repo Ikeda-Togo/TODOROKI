@@ -41,8 +41,8 @@ thread1.start()
 ###########------初期化------####################################################################
 
 # my_chain = ikpy.chain.Chain.from_urdf_file("todoroki_robotarm.URDF")
-# my_chain = ikpy.chain.Chain.from_urdf_file("/home/tamago/git/TODOROKI/control_robotarm/todoroki_arm/todoroki_robotarm.urdf")
-my_chain = ikpy.chain.Chain.from_urdf_file("/home/pi/git/TODOROKI/control_robotarm/todoroki_arm/todoroki_robotarm.urdf")
+my_chain = ikpy.chain.Chain.from_urdf_file("/home/tamago/git/TODOROKI/control_robotarm/todoroki_arm/todoroki_robotarm.urdf")
+# my_chain = ikpy.chain.Chain.from_urdf_file("/home/pi/git/TODOROKI/control_robotarm/todoroki_arm/todoroki_robotarm.urdf")
 
 aaa = b3mCtrl.B3mClass()
 aaa.begin("/dev/ttyUSB0",1500000)
@@ -74,23 +74,29 @@ while True :
             print("close")        
             aaa.setTrajectoryType(255,"EVEN")
             aaa.setMode(255,"POSITION")
-            pos = [0, 0, -14000, 14000, 0, 9000, 0, 0, 0, 2000]
+            pos = [0, 0, -14000, 14000, -28000, 8000, 0, 0, 0, 4000]
         
             for id in idx:
                 print (aaa.positionCmd(id,pos[id], 5))
 
-            msg.ARM_mode = 3
+            msg.ARM_mode = 4
             lc.publish("EXAMPLE",msg.encode())
+            old_x,old_y,old_z = x,y,z
 
         elif msg.ARM_mode == 1 :
             print("stanby")        
             x,y,z = 0,0.2 ,0.5 #home_pos
             old_x,old_y,old_z = 0,0,0 
+            pos[9]=0
             msg.ARM_mode = 3
             lc.publish("EXAMPLE",msg.encode())
 
         elif msg.ARM_mode == 2:
             print("catch")
+            pos[9] = 3000
+            print (aaa.positionCmd(9,pos[9],2))
+            
+            time.sleep(2)
             for id in range(5,9):
                 aaa.setMode(id,"FREE")
             
@@ -100,64 +106,66 @@ while True :
 
 
         ################コントローラでの処理##############################
-        ############## 前後動作#####################
-        if msg.R_list[0] > 300: #前進移動
-            print("前進")
-            y+=0.1
-            if y > 0.4:
-                y=0.4
 
-        elif msg.R_list[0] < -170:
-            print("後退")
-            y-=0.1
-            if y < 0.1:
-                y = 0.1
+        if msg.ARM_mode == 3:
+            ############## 前後動作#####################
+            if msg.R_list[0] > 300: #前進移動
+                print("前進")
+                y+=0.1
+                if y > 0.4:
+                    y=0.4
 
-        ############### 左右動作 ###################       
-        if msg.R_list[1] > 200:
-            print("→")
-            x+=0.05
-            if x > 0.3:
-                x = 0.3
+            elif msg.R_list[0] < -170:
+                print("後退")
+                y-=0.1
+                if y < 0.1:
+                    y = 0.1
 
-        elif msg.R_list[1] < -200:
-            print("←")
-            x-=0.05
-            if x < -0.3:
-                x = -0.3
+            ############### 左右動作 ###################       
+            if msg.R_list[1] > 200:
+                print("→")
+                x+=0.05
+                if x > 0.3:
+                    x = 0.3
 
-        ############# ハンド開閉動作 ##############       
-        if msg.R_list[2] > 200:
-            print("しめる")
-            pos[9]+=1000
-            if pos[9]>3000:
-                pos[9]=3000
-            print (aaa.positionCmd(9,pos[9],run_time))
-            time.sleep(run_time)
+            elif msg.R_list[1] < -200:
+                print("←")
+                x-=0.05
+                if x < -0.3:
+                    x = -0.3
+
+            ############# ハンド開閉動作 ##############       
+            if msg.R_list[2] > 200:
+                print("しめる")
+                pos[9]+=1000
+                if pos[9]>3000:
+                    pos[9]=3000
+                print (aaa.positionCmd(9,pos[9],2))
+                time.sleep(2)
 
 
-        elif msg.R_list[2] < -200:
-            print("開ける")
-            pos[9]-=1000
-            if pos[9]<0:
-                pos[9]=0
-            aaa.setMode(255,"POSITION")
-            print (aaa.positionCmd(9,pos[9],run_time))
-            time.sleep(run_time)
-        
-        ############# 上下動作 ###################
-        if msg.Z_push > 200:
-            print("↓")
-            z-=0.05
-            if z < 0.45:
-                z = 0.45
+            elif msg.R_list[2] < -200:
+                print("開ける")
+                pos[9]-=1000
+                if pos[9]<0:
+                    pos[9]=0
+                aaa.setMode(255,"POSITION")
+                print (aaa.positionCmd(9,pos[9],2))
+                time.sleep(2)
+            
+            ############# 上下動作 ###################
+            if msg.Z_push > 200:
+                print("↓")
+                z-=0.05
+                if z < 0.45:
+                    z = 0.45
 
-        elif msg.Z_push < -200:
-            print("↑")
-            z+= 0.05
-            if z > 0.6:
-                z = 0.6
-        ###########################################################
+            elif msg.Z_push < -200:
+                print("↑")
+                z+= 0.05
+                if z > 0.6:
+                    z = 0.6
+            ###########################################################
 
 
         if old_x != x or old_y != y or old_z != z :##座標が変わると動作
@@ -165,7 +173,7 @@ while True :
 
             rad = my_chain.inverse_kinematics([x,y,z])
 
-            pos[7] = -aaa.radToPos(1.5708-(rad[2]+rad[3]-rad[4])) ##手先の並行を保つ
+            pos[7] = -aaa.radToPos(1.5708-(rad[2]-rad[3]-rad[4])) ##手先の並行を保つ
 
 
             # print("enter move arm")
