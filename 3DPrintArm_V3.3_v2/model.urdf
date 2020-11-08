@@ -155,7 +155,7 @@
 	<joint name="rev0" type="continuous">
 		<parent link="1axisUnit_V2.2_v1:1"/>
 		<child link="2axisUnit_V2.4_v1:1"/>
-		<origin rpy="0 0 0" xyz="4.676814491233478e-18 1.2698685026600665e-16 0.049000000000000016"/>
+		<origin rpy="0 0 0" xyz="0 0 0.049"/>
 		<axis xyz="1.526556658859605e-16 -5.828670879282072e-16 -1.0000000000000007"/>
 	</joint>
 	<joint name="rev1" type="continuous">
