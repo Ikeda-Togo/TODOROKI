@@ -24,6 +24,7 @@ class App(QWidget):
         self.msg = example_t()
         self.msg.mode = 0
         self.msg.LU_mode = 0
+        self.RC_btn = [0]*8
         self.lc=lcm.LCM()
         self.initUI()
         self.showMaximized() 
@@ -198,7 +199,20 @@ class App(QWidget):
         self.labelA = QLabel("リモートセンタ",self)
         self.labelA.move(325,320)
         self.labelA.setFont(QFont('Arial', 20)) 
-        self.labelA.adjustSize()  
+        self.labelA.adjustSize() 
+
+        #####################リモートセンターボタン#######################
+
+        for i in range (1,7):
+
+            self.RC_btn[i] = QPushButton('remote', self)
+            self.RC_btn[i].setFont(QFont('Arial', 10)) 
+            self.RC_btn[i].setToolTip("This is an example button")
+            self.RC_btn[i].resize(80,40)
+            self.RC_btn[i].move(1050,50*i)
+            self.RC_btn[i].clicked.connect(self.changeColor)
+
+
 
         ######################アームモードボタン#########################
         self.ARM_btn1 = QPushButton('CLOSE', self)
