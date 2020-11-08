@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot name="3DPrintArm_V3.3_v2">
+	<link name="1axisUnit_V2.2_v1:1">
+		<inertial>
+			<mass value="1.371999198001859"/>
+			<origin rpy="0 0 0" xyz="-0.000688819910661431 -0.004615197748900619 0.002742086671836061"/>
+			<inertia ixx="0.003185497289315587" ixy="2.6606434112085226e-06" ixz="2.0156913563910432e-05" iyy="0.0034486011970150626" iyz="-0.00012342044532000495" izz="0.004789887799978181"/>
+		</inertial>
+		<collision name="1axisUnit_V2.2_v1:1_collision">
+			<origin rpy="1.570796326794897 5.5511151231257815e-17 -5.551115123125789e-17" xyz="-2.465190328815663e-34 2.033782021272921e-33 -4.440892098500629e-18"/>
+			<geometry>
+				<mesh filename="package://todoroki_arm/meshes/1axisUnit_V2.2_v1.stl" scale="1.0 1.0 1.0"/>
+			</geometry>
+		</collision>
+		<visual name="1axisUnit_V2.2_v1:1_visual">
+			<origin rpy="1.570796326794897 5.5511151231257815e-17 -5.551115123125789e-17" xyz="-2.465190328815663e-34 2.033782021272921e-33 -4.440892098500629e-18"/>
+			<geometry>
+				<mesh filename="package://todoroki_arm/meshes/1axisUnit_V2.2_v1.stl" scale="1.0 1.0 1.0"/>
+			</geometry>
+		</visual>
+	</link>
+	<link name="2axisUnit_V2.4_v1:1">
+		<inertial>
+			<mass value="1.044575213429184"/>
+			<origin rpy="0 0 0" xyz="0.0018282114664940946 0.0006584973449163018 0.041109720555332255"/>
+			<inertia ixx="0.0027294884206527457" ixy="2.849972446612628e-05" ixz="6.763004788528306e-05" iyy="0.0026313184546423343" iyz="-4.0115101652963616e-06" izz="0.0033456030655016123"/>
+		</inertial>
+		<collision name="2axisUnit_V2.4_v1:1_collision">
+			<origin rpy="1.5707963267948968 9.601083504732858e-16 -1.5707963267948932" xyz="0.07017598944572188 0.002318063779805299 8.326672684688674e-17"/>
+			<geometry>
+				<mesh filename="package://todoroki_arm/meshes/2axisUnit_V2.4_v1.stl" scale="1.0 1.0 1.0"/>
+			</geometry>
+		</collision>
+		<visual name="2axisUnit_V2.4_v1:1_visual">
+			<origin rpy="1.5707963267948968 9.601083504732858e-16 -1.5707963267948932" xyz="0.07017598944572188 0.002318063779805299 8.326672684688674e-17"/>
+			<geometry>
+				<mesh filename="package://todoroki_arm/meshes/2axisUnit_V2.4_v1.stl" scale="1.0 1.0 1.0"/>
+			</geometry>
+		</visual>
+	</link>
+	<link name="3axisUnit_V3.3_v1:1">
+		<inertial>
+			<mass value="0.6194031758414452"/>
+			<origin rpy="0 0 0" xyz="-0.02566278621459608 0.0104600719471034 -0.1965035969279239"/>
+			<inertia ixx="0.01279396957976104" ixy="-7.468480102595565e-05" ixz="-0.000978403093901921" iyy="0.012799203906512185" iyz="-0.0006687351429157442" izz="0.0006284707373286339"/>
+		</inertial>
+		<collision name="3axisUnit_V3.3_v1:1_collision">
+			<origin rpy="5.975844374834212e-13 1.561364017929616 5.90351268329803e-13" xyz="-0.046229515087214915 -0.03849999999999858 -0.32045029947684833"/>
+			<geometry>
+				<mesh filename="package://todoroki_arm/meshes/3axisUnit_V3.3_v1.stl" scale="1.0 1.0 1.0"/>
+			</geometry>
+		</collision>
+		<visual name="3axisUnit_V3.3_v1:1_visual">
+			<origin rpy="5.975844374834212e-13 1.561364017929616 5.90351268329803e-13" xyz="-0.046229515087214915 -0.03849999999999858 -0.32045029947684833"/>
+			<geometry>
+				<mesh filename="package://todoroki_arm/meshes/3axisUnit_V3.3_v1.stl" scale="1.0 1.0 1.0"/>
+			</geometry>
+		</visual>
+	</link>
+	<link name="4axisUnit_V3.2_v1:1">
+		<inertial>
+			<mass value="0.2685192502783136"/>
+			<origin rpy="0 0 0" xyz="0.021327133493890694 -0.04174857804538091 0.7785438278883019"/>
+			<inertia ixx="0.005633568689849335" ixy="-8.186620908692799e-06" ixz="0.00031907183448157996" iyy="0.005680084749056845" iyz="0.00014980810788110973" izz="0.00012647956265331883"/>
+		</inertial>
+		<collision name="4axisUnit_V3.2_v1:1_collision">
+			<origin rpy="3.1402315082929917 6.546544878368879e-15 -1.5707963267948921" xyz="0.0157104060777972 -0.047399327255471226 0.8880791160719309"/>
+			<geometry>
+				<mesh filename="package://todoroki_arm/meshes/4axisUnit_V3.2_v1.stl" scale="1.0 1.0 1.0"/>
+			</geometry>
+		</collision>
+		<visual name="4axisUnit_V3.2_v1:1_visual">
+			<origin rpy="3.1402315082929917 6.546544878368879e-15 -1.5707963267948921" xyz="0.0157104060777972 -0.047399327255471226 0.8880791160719309"/>
+			<geometry>
+				<mesh filename="package://todoroki_arm/meshes/4axisUnit_V3.2_v1.stl" scale="1.0 1.0 1.0"/>
+			</geometry>
+		</visual>
+	</link>
+	<link name="5axisUnit_V2_v1:1">
+		<inertial>
+			<mass value="0.17271146486292538"/>
+			<origin rpy="0 0 0" xyz="4.5183118103516785e-05 0.033052899043858316 0.02522008183276414"/>
+			<inertia ixx="0.00015581188879798446" ixy="-3.2084712162575024e-08" ixz="-1.2899444393711378e-07" iyy="0.00013882517108827414" iyz="-4.7400391971237357e-07" izz="8.191718697320116e-05"/>
+		</inertial>
+		<collision name="5axisUnit_V2_v1:1_collision">
+			<origin rpy="-1.5707963267899931 -1.569435181509907 -4.786386985586005e-12" xyz="-1.7585759237714882e-16 0.007999999999999974 1.1102230246251565e-16"/>
+			<geometry>
+				<mesh filename="package://todoroki_arm/meshes/5axisUnit_V2_v1.stl" scale="1.0 1.0 1.0"/>
+			</geometry>
+		</collision>
+		<visual name="5axisUnit_V2_v1:1_visual">
+			<origin rpy="-1.5707963267899931 -1.569435181509907 -4.786386985586005e-12" xyz="-1.7585759237714882e-16 0.007999999999999974 1.1102230246251565e-16"/>
+			<geometry>
+				<mesh filename="package://todoroki_arm/meshes/5axisUnit_V2_v1.stl" scale="1.0 1.0 1.0"/>
+			</geometry>
+		</visual>
+	</link>
+	<link name="6axisUnit_V2.3_v1:1">
+		<inertial>
+			<mass value="0.17989315482347207"/>
+			<origin rpy="0 0 0" xyz="0.0017931992478878464 1.0405821137463322e-05 0.0823875387728491"/>
+			<inertia ixx="0.00034529436606444504" ixy="-2.143314439065751e-09" ixz="2.0502166159982238e-06" iyy="0.00033975738822762197" iyz="-1.456559895297166e-08" izz="6.137298521636262e-05"/>
+		</inertial>
+		<collision name="6axisUnit_V2.3_v1:1_collision">
+			<origin rpy="1.5694351815099419 -6.22104442114541e-09 -1.5708008972424166" xyz="0.02299997869352318 -1.051203903337257e-07 -3.130633188819232e-05"/>
+			<geometry>
+				<mesh filename="package://todoroki_arm/meshes/6axisUnit_V2.3_v1.stl" scale="1.0 1.0 1.0"/>
+			</geometry>
+		</collision>
+		<visual name="6axisUnit_V2.3_v1:1_visual">
+			<origin rpy="1.5694351815099419 -6.22104442114541e-09 -1.5708008972424166" xyz="0.02299997869352318 -1.051203903337257e-07 -3.130633188819232e-05"/>
+			<geometry>
+				<mesh filename="package://todoroki_arm/meshes/6axisUnit_V2.3_v1.stl" scale="1.0 1.0 1.0"/>
+			</geometry>
+		</visual>
+	</link>
+	<link name="7axisUnit_V2.3_v1:1">
+		<inertial>
+			<mass value="0.11643619786244255"/>
+			<origin rpy="0 0 0" xyz="-2.5989352352345026e-05 0.01191479701970928 -0.03089304079697275"/>
+			<inertia ixx="5.4508615936765635e-05" ixy="-3.486462053695818e-08" ixz="-1.4637139469686478e-08" iyy="6.150374237563483e-05" iyz="-7.828030663354468e-07" izz="4.8096752406869734e-05"/>
+		</inertial>
+		<collision name="7axisUnit_V2.3_v1:1_collision">
+			<origin rpy="3.141592647388769 0.0013611452849514433 -4.570455988956583e-06" xyz="-6.042709251791265e-05 0.036000009083336365 -0.04449995897215109"/>
+			<geometry>
+				<mesh filename="package://todoroki_arm/meshes/7axisUnit_V2.3_v1.stl" scale="1.0 1.0 1.0"/>
+			</geometry>
+		</collision>
+		<visual name="7axisUnit_V2.3_v1:1_visual">
+			<origin rpy="3.141592647388769 0.0013611452849514433 -4.570455988956583e-06" xyz="-6.042709251791265e-05 0.036000009083336365 -0.04449995897215109"/>
+			<geometry>
+				<mesh filename="package://todoroki_arm/meshes/7axisUnit_V2.3_v1.stl" scale="1.0 1.0 1.0"/>
+			</geometry>
+		</visual>
+	</link>
+	<link name="roboarm_tesaki_asm_v1:1">
+		<inertial>
+			<mass value="0.23077769592430664"/>
+			<origin rpy="0 0 0" xyz="0.0007339099515559862 0.005292882137970314 1.2275185301437914"/>
+			<inertia ixx="0.00039348515873871293" ixy="4.756988650493201e-07" ixz="-2.1198704190430904e-06" iyy="0.0003594693042009567" iyz="3.865187031122073e-05" izz="0.0002215043423417023"/>
+		</inertial>
+		<collision name="roboarm_tesaki_asm_v1:1_collision">
+			<origin rpy="-1.2422082441466931e-08 0.0013611452849076775 -9.140911976861132e-06" xyz="-0.11455205121154251 -0.2145822490404364 1.2525593342983898"/>
+			<geometry>
+				<mesh filename="package://todoroki_arm/meshes/roboarm_tesaki_asm_v1.stl" scale="1.0 1.0 1.0"/>
+			</geometry>
+		</collision>
+		<visual name="roboarm_tesaki_asm_v1:1_visual">
+			<origin rpy="-1.2422082441466931e-08 0.0013611452849076775 -9.140911976861132e-06" xyz="-0.11455205121154251 -0.2145822490404364 1.2525593342983898"/>
+			<geometry>
+				<mesh filename="package://todoroki_arm/meshes/roboarm_tesaki_asm_v1.stl" scale="1.0 1.0 1.0"/>
+			</geometry>
+		</visual>
+	</link>
+	<joint name="rev0" type="continuous">
+		<parent link="1axisUnit_V2.2_v1:1"/>
+		<child link="2axisUnit_V2.4_v1:1"/>
+		<origin rpy="0 0 0" xyz="4.676814491233478e-18 1.2698685026600665e-16 0.049000000000000016"/>
+		<axis xyz="1.526556658859605e-16 -5.828670879282072e-16 -1.0000000000000007"/>
+	</joint>
+	<joint name="rev1" type="continuous">
+		<parent link="2axisUnit_V2.4_v1:1"/>
+		<child link="3axisUnit_V3.3_v1:1"/>
+		<origin rpy="0 0 0" xyz="6.277499661988521e-17 -0.025500000000000397 0.10950000000000004"/>
+		<axis xyz="-3.615585931358379e-15 0.9999999999999961 6.875078823055322e-15"/>
+	</joint>
+	<joint name="rev2" type="continuous">
+		<parent link="4axisUnit_V3.2_v1:1"/>
+		<child link="3axisUnit_V3.3_v1:1"/>
+		<origin rpy="0 0 0" xyz="0.030848215901477304 -0.021000000000002083 0.5458081945630597"/>
+		<axis xyz="4.864460504997325e-15 -0.999999999999999 -6.734700921073132e-15"/>
+	</joint>
+	<joint name="rev3" type="continuous">
+		<parent link="4axisUnit_V3.2_v1:1"/>
+		<child link="5axisUnit_V2_v1:1"/>
+		<origin rpy="0 0 0" xyz="0.00033349276705888544 -0.020000000000003588 0.902350059808843"/>
+		<axis xyz="4.485835207288694e-15 -1.0000000000000013 -6.669712452651543e-15"/>
+	</joint>
+	<joint name="rev4" type="continuous">
+		<parent link="5axisUnit_V2_v1:1"/>
+		<child link="6axisUnit_V2.3_v1:1"/>
+		<origin rpy="0 0 0" xyz="9.325910542361715e-05 0.019999990917273017 0.06849993651632091"/>
+		<axis xyz="-0.001361144864665195 1.2093141680005707e-15 -0.999999073641897"/>
+	</joint>
+	<joint name="rev5" type="continuous">
+		<parent link="6axisUnit_V2.3_v1:1"/>
+		<child link="7axisUnit_V2.3_v1:1"/>
+		<origin rpy="0 0 0" xyz="-0.025336638993843415 1.1654779200399445e-07 0.12003459803095795"/>
+		<axis xyz="0.9999990736314521 -4.570451755062415e-06 -0.0013611448646487503"/>
+	</joint>
+	<joint name="rev6" type="continuous">
+		<parent link="roboarm_tesaki_asm_v1:1"/>
+		<child link="7axisUnit_V2.3_v1:1"/>
+		<origin rpy="0 0 0" xyz="0.0006935569481078098 -1.816580158504979e-08 1.1668498147307085"/>
+		<axis xyz="0.0013611448646622306 -2.0022585628940832e-11 0.9999990736418992"/>
+	</joint>
+</robot>
