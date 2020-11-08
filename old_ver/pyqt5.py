@@ -69,6 +69,15 @@ class App(QWidget):
             self.LU_btn2.setStyleSheet('QPushButton {background-color: #fff}')
             self.LU_btn3.setStyleSheet('QPushButton {background-color: #0000ff}')
 
+        for i in range(1,8) :
+            if i == self.msg.RC_mode :
+                self.RC_btn[i].setStyleSheet('QPushButton {background-color: #0f0}')
+
+            else :
+                self.RC_btn[i].setStyleSheet('QPushButton {background-color: #fff}')
+
+
+
 #################--------タッチパネルでの操作で色が変化する------###################
     def changeColor(self):
         source=self.sender()
@@ -173,44 +182,55 @@ class App(QWidget):
         self.btn3.setStyleSheet('QPushButton {background-color: #AAAAAA}')
         self.btn3.clicked.connect(self.on_click)
         self.btn3.clicked.connect(self.changeColor)
+        
+        self.labelA = QLabel("リモートセンタ",self)
+        self.labelA.move(325,320)
+        self.labelA.setFont(QFont('Arial', 20)) 
+        self.labelA.adjustSize() 
+
 
         ################-----リフトアップボタン-----##############################
         self.LU_btn1 = QPushButton('Lift UP', self)
         self.LU_btn1.setFont(QFont('Arial', 20)) 
         self.LU_btn1.setToolTip("This is an example button")
         self.LU_btn1.resize(240,120)
-        self.LU_btn1.move(800,50)
+        self.LU_btn1.move(830,50)
         self.LU_btn1.clicked.connect(self.changeColor)
 
         self.LU_btn2 = QPushButton('Center', self)
         self.LU_btn2.setFont(QFont('Arial', 20)) 
         self.LU_btn2.setToolTip("This is an example button")
         self.LU_btn2.resize(240,120)
-        self.LU_btn2.move(800,170)
+        self.LU_btn2.move(830,170)
         self.LU_btn2.clicked.connect(self.changeColor)
 
         self.LU_btn3 = QPushButton('Lift Down', self)
         self.LU_btn3.setFont(QFont('Arial', 20)) 
         self.LU_btn3.setToolTip("This is an example button")
         self.LU_btn3.resize(240,120)
-        self.LU_btn3.move(800,290)
+        self.LU_btn3.move(830,290)
         self.LU_btn3.clicked.connect(self.changeColor)
 
-        self.labelA = QLabel("リモートセンタ",self)
-        self.labelA.move(325,320)
-        self.labelA.setFont(QFont('Arial', 20)) 
-        self.labelA.adjustSize() 
 
         #####################リモートセンターボタン#######################
 
-        for i in range (1,7):
+        for i in range (1,8):
 
-            self.RC_btn[i] = QPushButton('remote', self)
+            self.RC_btn[i] = QPushButton('remote ' + str(i) , self)
             self.RC_btn[i].setFont(QFont('Arial', 10)) 
             self.RC_btn[i].setToolTip("This is an example button")
-            self.RC_btn[i].resize(80,40)
-            self.RC_btn[i].move(1050,50*i)
+            self.RC_btn[i].resize(120,50)
+            self.RC_btn[i].move(1100,55*i)
             self.RC_btn[i].clicked.connect(self.changeColor)
+
+            if i == 4 :
+                self.RC_btn[i].resize(160,50)
+                self.RC_btn[i].move(1100-20,55*i)
+
+            elif i == 1 or i == 7 :
+                self.RC_btn[i].resize(140,50)
+                self.RC_btn[i].move(1100-10,55*i)
+            
 
 
 

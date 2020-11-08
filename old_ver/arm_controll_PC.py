@@ -74,7 +74,7 @@ while True :
             print("close")        
             aaa.setTrajectoryType(255,"EVEN")
             aaa.setMode(255,"POSITION")
-            pos = [0, 0, -14000, 14000, -28000, 8000, 0, 0, 0, 4000]
+            pos = [0, 0, -14000, 14000, -25000, 8000, 0, 0, 0, 4000] 
         
             for id in idx:
                 print (aaa.positionCmd(id,pos[id], 5))

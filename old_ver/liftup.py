@@ -14,9 +14,9 @@ import blv_lib
 import az_lib_direct
 
 LU_mode = 0 #0:収納, 1:テンション維持モード 2:リフトアップ
-RC_mode = 3 #0:階段上り、5階段降り
+RC_mode = 4 #0:階段上り、5階段降り
 #RC変数#################################################
-RC_flag = 1         #クリックの判定(1の時は次への移動をしない)
+RC_flag = 0         #クリックの判定(1の時は次への移動をしない)
 LU_flag = 1
 ########################################################
 
@@ -31,16 +31,6 @@ def my_handler(channel, data):
     global msg
     msg = example_t.decode(data)
     
-    # print("Received message on channel \"%s\"" % channel)
-    # print("   mode   = %s" % str(msg.mode))
-    # print("   R_list    = %s" % str(msg.R_list))
-    # print("   Z_push    = %s" % str(msg.Z_push))
-    # print("")
-
-    # if msg.mode == 1:
-    #     print("mode:",msg.mode)
-    #     #liftup_remotecenter(msg.R_list,msg.Z_push)
-    #     time.sleep(1)
 
 def subscribe_handler(handle):
     while True:
@@ -64,7 +54,7 @@ client = serial.Serial(id, 115200, timeout=0.1, parity=serial.PARITY_EVEN,stopbi
 motor3 = az_lib_direct.az_motor_direct(client,3) #リフトアップ右
 motor4 = az_lib_direct.az_motor_direct(client,4) #リフトアップ左
 # motor5 = az_lib_direct.az_motor_direct(client,5,[10000,25000,58436,75000,90000,150000]) #リモートセンタ
-motor5 = az_lib_direct.az_motor_direct(client,5,[40000,25000+30000,58436+30000,75000+30000,90000+30000,120000+30000,140000+30000]) #リモートセンタ
+motor5 = az_lib_direct.az_motor_direct(client,5,[0,40000,25000+30000,58436+30000,75000+30000,90000+30000,120000+30000,140000+30000]) #リモートセンタ
 #####################################################
 
 #LU_motor1 = az_lib_direct.az_motor_direct(client,3) #リフトアップ右
@@ -114,27 +104,38 @@ while True :
                 print("LiftUp_mode",LU_mode)
             LU_flag = 1
         ##################################################################
-        
+
+
         #リモートセンターの判定##########################################
         if msg.R_list[0] == 0 and RC_flag==1:
             RC_flag = 0
         elif msg.R_list[0] > 300 and RC_flag==0:#前への移動
-            if RC_mode == 0:
+            if RC_mode == 1:
                 pass
             else:#移動処理
                 RC_mode-=1
                 # print("remote == front")
                 motor5.go_list(RC_mode)
+                msg.RC_mode =RC_mode
+                lc.publish("EXAMPLE",msg.encode())
             RC_flag = 1
+            print(msg.RC_mode)
+
         elif msg.R_list[0] < -170 and RC_flag==0:#後ろへの移動
-            if RC_mode == 6:
+            if RC_mode == 7:
                 pass
             else:#移動処理
                 RC_mode +=1
                 # print("remote == back")
                 motor5.go_list(RC_mode)
+                msg.RC_mode =RC_mode
+                lc.publish("EXAMPLE",msg.encode())
+            
             RC_flag = 1
+        
+            print(msg.RC_mode)
         ##################################################################
+
 
         #リフトアップの判定###############################################
         if abs(msg.R_list[2]) > 340:
