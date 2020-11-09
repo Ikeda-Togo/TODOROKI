@@ -54,7 +54,8 @@ print (aaa.setMode(255,"POSITION"))
 pos = [0]*10
 # rad =[0, 0.785398, -1.5708, -2.0944, 0, 0]
 rad =[0]*6
-run_time =3
+run_time =10
+arm_flag = 0  # 0: 閉じている状態　1:スタンバイ状態
 
 x,y,z = 0,0.46 ,0.78
 # x,y,z = 0,0.2 ,0.5 #home_pos#[:,3][0:3]
@@ -90,6 +91,7 @@ while True :
             old_x,old_y,old_z = x,y,z
 
         elif msg.ARM_mode == 1 :######################スタンバイ    
+            run_time = 10
             aaa.setTrajectoryType(255,"EVEN")
             aaa.setMode(255,"POSITION")
             print("stanby")        
@@ -214,11 +216,13 @@ while True :
             time.sleep(run_time)
             old_x,old_y,old_z = x,y,z ##座標を上書き
 
+
             print("xyz=",x,y,z)
             print("rad : ",rad)
             print("pos = ",pos )
             print("-------------------------------------------------------------------")
             
+            run_time = 3
             # my_chain.plot(my_chain.inverse_kinematics([x,y,z]), ax)
 
             # matplotlib.pyplot.show()

@@ -23,6 +23,7 @@ class App(QWidget):
         self.height = 480
         self.msg = example_t()
         self.msg.mode = 0
+        self.msg.RC_mode = 4
         self.msg.LU_mode = 0
         self.RC_btn = [0]*8
         self.lc=lcm.LCM()
@@ -216,20 +217,20 @@ class App(QWidget):
 
         for i in range (1,8):
 
-            self.RC_btn[i] = QPushButton('remote ' + str(i) , self)
-            self.RC_btn[i].setFont(QFont('Arial', 10)) 
+            self.RC_btn[i] = QPushButton(str(i) , self)
+            self.RC_btn[i].setFont(QFont('Arial', 20)) 
             self.RC_btn[i].setToolTip("This is an example button")
             self.RC_btn[i].resize(120,50)
-            self.RC_btn[i].move(1100,55*i)
+            self.RC_btn[i].move(1120,55*i)
             self.RC_btn[i].clicked.connect(self.changeColor)
 
             if i == 4 :
                 self.RC_btn[i].resize(160,50)
-                self.RC_btn[i].move(1100-20,55*i)
+                self.RC_btn[i].move(1120-20,55*i)
 
             elif i == 1 or i == 7 :
                 self.RC_btn[i].resize(140,50)
-                self.RC_btn[i].move(1100-10,55*i)
+                self.RC_btn[i].move(1120-10,55*i)
             
 
 
