@@ -41,8 +41,8 @@ thread1.start()
 ###########------初期化------####################################################################
 
 # my_chain = ikpy.chain.Chain.from_urdf_file("todoroki_robotarm.URDF")
-# my_chain = ikpy.chain.Chain.from_urdf_file("/home/tamago/git/TODOROKI/control_robotarm/todoroki_arm/todoroki_robotarm.urdf")
-my_chain = ikpy.chain.Chain.from_urdf_file("/home/pi/git/TODOROKI/control_robotarm/todoroki_arm/todoroki_robotarm.urdf")
+my_chain = ikpy.chain.Chain.from_urdf_file("/home/tamago/git/TODOROKI/old_ver/todoroki_robotarm.urdf")
+# my_chain = ikpy.chain.Chain.from_urdf_file("/home/pi/git/TODOROKI/old_ver/todoroki_robotarm.urdf")
 
 aaa = b3mCtrl.B3mClass()
 aaa.begin("/dev/ttyUSB0",1500000)
@@ -74,7 +74,7 @@ while True :
             print("close")        
             aaa.setTrajectoryType(255,"EVEN")
             aaa.setMode(255,"POSITION")
-            pos = [0, 0, -14000, 14000, -25000, 8000, 0, 0, 0, 4000] 
+            pos = [0, 0, -14000, 14000, -27000, 8000, 0, 0, 0, 4000] 
         
             for id in idx:
                 print (aaa.positionCmd(id,pos[id], 5))
@@ -112,14 +112,14 @@ while True :
             if msg.R_list[0] > 300: #前進移動
                 print("前進")
                 y+=0.1
-                if y > 0.4:
-                    y=0.4
+                if y > 0.8:
+                    y=0.8
 
             elif msg.R_list[0] < -170:
                 print("後退")
                 y-=0.1
-                if y < 0.1:
-                    y = 0.1
+                if y < 0.2:
+                    y = 0.2
 
             ############### 左右動作 ###################       
             if msg.R_list[1] > 200:
@@ -157,8 +157,8 @@ while True :
             if msg.Z_push > 200:
                 print("↓")
                 z-=0.05
-                if z < 0.45:
-                    z = 0.45
+                if z < 0.4:
+                    z = 0.4
 
             elif msg.Z_push < -200:
                 print("↑")
@@ -173,7 +173,7 @@ while True :
 
             rad = my_chain.inverse_kinematics([x,y,z])
 
-            pos[7] = -aaa.radToPos(1.5708-(rad[2]-rad[3]-rad[4])) ##手先の並行を保つ
+            pos[7] = -aaa.radToPos(1.5708-(rad[2]-rad[3]-rad[4])*1.2) ##手先の並行を保つ
 
 
             # print("enter move arm")
@@ -205,4 +205,8 @@ while True :
             print("rad : ",rad)
             print("pos = ",pos )
             print("-------------------------------------------------------------------")
+            
+            my_chain.plot(my_chain.inverse_kinematics([x,y,z]), ax)
+
+            matplotlib.pyplot.show()
 
