@@ -13,7 +13,7 @@ client = serial.Serial("/dev/ttyXRUSB0",115200,timeout=0.1,parity=serial.PARITY_
 
 RC_mode=1
 
-motor5=az_lib_direct.az_motor_direct(client,5,[58000,58436,90000,150000])
+motor5=az_lib_direct.az_motor_direct(client,5,[35000,58436,130000,222000])
 
 motor5.go_list(RC_mode)
 

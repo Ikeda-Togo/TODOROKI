@@ -41,8 +41,8 @@ thread1.start()
 ###########------初期化------####################################################################
 
 # my_chain = ikpy.chain.Chain.from_urdf_file("todoroki_robotarm.URDF")
-my_chain = ikpy.chain.Chain.from_urdf_file("/home/tamago/git/TODOROKI/old_ver/todoroki_robotarm.urdf")
-# my_chain = ikpy.chain.Chain.from_urdf_file("/home/pi/git/TODOROKI/old_ver/todoroki_robotarm.urdf")
+# my_chain = ikpy.chain.Chain.from_urdf_file("/home/tamago/git/TODOROKI/old_ver/todoroki_robotarm.urdf")
+my_chain = ikpy.chain.Chain.from_urdf_file("/home/pi/git/TODOROKI/old_ver/todoroki_robotarm.urdf")
 
 aaa = b3mCtrl.B3mClass()
 aaa.begin("/dev/ttyUSB0",1500000)
@@ -54,9 +54,10 @@ print (aaa.setMode(255,"POSITION"))
 pos = [0]*10
 # rad =[0, 0.785398, -1.5708, -2.0944, 0, 0]
 rad =[0]*6
-run_time =5
+run_time =3
 
-x,y,z = 0,0.2 ,0.5 #home_pos#[:,3][0:3]
+x,y,z = 0,0.46 ,0.78
+# x,y,z = 0,0.2 ,0.5 #home_pos#[:,3][0:3]
 old_x,old_y,old_z =0,0,0
 print(x,y,z)
 ################################################################################################
@@ -70,35 +71,47 @@ while True :
     if msg.mode == 2 :
 
         ###########ボタンでの操作######################################
-        if msg.ARM_mode == 0 :
+        if msg.ARM_mode == 0 : 
             print("close")        
             aaa.setTrajectoryType(255,"EVEN")
             aaa.setMode(255,"POSITION")
-            pos = [0, 0, -14000, 14000, -27000, 8000, 0, 0, 0, 4000] 
+            pos = [0, 0, -14000, 14000, -25000, 8000, 0, 0, 0, 4000] 
         
             for id in idx:
                 print (aaa.positionCmd(id,pos[id], 5))
+            
+            time.sleep(8)
+
+            aaa.setMode(4,"FREE")
+            aaa.setMode(5,"FREE")
 
             msg.ARM_mode = 4
             lc.publish("EXAMPLE",msg.encode())
             old_x,old_y,old_z = x,y,z
 
-        elif msg.ARM_mode == 1 :
+        elif msg.ARM_mode == 1 :######################スタンバイ    
+            aaa.setTrajectoryType(255,"EVEN")
+            aaa.setMode(255,"POSITION")
             print("stanby")        
-            x,y,z = 0,0.2 ,0.5 #home_pos
+            x,y,z = 0,0.46 ,0.78 #home_pos
             old_x,old_y,old_z = 0,0,0 
-            pos[9]=0
+            pos[9]=1000
             msg.ARM_mode = 3
             lc.publish("EXAMPLE",msg.encode())
 
-        elif msg.ARM_mode == 2:
+        elif msg.ARM_mode == 2:######################キャッチ
             print("catch")
-            pos[9] = 3000
+            pos[9] = 5000
+            pos[8] = -3500
             print (aaa.positionCmd(9,pos[9],2))
-            
             time.sleep(2)
-            for id in range(5,9):
+            
+            for id in [5,7]:
                 aaa.setMode(id,"FREE")
+            
+            print (aaa.positionCmd(8,pos[8],2))
+            time.sleep(5)
+            aaa.setMode(6,"FREE")
             
             msg.ARM_mode = 3
             lc.publish("EXAMPLE",msg.encode())
@@ -111,26 +124,26 @@ while True :
             ############## 前後動作#####################
             if msg.R_list[0] > 300: #前進移動
                 print("前進")
-                y+=0.1
+                y+=0.05
                 if y > 0.8:
                     y=0.8
 
             elif msg.R_list[0] < -170:
                 print("後退")
-                y-=0.1
+                y-=0.05
                 if y < 0.2:
                     y = 0.2
 
             ############### 左右動作 ###################       
             if msg.R_list[1] > 200:
                 print("→")
-                x+=0.05
+                x+=0.02
                 if x > 0.3:
                     x = 0.3
 
             elif msg.R_list[1] < -200:
                 print("←")
-                x-=0.05
+                x-=0.02
                 if x < -0.3:
                     x = -0.3
 
@@ -156,15 +169,15 @@ while True :
             ############# 上下動作 ###################
             if msg.Z_push > 200:
                 print("↓")
-                z-=0.05
+                z-=0.02
                 if z < 0.4:
                     z = 0.4
 
             elif msg.Z_push < -200:
                 print("↑")
-                z+= 0.05
-                if z > 0.6:
-                    z = 0.6
+                z+= 0.02
+                if z > 0.8:
+                    z = 0.8
             ###########################################################
 
 
@@ -189,7 +202,7 @@ while True :
                     pos[3]=-pos[2]
 
                 elif i == 3 :
-                    pos[i+1]=aaa.radToPos(rad[i]*1.714)
+                    pos[i+1]=aaa.radToPos(rad[i]*1.714)+4000
                 elif i == 4:
                     pos[i+1]=aaa.radToPos(rad[i])-9000
 
@@ -206,7 +219,7 @@ while True :
             print("pos = ",pos )
             print("-------------------------------------------------------------------")
             
-            my_chain.plot(my_chain.inverse_kinematics([x,y,z]), ax)
+            # my_chain.plot(my_chain.inverse_kinematics([x,y,z]), ax)
 
-            matplotlib.pyplot.show()
+            # matplotlib.pyplot.show()
 
