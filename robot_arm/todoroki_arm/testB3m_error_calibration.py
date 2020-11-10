@@ -8,6 +8,7 @@ import time
 class B3m_init_error():
     def __init__(self):
         self.aaa = b3mCtrl.B3mClass()
+        self.aaa.begin("/dev/ttyUSB0",1500000)
 
     def calibration (self,idx, pos):
         for id in idx:
@@ -65,13 +66,24 @@ class B3m_init_error():
                 
         print("calib comp")
 
+    def close(self):
+        # self.pos = [0, 0, -14000, 14000, 8000, 9000, 0, 0, 0, 2000]
+        self.pos =[0, 0, -0, 0, -28000, 7000, 0, 0, 0, 4000] 
+        print(self.pos)
+        
+        for id in range(1,10):
+            if id == 4:
+                pass
+            else :
+                print (self.aaa.positionCmd(id, self.pos[id], 10))
+
     def pos_error_handler(self,id,calib_pos) :
         run =1
         while run: #原点の値を取得
             pos = self.aaa.getRam(id,"CurrentPosition")
 
             if(pos[0] != False):
-                print(pos[id][0])
+                print(pos[0])
                 run=0
             if(pos[0] is not False):
                 pass
@@ -79,7 +91,10 @@ class B3m_init_error():
         self.calibration(id ,pos)
         print (self.aaa.setTrajectoryType(255,"EVEN"))
         print (self.aaa.setMode(255,"POSITION"))
+        self.close()
+        time.sleep(10)
         print (self.aaa.positionCmd(id,calib_pos, 10))
+        time.sleep(10)
         self.calibration(id ,pos)
 
 

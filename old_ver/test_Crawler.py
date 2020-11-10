@@ -48,6 +48,9 @@ thread1.start()
 
 
 client = serial.Serial(id, 115200, timeout=0.1, parity=serial.PARITY_EVEN,stopbits=serial.STOPBITS_ONE) # COMポートは自分の奴を入れる
+client.flushInput()
+client.flushOutput()
+
 # client = serial.Serial("/dev/ttyUSB0", 115200, timeout=0.1, parity=serial.PARITY_EVEN,stopbits=serial.STOPBITS_ONE) # COMポートは自分の奴を入れる
 #モータのインスタンス化##############################
 motor1 = blv_lib.blv_motor(client,1) #右クローラ

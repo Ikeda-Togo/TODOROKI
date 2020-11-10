@@ -72,7 +72,7 @@ class App(QWidget):
 
         for i in range(1,8) :
             if i == self.msg.RC_mode :
-                self.RC_btn[i].setStyleSheet('QPushButton {background-color: #0f0}')
+                self.RC_btn[i].setStyleSheet('QPushButton {background-color: #f80}')
 
             else :
                 self.RC_btn[i].setStyleSheet('QPushButton {background-color: #fff}')

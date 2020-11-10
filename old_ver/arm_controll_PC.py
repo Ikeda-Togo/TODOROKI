@@ -54,7 +54,7 @@ print (aaa.setMode(255,"POSITION"))
 pos = [0]*10
 # rad =[0, 0.785398, -1.5708, -2.0944, 0, 0]
 rad =[0]*6
-run_time =10
+run_time = 10
 arm_flag = 0  # 0: 閉じている状態　1:スタンバイ状態
 
 x,y,z = 0,0.46 ,0.78
@@ -81,7 +81,7 @@ while True :
             for id in idx:
                 print (aaa.positionCmd(id,pos[id], 5))
             
-            time.sleep(8)
+            time.sleep(5)
 
             aaa.setMode(4,"FREE")
             aaa.setMode(5,"FREE")
@@ -153,8 +153,8 @@ while True :
             if msg.R_list[2] > 200:
                 print("しめる")
                 pos[9]+=1000
-                if pos[9]>3000:
-                    pos[9]=3000
+                if pos[9]>4000:
+                    pos[9]=4000
                 print (aaa.positionCmd(9,pos[9],2))
                 time.sleep(2)
 
