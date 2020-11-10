@@ -95,6 +95,8 @@ class B3m_init_error():
         time.sleep(10)
         print (self.aaa.positionCmd(id,calib_pos, 10))
         time.sleep(10)
+
+        print (self.aaa.setMode(255,"HOLD"))
         self.calibration(id ,pos)
 
 
