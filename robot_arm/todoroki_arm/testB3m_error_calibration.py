@@ -99,6 +99,7 @@ class B3m_init_error():
         print (self.aaa.setMode(255,"HOLD"))
         self.calibration(id ,pos)
         
+        print (self.aaa.setTrajectoryType(255,"EVEN"))
         print (self.aaa.setMode(255,"POSITION"))
         print (self.aaa.positionCmd(id,-(calib_pos-2000), 10))
         time.sleep(10)

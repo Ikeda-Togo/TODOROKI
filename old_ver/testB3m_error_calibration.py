@@ -99,16 +99,32 @@ class B3m_init_error():
         print (self.aaa.setMode(255,"HOLD"))
         self.calibration(id ,pos)
         
+        print (self.aaa.setTrajectoryType(255,"EVEN"))
         print (self.aaa.setMode(255,"POSITION"))
         print (self.aaa.positionCmd(id,-(calib_pos-2000), 10))
         time.sleep(10)
 
         # print (self.aaa.setMode(255,"FREE"))
 
-if __name__ == '__main__':
-    id = [4]
-    check_motor = B3m_init_error()
-    check_motor.pos_error_handler(id,30000)
+# if __name__ == '__main__':
+#     aaa = b3mCtrl.B3mClass()
+#     aaa.begin("/dev/ttyUSB0",1500000)
+
+#     while True :
+#         run = 1
+#         while run: #原点の値を取得
+#             check_pos = aaa.getRam(4,"CurrentPosition")
+
+#             if(check_pos[0] != False):
+#                 print("id4 position =",check_pos[0])
+#                 run=0
+#             if(check_pos[0] is not False):
+#                 pass
+#         id = [4]
+            
+#         if check_pos[0] > 0:
+#             check_motor =  B3m_init_error()
+#             check_motor.pos_error_handler(id,29000)
 
 
 

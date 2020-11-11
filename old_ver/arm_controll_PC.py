@@ -72,10 +72,9 @@ while True :
 
     if msg.mode == 2 :
 
-        
         ###########ボタンでの操作######################################
-        if msg.ARM_mode == 0 :
-
+        
+        if msg.ARM_mode == 5: ##################キャリブレーション
             run =1
             while run: #原点の値を取得
                 check_pos = aaa.getRam(4,"CurrentPosition")
@@ -90,8 +89,15 @@ while True :
                 check_motor =  testB3m_error_calibration.B3m_init_error()
                 check_motor.pos_error_handler([4],29000)
 
-                print (aaa.setTrajectoryType(255,"EVEN"))
-                print (aaa.setMode(255,"POSITION"))
+                aaa.setMode(4,"FREE")
+                aaa.setMode(5,"FREE")
+
+            
+            msg.ARM_mode = 4
+            lc.publish("EXAMPLE",msg.encode())
+
+        
+        if msg.ARM_mode == 0 : #########################クローズ
 
             print("close")        
             aaa.setTrajectoryType(255,"EVEN")

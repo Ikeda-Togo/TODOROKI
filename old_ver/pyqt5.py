@@ -39,7 +39,6 @@ class App(QWidget):
         # print("mode:"+str(mode))
         self.msg = example_t.decode(data)
         # self.labelA.setText(str(self.msg.mode)) 
-        print(str(self.msg.LU_mode))
         if self.msg.mode==0:
             self.btn1.setStyleSheet('QPushButton {background-color: #00ff00}')
             self.btn2.setStyleSheet('QPushButton {background-color: #AAAAAA}')
@@ -144,6 +143,8 @@ class App(QWidget):
             self.msg.ARM_mode = 1
         elif source.text() == "CATCH":
             self.msg.ARM_mode = 2
+        elif source.text() == "RESET":
+            self.msg.ARM_mode = 5
         
         self.lc.publish("EXAMPLE",self.msg.encode())
 
@@ -221,26 +222,36 @@ class App(QWidget):
             self.RC_btn[i].setFont(QFont('Arial', 20)) 
             self.RC_btn[i].setToolTip("This is an example button")
             self.RC_btn[i].resize(120,50)
-            self.RC_btn[i].move(1120,55*i)
+            self.RC_btn[i].move(1120,55*i-10)
             self.RC_btn[i].clicked.connect(self.changeColor)
 
             if i == 4 :
                 self.RC_btn[i].resize(160,50)
-                self.RC_btn[i].move(1120-20,55*i)
+                self.RC_btn[i].move(1120-20,55*i-10)
 
             elif i == 1 or i == 7 :
                 self.RC_btn[i].resize(140,50)
-                self.RC_btn[i].move(1120-10,55*i)
+                self.RC_btn[i].move(1120-10,55*i-10)
             
 
 
 
         ######################アームモードボタン#########################
+
+        self.ARM_btn1 = QPushButton('RESET', self)
+        self.ARM_btn1.setFont(QFont('Arial', 15)) 
+        self.ARM_btn1.setToolTip("This is an example button")
+        self.ARM_btn1.resize(120,120)
+        self.ARM_btn1.move(850,430)
+        self.ARM_btn1.setStyleSheet('QPushButton {background-color: #990000}')
+        self.ARM_btn1.clicked.connect(self.arm_mode_Handler)
+
+
         self.ARM_btn1 = QPushButton('CLOSE', self)
         self.ARM_btn1.setFont(QFont('Arial', 15)) 
         self.ARM_btn1.setToolTip("This is an example button")
         self.ARM_btn1.resize(80,100)
-        self.ARM_btn1.move(810,440)
+        self.ARM_btn1.move(1010,440)
         self.ARM_btn1.setStyleSheet('QPushButton {background-color: #FFFF00}')
         self.ARM_btn1.clicked.connect(self.arm_mode_Handler)
 
@@ -248,7 +259,7 @@ class App(QWidget):
         self.ARM_btn2.setFont(QFont('Arial', 12)) 
         self.ARM_btn2.setToolTip("This is an example button")
         self.ARM_btn2.resize(80,100)
-        self.ARM_btn2.move(910,440)
+        self.ARM_btn2.move(1110,440)
         self.ARM_btn2.setStyleSheet('QPushButton {background-color: #FFFF00}')
         self.ARM_btn2.clicked.connect(self.arm_mode_Handler)
         
@@ -256,7 +267,7 @@ class App(QWidget):
         self.ARM_btn3.setFont(QFont('Arial', 15)) 
         self.ARM_btn3.setToolTip("This is an example button")
         self.ARM_btn3.resize(80,100)
-        self.ARM_btn3.move(1010,440)
+        self.ARM_btn3.move(1210,440)
         self.ARM_btn3.setStyleSheet('QPushButton {background-color: #FFFF00}')
         self.ARM_btn3.clicked.connect(self.arm_mode_Handler)
         
@@ -287,6 +298,7 @@ class LcmHandler(QObject):
     def my_handler(self,channel, data):
         msg = example_t.decode(data)
         # print("Received message on channel \"%s\"" % str(channel))
+        print("arm mode =",msg.ARM_mode)
         self._signal.emit(bytes(data))
 
 def subscribe_handler(handle):

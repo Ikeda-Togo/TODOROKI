@@ -24,7 +24,7 @@ class example_t(object):
         self.orientation = [ 0.0 for dim0 in range(4) ]
         self.LU_mode = 0
         self.RC_mode = 0
-        self.ARM_mode = 0
+        self.ARM_mode = 5
         self.name = ""
         self.enabled = False
 
