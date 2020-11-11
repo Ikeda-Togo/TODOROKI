@@ -10,8 +10,8 @@ if __name__ == '__main__':
     aaa = b3mCtrl.B3mClass()
     aaa.begin("/dev/ttyUSB0",1500000)
     
-    # idx= [0]
-    idx= [1,2,3,4,5,6,7,8,9]
+    idx= [0]
+    # idx= [1,2,3,4,5,6,7,8,9]
     pos = [0]*10
 
     for id in idx:
