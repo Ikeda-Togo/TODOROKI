@@ -89,12 +89,12 @@ while True :
                 check_motor =  testB3m_error_calibration.B3m_init_error()
                 check_motor.pos_error_handler([4],29000)
 
-                aaa.setMode(4,"FREE")
-                aaa.setMode(5,"FREE")
+                # aaa.setMode(4,"FREE")
+                # aaa.setMode(5,"FREE")
 
+                msg.ARM_mode = 0
+                lc.publish("EXAMPLE",msg.encode())
             
-            msg.ARM_mode = 4
-            lc.publish("EXAMPLE",msg.encode())
 
         
         if msg.ARM_mode == 0 : #########################クローズ
