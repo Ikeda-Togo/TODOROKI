@@ -2,6 +2,7 @@ import ikpy
 import numpy as np
 import time
 import b3mCtrl
+import testB3m_error_calibration
 
 import threading
 import lcm
@@ -48,8 +49,6 @@ aaa = b3mCtrl.B3mClass()
 aaa.begin("/dev/ttyUSB0",1500000)
 # aaa.begin("/dev/ttyUSB1",1500000)
 idx = [1,2,3,4,5,6,7,8,9]
-print (aaa.setTrajectoryType(255,"EVEN"))
-print (aaa.setMode(255,"POSITION"))
 
 pos = [0]*10
 # rad =[0, 0.785398, -1.5708, -2.0944, 0, 0]
@@ -67,12 +66,33 @@ print(x,y,z)
 while True :
     #Mode:2 アームモード
     # if msg.mode == 2 and msg.ARM_mode == 2:
+
+
         
 
     if msg.mode == 2 :
 
+        
         ###########ボタンでの操作######################################
-        if msg.ARM_mode == 0 : 
+        if msg.ARM_mode == 0 :
+
+            run =1
+            while run: #原点の値を取得
+                check_pos = aaa.getRam(4,"CurrentPosition")
+
+                if(check_pos[0] != False):
+                    print("id4 position =",check_pos[0])
+                    run=0
+                if(check_pos[0] is not False):
+                    pass
+
+            if check_pos[0] > 0:
+                check_motor =  testB3m_error_calibration.B3m_init_error()
+                check_motor.pos_error_handler([4],29000)
+
+                print (aaa.setTrajectoryType(255,"EVEN"))
+                print (aaa.setMode(255,"POSITION"))
+
             print("close")        
             aaa.setTrajectoryType(255,"EVEN")
             aaa.setMode(255,"POSITION")
