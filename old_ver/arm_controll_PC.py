@@ -102,7 +102,7 @@ while True :
             print("close")        
             aaa.setTrajectoryType(255,"EVEN")
             aaa.setMode(255,"POSITION")
-            pos = [0, 0, -14000, 14000, -25000, 8000, 0, 0, 0, 4000] 
+            pos = [0, 0, 14000, -14000, -25000, 8000, 0, 0, 0, 4000] 
         
             for id in idx:
                 print (aaa.positionCmd(id,pos[id], 5))
@@ -121,7 +121,7 @@ while True :
             aaa.setTrajectoryType(255,"EVEN")
             aaa.setMode(255,"POSITION")
             print("stanby")        
-            x,y,z = 0,0.46 ,0.78 #home_pos
+            x,y,z = 0,0.46 ,0.5 #home_pos
             old_x,old_y,old_z = 0,0,0 
             pos[9]=1000
             msg.ARM_mode = 3
@@ -214,7 +214,7 @@ while True :
 
             rad = my_chain.inverse_kinematics([x,y,z])
 
-            pos[7] = -aaa.radToPos(1.5708-(rad[2]-rad[3]-rad[4])*1.2) ##手先の並行を保つ
+            pos[7] = -aaa.radToPos(1.5708-(-rad[2]-rad[3]-rad[4])*1.2) ##手先の並行を保つ
 
 
             # print("enter move arm")

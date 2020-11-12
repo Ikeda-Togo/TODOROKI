@@ -18,7 +18,7 @@
 		<parent link="link1"/>
 		<child link="link2"/>
 		<origin rpy="0 0 0" xyz="-0.0 0 0.113"/>
-		<axis xyz="-1.0 0 0"/>
+		<axis xyz="1.0 0 0"/>
 	</joint>
 	<joint name="rev2" type="continuous">
 		<parent link="link2"/>

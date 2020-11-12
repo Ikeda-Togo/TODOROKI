@@ -76,12 +76,12 @@ while True :
                 # msg.LU_mode = LU_mode
                 # lc.publish("EXAMPLE",msg.encode())
             elif LU_mode == 1:
-                motor3.go(point=250000,speed=40000,rate=20000,stop_rate=20000)
-                motor4.go(point=250000,speed=40000,rate=20000,stop_rate=20000)
+                motor3.go(point=280000,speed=40000,rate=20000,stop_rate=20000)
+                motor4.go(point=280000,speed=40000,rate=20000,stop_rate=20000)
            
             elif LU_mode == 2:
-                motor3.go(point=340000,speed=40000,rate=20000,stop_rate=20000)
-                motor4.go(point=340000,speed=40000,rate=20000,stop_rate=20000)
+                motor3.go(point=400000,speed=40000,rate=20000,stop_rate=20000)
+                motor4.go(point=400000,speed=40000,rate=20000,stop_rate=20000)
             msg.LU_mode =LU_mode
             lc.publish("EXAMPLE",msg.encode())
         
