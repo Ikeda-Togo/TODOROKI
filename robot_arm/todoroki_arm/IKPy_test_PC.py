@@ -26,7 +26,7 @@ for i in [-0.3,-0.2,-0.1,0,0.1,0.2,0.3]:
     x = i 
     for j in [0.2,0.3,0.4,0.5,0.6,0.8]:
         y = j
-        for k in [0.3]:
+        for k in [0.4,0.5 ,0.6]:
             z = k
             count+=1
             my_chain.plot(my_chain.inverse_kinematics([x, y, z]), ax)
