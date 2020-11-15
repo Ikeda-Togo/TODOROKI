@@ -54,7 +54,7 @@ client = serial.Serial(id, 115200, timeout=0.1, parity=serial.PARITY_EVEN,stopbi
 motor3 = az_lib_direct.az_motor_direct(client,3) #リフトアップ右
 motor4 = az_lib_direct.az_motor_direct(client,4) #リフトアップ左
 # motor5 = az_lib_direct.az_motor_direct(client,5,[10000,25000,58436,75000,90000,150000]) #リモートセンタ
-rc_calib = 25000
+rc_calib = 28000
 motor5 = az_lib_direct.az_motor_direct(client,5,[0,35000+rc_calib,60000+rc_calib,100000+rc_calib,130000+rc_calib,160000+rc_calib,190000+rc_calib,221000+rc_calib]) #リモートセンタ
 #####################################################
 
