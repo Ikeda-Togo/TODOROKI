@@ -56,7 +56,7 @@ rad =[0]*6
 run_time = 10
 arm_flag = 0  # 0: 閉じている状態　1:スタンバイ状態
 
-x,y,z = 0,0.46 ,0.78
+x,y,z = 0,0.5 ,0.7
 # x,y,z = 0,0.2 ,0.5 #home_pos#[:,3][0:3]
 old_x,old_y,old_z =0,0,0
 print(x,y,z)
@@ -102,7 +102,7 @@ while True :
             print("close")        
             aaa.setTrajectoryType(255,"EVEN")
             aaa.setMode(255,"POSITION")
-            pos = [0, 0, 14000, -14000, -25000, 8000, 0, 0, 0, 4000] 
+            pos = [0, 0, -14000, 14000, -28000, 8000, 0, 0, 0, 4000] 
         
             for id in idx:
                 print (aaa.positionCmd(id,pos[id], 5))
@@ -152,26 +152,26 @@ while True :
             ############## 前後動作#####################
             if msg.R_list[0] > 300: #前進移動
                 print("前進")
-                y+=0.05
+                y+=0.1
                 if y > 0.8:
                     y=0.8
 
             elif msg.R_list[0] < -170:
                 print("後退")
-                y-=0.05
+                y-=0.1
                 if y < 0.2:
                     y = 0.2
 
             ############### 左右動作 ###################       
             if msg.R_list[1] > 200:
                 print("→")
-                x+=0.02
+                x+=0.05
                 if x > 0.3:
                     x = 0.3
 
             elif msg.R_list[1] < -200:
                 print("←")
-                x-=0.02
+                x-=0.05
                 if x < -0.3:
                     x = -0.3
 
@@ -181,13 +181,13 @@ while True :
                 pos[9]+=1000
                 if pos[9]>4000:
                     pos[9]=4000
-                print (aaa.positionCmd(9,pos[9],2))
+                print (aaa.positionCmd(9,pos[9],1))
                 time.sleep(2)
 
 
             elif msg.R_list[2] < -200:
                 print("開ける")
-                pos[9]-=1000
+                pos[9]-=4000
                 if pos[9]<0:
                     pos[9]=0
                 aaa.setMode(255,"POSITION")
@@ -197,13 +197,13 @@ while True :
             ############# 上下動作 ###################
             if msg.Z_push > 200:
                 print("↓")
-                z-=0.02
+                z-=0.1
                 if z < 0.4:
                     z = 0.4
 
             elif msg.Z_push < -200:
                 print("↑")
-                z+= 0.02
+                z+= 0.1
                 if z > 0.8:
                     z = 0.8
             ###########################################################
@@ -214,7 +214,7 @@ while True :
 
             rad = my_chain.inverse_kinematics([x,y,z])
 
-            pos[7] = -aaa.radToPos(1.5708-(-rad[2]-rad[3]-rad[4])*1.2) ##手先の並行を保つ
+            pos[7] = -aaa.radToPos(1.5708-(rad[2]-rad[3]-rad[4])*1.2) ##手先の並行を保つ
 
 
             # print("enter move arm")
