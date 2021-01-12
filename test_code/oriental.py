@@ -17,6 +17,7 @@ LU_mode = 1 #0:収納, 1:テンション維持モード 2:リフトアップ
 RC_mode = 1 #0:階段降り, 1:真ん中, 2:椅子座り, 3:階段上り
 #RC変数#################################################
 RC_flag = 1         #クリックの判定(1の時は次への移動をしない)
+LU_flag = 1
 ########################################################
 stop_flag=1
 # id ="/dev/ttyACM1"
@@ -30,22 +31,11 @@ def my_handler(channel, data):
     global msg
     msg = example_t.decode(data)
     
-    # print("Received message on channel \"%s\"" % channel)
-    # print("   mode   = %s" % str(msg.mode))
-    # print("   R_list    = %s" % str(msg.R_list))
-    # print("   Z_push    = %s" % str(msg.Z_push))
-    # print("")
-
-    # if msg.mode == 1:
-    #     print("mode:",msg.mode)
-    #     #liftup_remotecenter(msg.R_list,msg.Z_push)
-    #     time.sleep(1)
-
 def subscribe_handler(handle):
     while True:
         handle()
 
-msg = example_t()
+pub_msg = example_t()
 lc = lcm.LCM()
 subscription = lc.subscribe("EXAMPLE", my_handler)
 
@@ -64,6 +54,10 @@ client.flushOutput()
 #モータのインスタンス化##############################
 motor1 = blv_lib.blv_motor(client,1) #右クローラ
 motor2 = blv_lib.blv_motor(client,2) #左のクローラ
+motor3 = az_lib_direct.az_motor_direct(client,3) #リフトアップ右
+motor4 = az_lib_direct.az_motor_direct(client,4) #リフトアップ左
+rc_calib = 28000
+motor5 = az_lib_direct.az_motor_direct(client,5,[0,35000+rc_calib,60000+rc_calib,100000+rc_calib,130000+rc_calib,160000+rc_calib,190000+rc_calib,221000+rc_calib]) #リモートセンタ
 #####################################################
 
 print("start Crawler.py")
@@ -126,3 +120,85 @@ while True :
             stop_flag=1
         else:
             pass
+
+    if msg.mode == 1:
+
+        #リフトアップ##########################################
+        if msg.Z_push == 0 and LU_flag==1:
+            LU_flag = 0
+            print("LiftUp_mode",LU_mode)
+            if LU_mode == 0:
+                motor3.go(point=0,speed=40000,rate=20000,stop_rate=20000)
+                motor4.go(point=0,speed=40000,rate=20000,stop_rate=20000) 
+                # msg.LU_mode = LU_mode
+                # lc.publish("EXAMPLE",msg.encode())
+            elif LU_mode == 1:
+                motor3.go(point=280000,speed=40000,rate=20000,stop_rate=20000)
+                motor4.go(point=280000,speed=40000,rate=20000,stop_rate=20000)
+           
+            elif LU_mode == 2:
+                motor3.go(point=400000,speed=40000,rate=20000,stop_rate=20000)
+                motor4.go(point=400000,speed=40000,rate=20000,stop_rate=20000)
+            pub_msg.LU_mode =LU_mode
+            lc.publish("EXAMPLE",pub_msg.encode())
+        
+        
+        elif msg.Z_push > 300 and LU_flag==0:#下に押す
+            if LU_mode == 0:
+                print("test#############################")
+                pass
+            else:#移動処理
+                LU_mode-=1
+                # print("LiftUp_mode",LU_mode)
+            LU_flag = 1
+
+        elif msg.Z_push < -170 and LU_flag==0:#上に引く
+            print("test#############################")
+            if LU_mode == 2:
+                pass
+            else:#移動処理
+                LU_mode +=1
+                print("LiftUp_mode",LU_mode)
+            LU_flag = 1
+        ##################################################################
+
+
+        #リモートセンターの判定##########################################
+        if msg.R_list[0] == 0 and RC_flag==1:
+            RC_flag = 0
+        elif msg.R_list[0] > 300 and RC_flag==0:#前への移動
+            if RC_mode == 1:
+                pass
+            else:#移動処理
+                RC_mode-=1
+                # print("remote == front")
+                motor5.go_list(RC_mode)
+                pub_msg.RC_mode =RC_mode
+                lc.publish("EXAMPLE",pub_msg.encode())
+            RC_flag = 1
+            print(msg.RC_mode)
+
+        elif msg.R_list[0] < -170 and RC_flag==0:#後ろへの移動
+            if RC_mode == 7:
+                pass
+            else:#移動処理
+                RC_mode +=1
+                # print("remote == back")
+                motor5.go_list(RC_mode)
+                pub_msg.RC_mode =RC_mode
+                lc.publish("EXAMPLE",pub_msg.encode())
+            
+            RC_flag = 1
+        
+            print(msg.RC_mode)
+        ##################################################################
+
+
+        # #リフトアップの判定###############################################
+        # if abs(msg.R_list[2]) > 340:
+        #     LU_mode = 1
+        #     motor3.set_position_deviation(30000)
+        #     motor4.set_position_deviation(30000)
+        #     motor3.go_torque_pos(point=9000,op_current=150)
+        #     motor4.go_torque_pos(point=9000,op_current=150)
+        # ##################################################################
