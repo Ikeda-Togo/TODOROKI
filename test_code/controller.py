@@ -60,17 +60,20 @@ def my_handler(channel, data):
     print("Received message on channel \"%s\"" % channel)
     print("   mode   = %s" % str(msg.mode))
     print("   LU_mode   = %s" % str(msg.LU_mode))
-    print("   R_list    = %s" % type(msg.R_list), msg.R_list)
+    print("   R_list    = %s" % type(msg.R_list))
     print("   Z_push    = %s" % str(msg.Z_push))
     print("")
+    msg.R_list = list(msg.R_list)
 
+    # global Mode 
+    # Mode = msg.mode
 
 def subscribe_handler(handle):
     while True:
         handle()
 
 
-pub_msg = example_t()
+msg = example_t()
 lc = lcm.LCM()
 subscription = lc.subscribe("EXAMPLE", my_handler)
 
@@ -89,8 +92,8 @@ while run:
 
         #Z軸のプッシュ判定
         if data[0] == 1:
-            pub_msg.R_list[0],pub_msg.R_list[1],pub_msg.R_list[2]= 0,0,0
-
+            msg.R_list = list(msg.R_list)
+            msg.R_list[0],msg.R_list[1],msg.R_list[2]= 0,0,0
             old_Z_push = copy.deepcopy(Z_push)
             Z_push = data[5] + (data[6]*256)
 
@@ -104,15 +107,15 @@ while run:
             #感度の処理
             diff = abs(Z_push - old_Z_push)
             if diff > Z_DIFF_SIZE and sum(R_list) == 0:
-                pub_msg.Z_push=Z_push
-                print("Pub ZPush:",pub_msg.Z_push)
-                lc.publish("EXAMPLE", pub_msg.encode())
+                msg.Z_push=Z_push
+                print("Pub ZPush:",msg.Z_push)
+                lc.publish("EXAMPLE", msg.encode())
                 print("Push: ",Z_push)
 
         #回転の移動判定
-        elif data[0] == 2:
-
-            pub_msg.Z_push=0
+        if data[0] == 2:
+            msg.R_list = list(msg.R_list)
+            msg.Z_push = 0#Z_Pushとのエラーの兼ね合いでこの処理を入れる
             old_R_list = copy.deepcopy(R_list)
             R_list[0] = data[1] + (data[2]*256)
             R_list[1] = data[3] + (data[4]*256)
@@ -134,9 +137,10 @@ while run:
             diff = abs(sum(R_list) - sum(old_R_list))
             if diff > DIFF_SIZE and abs(Z_push) < Z_DED_ZONE:
                 print("R: ", R_list[0], R_list[1], R_list[2])
-                pub_msg.R_list[0],pub_msg.R_list[1],pub_msg.R_list[2]= R_list[0], R_list[1], R_list[2]
-                print("Pub R:",pub_msg.R_list)
-                lc.publish("EXAMPLE", pub_msg.encode())
+                msg.R_list = list(msg.R_list)
+                msg.R_list[0],msg.R_list[1],msg.R_list[2]= R_list[0], R_list[1], R_list[2]
+                print("Pub R:",msg.R_list)
+                lc.publish("EXAMPLE", msg.encode())
 
         #ボタンの判定(左が2,右が1,同時押しが3)
         if data[0] == 3:
@@ -145,22 +149,22 @@ while run:
                 print("push button : ", Button_number)
                 if Button_number == 1:
                     if msg.mode == 2:
-                        pub_msg.mode = 0
+                        msg.mode = 0
                     else:
-                        pub_msg.mode += 1
+                        msg.mode += 1
                     if msg.mode == 1:
                         RC_flag = 0
                 elif Button_number == 2:
                     if msg.mode == 0:
-                        pub_msg.mode = 2
+                        msg.mode = 2
                     else:
-                        pub_msg.mode -= 1
+                        msg.mode -= 1
                     if msg.mode == 1:
                         RC_flag = 0
                 elif Button_number == 3:
                     pass
-                print("Now Mode:",pub_msg.mode)
-                lc.publish("EXAMPLE", pub_msg.encode())
+                print("Now Mode:",msg.mode)
+                lc.publish("EXAMPLE", msg.encode())
                # Mode = msg.mode
 
                 Button_number = 0
@@ -175,9 +179,9 @@ while run:
 
     except usb.core.USBError:
         print("USB error")
-        pub_msg.R_list[0],pub_msg.R_list[1],pub_msg.R_list[2]= 0, 0, 0
-        pub_msg.Z_push=0
-        lc.publish("EXAMPLE", pub_msg.encode())
+        msg.R_list[0],msg.R_list[1],msg.R_list[2]= 0, 0, 0
+        msg.Z_push=0
+        lc.publish("EXAMPLE", msg.encode())
         break
     
 

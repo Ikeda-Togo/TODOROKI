@@ -35,7 +35,7 @@ def subscribe_handler(handle):
     while True:
         handle()
 
-pub_msg = example_t()
+msg =  example_t()
 lc = lcm.LCM()
 subscription = lc.subscribe("EXAMPLE", my_handler)
 
@@ -139,8 +139,8 @@ while True :
             elif LU_mode == 2:
                 motor3.go(point=400000,speed=40000,rate=20000,stop_rate=20000)
                 motor4.go(point=400000,speed=40000,rate=20000,stop_rate=20000)
-            pub_msg.LU_mode =LU_mode
-            lc.publish("EXAMPLE",pub_msg.encode())
+            msg.LU_mode =LU_mode
+            lc.publish("EXAMPLE",msg.encode())
         
         
         elif msg.Z_push > 300 and LU_flag==0:#下に押す
@@ -173,8 +173,8 @@ while True :
                 RC_mode-=1
                 # print("remote == front")
                 motor5.go_list(RC_mode)
-                pub_msg.RC_mode =RC_mode
-                lc.publish("EXAMPLE",pub_msg.encode())
+                msg.RC_mode =RC_mode
+                lc.publish("EXAMPLE",msg.encode())
             RC_flag = 1
             print(msg.RC_mode)
 
@@ -185,8 +185,8 @@ while True :
                 RC_mode +=1
                 # print("remote == back")
                 motor5.go_list(RC_mode)
-                pub_msg.RC_mode =RC_mode
-                lc.publish("EXAMPLE",pub_msg.encode())
+                msg.RC_mode =RC_mode
+                lc.publish("EXAMPLE",msg.encode())
             
             RC_flag = 1
         
