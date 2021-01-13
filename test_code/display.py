@@ -26,165 +26,32 @@ class App(QWidget):
         self.msg.RC_mode = 4
         self.msg.LU_mode = 0
         self.RC_btn = [0]*8
+        self.Mode_btn = [0] * 3
         self.lc=lcm.LCM()
         self.initUI()
         self.showMaximized() 
         
-    def comentout(self,coment):
-        self.coment= str(coment)
-        # print("result:"+self.coment)
-    
-    ###############------------3Dマウスの値をうけてボタンの色を変化させる-----------############
-    def changeColor3dmouse(self,data):
-        # print("mode:"+str(mode))
-        self.msg = example_t.decode(data)
-        # self.labelA.setText(str(self.msg.mode)) 
-        if self.msg.mode==0:
-            self.btn1.setStyleSheet('QPushButton {background-color: #00ff00}')
-            self.btn2.setStyleSheet('QPushButton {background-color: #AAAAAA}')
-            self.btn3.setStyleSheet('QPushButton {background-color: #AAAAAA}')
 
-        elif self.msg.mode==1:
-            self.btn1.setStyleSheet('QPushButton {background-color: #AAAAAA}')
-            self.btn2.setStyleSheet('QPushButton {background-color: #00ff00}')
-            self.btn3.setStyleSheet('QPushButton {background-color: #AAAAAA}')
- 
-        elif self.msg.mode==2:
-            self.btn1.setStyleSheet('QPushButton {background-color: #AAAAAA}')
-            self.btn2.setStyleSheet('QPushButton {background-color: #AAAAAA}')
-            self.btn3.setStyleSheet('QPushButton {background-color: #00ff00}')
-
-        if self.msg.LU_mode ==2:
-            self.LU_btn1.setStyleSheet('QPushButton {background-color: #0000FF}')
-            self.LU_btn2.setStyleSheet('QPushButton {background-color: #fff}')
-            self.LU_btn3.setStyleSheet('QPushButton {background-color: #fff}')
-
-        elif self.msg.LU_mode ==1:
-            self.LU_btn1.setStyleSheet('QPushButton {background-color: #fff}')
-            self.LU_btn2.setStyleSheet('QPushButton {background-color: #0000ff}')
-            self.LU_btn3.setStyleSheet('QPushButton {background-color: #fff}')
- 
-        elif self.msg.LU_mode ==0:
-            self.LU_btn1.setStyleSheet('QPushButton {background-color: #fff}')
-            self.LU_btn2.setStyleSheet('QPushButton {background-color: #fff}')
-            self.LU_btn3.setStyleSheet('QPushButton {background-color: #0000ff}')
-
-        for i in range(1,8) :
-            if i == self.msg.RC_mode :
-                self.RC_btn[i].setStyleSheet('QPushButton {background-color: #f80}')
-
-            else :
-                self.RC_btn[i].setStyleSheet('QPushButton {background-color: #fff}')
-
-
-
-#################--------タッチパネルでの操作で色が変化する------###################
-    def changeColor(self):
-        source=self.sender()
-        #msg=example_t()
-
-        if source.text()=="移動":
-            self.msg.mode = 0
-            # self.labelA.setText(str(self.msg.mode)) 
-            self.btn1.setStyleSheet('QPushButton {background-color: #00ff00}')
-            self.btn2.setStyleSheet('QPushButton {background-color: #AAAAAA}')
-            self.btn3.setStyleSheet('QPushButton {background-color: #AAAAAA}')
-
-        elif source.text()=="リフトアップ＆": 
-            self.msg.mode = 1
-            # self.labelA.setText(str(self.msg.mode)) 
-            self.btn1.setStyleSheet('QPushButton {background-color: #AAAAAA}')
-            self.btn2.setStyleSheet('QPushButton {background-color: #00ff00}')
-            self.btn3.setStyleSheet('QPushButton {background-color: #AAAAAA}')
- 
-        elif source.text()=="アーム操作": 
-            self.msg.mode = 2
-            # self.labelA.setText(str(self.msg.mode)) 
-            self.btn1.setStyleSheet('QPushButton {background-color: #AAAAAA}')
-            self.btn2.setStyleSheet('QPushButton {background-color: #AAAAAA}')
-            self.btn3.setStyleSheet('QPushButton {background-color: #00ff00}')
-
-        #############---------リフトアップチェンジカラー------------#######################
-        if source.text()=="Lift UP":
-            self.msg.LU_mode = 2
-            self.msg.mode = 1
-            # self.lc.publish("EXAMPLE",self.msg.encode())
-            self.LU_btn1.setStyleSheet('QPushButton {background-color: #0000FF}')
-            self.LU_btn2.setStyleSheet('QPushButton {background-color: #fff}')
-            self.LU_btn3.setStyleSheet('QPushButton {background-color: #fff}')
-
-        elif source.text()=="Center": 
-            self.msg.LU_mode = 1
-            self.msg.mode =1
-            # self.lc.publish("EXAMPLE",self.msg.encode())
-            self.LU_btn1.setStyleSheet('QPushButton {background-color: #fff}')
-            self.LU_btn2.setStyleSheet('QPushButton {background-color: #0000ff}')
-            self.LU_btn3.setStyleSheet('QPushButton {background-color: #fff}')
- 
-        elif source.text()=="Lift Down": 
-            self.msg.LU_mode = 0
-            self.msg.mode =1
-            # self.lc.publish("EXAMPLE",self.msg.encode())
-            self.LU_btn1.setStyleSheet('QPushButton {background-color: #fff}')
-            self.LU_btn2.setStyleSheet('QPushButton {background-color: #fff}')
-            self.LU_btn3.setStyleSheet('QPushButton {background-color: #0000ff}')
-
-
-        self.lc.publish("EXAMPLE",self.msg.encode())
-        # self.labelA.setText(str(self.msg.mode)) 
-
-    def arm_mode_Handler(self):
-        source=self.sender()
-        print(source.text())
-
-        if source.text() == "CLOSE":
-            self.msg.ARM_mode = 0
-        elif source.text() == "STANDBY":
-            self.msg.ARM_mode = 1
-        elif source.text() == "CATCH":
-            self.msg.ARM_mode = 2
-        elif source.text() == "RESET":
-            self.msg.ARM_mode = 5
-        
-        self.lc.publish("EXAMPLE",self.msg.encode())
-
-
-###################--------ボタンや配置の初期化-----------#####################
+####################################################--------ボタンや配置の初期化-----------############################################################
     def initUI(self):
         self.setWindowTitle(self.title)
         self.setGeometry(self.left, self.top, self.width, self.height)
 
         ############################モードボタン#################################
-        self.btn1 = QPushButton('移動', self)
-        self.btn1.setFont(QFont('Arial', 20)) 
-        #self.btn1.setCheckable(True)
-        self.btn1.setToolTip("This is an example button")
-        self.btn1.resize(240,480)
-        self.btn1.move(50,50)
-        self.btn1.setStyleSheet('QPushButton {background-color: #AAAAAA}')
-        self.btn1.clicked.connect(self.on_click)
-        self.btn1.clicked.connect(self.changeColor)
-    
-        self.btn2 = QPushButton('リフトアップ＆', self)
-        self.btn2.setFont(QFont('Arial', 20)) 
-        #self.btn2.setCheckable(True)
-        self.btn2.setToolTip("This is an example button")
-        self.btn2.resize(240,480)
-        self.btn2.move(300,50)
-        self.btn2.setStyleSheet('QPushButton {background-color: #AAAAAA}')
-        self.btn2.clicked.connect(self.on_click)
-        self.btn2.clicked.connect(self.changeColor)
-
-        self.btn3 = QPushButton('アーム操作', self)
-        self.btn3.setFont(QFont('Arial', 20)) 
-        #self.btn3.setCheckable(True)
-        self.btn3.setToolTip("This is an example button")
-        self.btn3.resize(240,480)
-        self.btn3.move(550,50)
-        self.btn3.setStyleSheet('QPushButton {background-color: #AAAAAA}')
-        self.btn3.clicked.connect(self.on_click)
-        self.btn3.clicked.connect(self.changeColor)
+        self.Mode_btn[0] = QPushButton('移動', self)
+        self.Mode_btn[1] = QPushButton('リフトアップ＆', self)
+        self.Mode_btn[2] = QPushButton('アーム操作', self)
         
+        for i in range(0,3) :
+            self.Mode_btn[i].setFont(QFont('Arial', 20)) 
+            #self.btn1.setCheckable(True)
+            self.Mode_btn[i].setToolTip("This is an example button")
+            self.Mode_btn[i].resize(240,480)
+            self.Mode_btn[i].move(50+250*i,50)
+            self.Mode_btn[i].setStyleSheet('QPushButton {background-color: #AAAAAA}')
+            self.Mode_btn[i].clicked.connect(self.on_click)
+            self.Mode_btn[i].clicked.connect(self.changeColor)
+    
         self.labelA = QLabel("リモートセンタ",self)
         self.labelA.move(325,320)
         self.labelA.setFont(QFont('Arial', 20)) 
@@ -282,6 +149,120 @@ class App(QWidget):
         thread1 = threading.Thread(target=subscribe_handler, args=(self.lc.handle,))
         thread1.setDaemon(True)
         thread1.start()
+        self.lc.publish("EXAMPLE",self.msg.encode())
+
+    ################################------------3Dマウスの値をうけてボタンの色を変化させる-----------####################################
+    def changeColor3dmouse(self,data):
+        # print("mode:"+str(mode))
+        self.msg = example_t.decode(data)
+        # self.labelA.setText(str(self.msg.mode)) 
+        if self.msg.mode==0:
+            self.Mode_btn[0].setStyleSheet('QPushButton {background-color: #0f0}')
+            self.Mode_btn[1].setStyleSheet('QPushButton {background-color: #AAA}')
+            self.Mode_btn[2].setStyleSheet('QPushButton {background-color: #AAA}')
+
+        elif self.msg.mode==1:
+            self.Mode_btn[0].setStyleSheet('QPushButton {background-color: #AAA}')
+            self.Mode_btn[1].setStyleSheet('QPushButton {background-color: #0f0}')
+            self.Mode_btn[2].setStyleSheet('QPushButton {background-color: #AAA}')
+ 
+        elif self.msg.mode==2:
+            self.Mode_btn[0].setStyleSheet('QPushButton {background-color: #AAA}')
+            self.Mode_btn[1].setStyleSheet('QPushButton {background-color: #AAA}')
+            self.Mode_btn[2].setStyleSheet('QPushButton {background-color: #0f0}')
+
+        if self.msg.LU_mode ==2:
+            self.LU_btn1.setStyleSheet('QPushButton {background-color: #0000FF}')
+            self.LU_btn2.setStyleSheet('QPushButton {background-color: #fff}')
+            self.LU_btn3.setStyleSheet('QPushButton {background-color: #fff}')
+
+        elif self.msg.LU_mode ==1:
+            self.LU_btn1.setStyleSheet('QPushButton {background-color: #fff}')
+            self.LU_btn2.setStyleSheet('QPushButton {background-color: #0000ff}')
+            self.LU_btn3.setStyleSheet('QPushButton {background-color: #fff}')
+ 
+        elif self.msg.LU_mode ==0:
+            self.LU_btn1.setStyleSheet('QPushButton {background-color: #fff}')
+            self.LU_btn2.setStyleSheet('QPushButton {background-color: #fff}')
+            self.LU_btn3.setStyleSheet('QPushButton {background-color: #0000ff}')
+
+        for i in range(1,8) :
+            if i == self.msg.RC_mode :
+                self.RC_btn[i].setStyleSheet('QPushButton {background-color: #f80}')
+
+            else :
+                self.RC_btn[i].setStyleSheet('QPushButton {background-color: #fff}')
+
+
+
+#############################--------タッチパネルでの操作で色が変化する------#####################################################
+    def changeColor(self):
+        source=self.sender()
+        #msg=example_t()
+
+        if source.text()=="移動":
+            self.msg.mode = 0
+            # self.labelA.setText(str(self.msg.mode)) 
+            self.Mode_btn[0].setStyleSheet('QPushButton {background-color: #0f0}')
+            self.Mode_btn[1].setStyleSheet('QPushButton {background-color: #AAAAAA}')
+            self.Mode_btn[2].setStyleSheet('QPushButton {background-color: #AAAAAA}')
+
+        elif source.text()=="リフトアップ＆": 
+            self.msg.mode = 1
+            # self.labelA.setText(str(self.msg.mode)) 
+            self.Mode_btn[0].setStyleSheet('QPushButton {background-color: #AAA}')
+            self.Mode_btn[1].setStyleSheet('QPushButton {background-color: #0f0}')
+            self.Mode_btn[2].setStyleSheet('QPushButton {background-color: #AAA}')
+ 
+        elif source.text()=="アーム操作": 
+            self.msg.mode = 2
+            # self.labelA.setText(str(self.msg.mode)) 
+            self.Mode_btn[0].setStyleSheet('QPushButton {background-color: #AAA}')
+            self.Mode_btn[1].setStyleSheet('QPushButton {background-color: #AAA}')
+            self.Mode_btn[2].setStyleSheet('QPushButton {background-color: #0f0}')
+
+        #############---------リフトアップチェンジカラー------------#######################
+        if source.text()=="Lift UP":
+            self.msg.LU_mode = 2
+            self.msg.mode = 1
+            # self.lc.publish("EXAMPLE",self.msg.encode())
+            self.LU_btn1.setStyleSheet('QPushButton {background-color: #0000FF}')
+            self.LU_btn2.setStyleSheet('QPushButton {background-color: #fff}')
+            self.LU_btn3.setStyleSheet('QPushButton {background-color: #fff}')
+
+        elif source.text()=="Center": 
+            self.msg.LU_mode = 1
+            self.msg.mode =1
+            # self.lc.publish("EXAMPLE",self.msg.encode())
+            self.LU_btn1.setStyleSheet('QPushButton {background-color: #fff}')
+            self.LU_btn2.setStyleSheet('QPushButton {background-color: #0000ff}')
+            self.LU_btn3.setStyleSheet('QPushButton {background-color: #fff}')
+ 
+        elif source.text()=="Lift Down": 
+            self.msg.LU_mode = 0
+            self.msg.mode =1
+            # self.lc.publish("EXAMPLE",self.msg.encode())
+            self.LU_btn1.setStyleSheet('QPushButton {background-color: #fff}')
+            self.LU_btn2.setStyleSheet('QPushButton {background-color: #fff}')
+            self.LU_btn3.setStyleSheet('QPushButton {background-color: #0000ff}')
+
+
+        self.lc.publish("EXAMPLE",self.msg.encode())
+        # self.labelA.setText(str(self.msg.mode)) 
+
+    def arm_mode_Handler(self):
+        source=self.sender()
+        print(source.text())
+
+        if source.text() == "CLOSE":
+            self.msg.ARM_mode = 0
+        elif source.text() == "STANDBY":
+            self.msg.ARM_mode = 1
+        elif source.text() == "CATCH":
+            self.msg.ARM_mode = 2
+        elif source.text() == "RESET":
+            self.msg.ARM_mode = 5
+        
         self.lc.publish("EXAMPLE",self.msg.encode())
 
 
