@@ -63,18 +63,18 @@ motor5 = az_lib_direct.az_motor_direct(client,5,[0,35000+rc_calib,60000+rc_calib
 #####################################################
 
 ################---IMU_init----###############################
-imu = calc_angle.IMU()
+# imu = calc_angle.IMU()
 
-ser = serial.Serial(
-    port = "/dev/ttyACM0",
-    baudrate = 115200,
-    #parity = serial.PARITY_NONE,
-    bytesize = serial.EIGHTBITS,
-    stopbits = serial.STOPBITS_ONE,
-    # timeout = 0.01,
-    #xonxoff = 0,
-    #rtscts = 0,
-    )
+# ser = serial.Serial(
+#     port = "/dev/ttyACM0",
+#     baudrate = 115200,
+#     #parity = serial.PARITY_NONE,
+#     bytesize = serial.EIGHTBITS,
+#     stopbits = serial.STOPBITS_ONE,
+#     # timeout = 0.01,
+#     #xonxoff = 0,
+#     #rtscts = 0,
+#     )
 ##############################################################
 
 print("start Crawler.py")
@@ -150,12 +150,12 @@ while True :
                 # msg.LU_mode = LU_mode
                 # lc.publish("EXAMPLE",msg.encode())
             elif LU_mode == 1:
-                motor3.go(point=280000,speed=40000,rate=20000,stop_rate=20000)
-                motor4.go(point=280000,speed=40000,rate=20000,stop_rate=20000)
+                motor3.go(point=350000,speed=40000,rate=20000,stop_rate=20000)
+                motor4.go(point=350000,speed=40000,rate=20000,stop_rate=20000)
            
             elif LU_mode == 2:
-                motor3.go(point=400000,speed=40000,rate=20000,stop_rate=20000)
-                motor4.go(point=400000,speed=40000,rate=20000,stop_rate=20000)
+                motor3.go(point=500000,speed=40000,rate=20000,stop_rate=20000)
+                motor4.go(point=500000,speed=40000,rate=20000,stop_rate=20000)
             msg.LU_mode =LU_mode
             lc.publish("EXAMPLE",msg.encode())
         
@@ -210,19 +210,19 @@ while True :
             print(msg.RC_mode)
         ##################################################################
 
-    elif ser.in_waiting > 0 :
-        recv_data = ser.read(28)
-        time_stamp,acc_pitch,gyro_pitch,filter_pitch=imu.GetSensorData(recv_data)
-        print("filter_pitch = ",filter_pitch)
+    # elif ser.in_waiting > 0 :
+    #     recv_data = ser.read(28)
+    #     time_stamp,acc_pitch,gyro_pitch,filter_pitch=imu.GetSensorData(recv_data)
+    #     print("filter_pitch = ",filter_pitch)
 
-        if -10 < filter_pitch < 5 and msg.RC_mode != 4 :
-            msg.RC_mode = 4
-            motor5.go_list(msg.RC_mode)
-            lc.publish("EXAMPLE",msg.encode())
-        elif -20 < filter_pitch <= -10 and msg.RC_mode != 3:
-            msg.RC_mode = 3
-            motor5.go_list(msg.RC_mode)
-            lc.publish("EXAMPLE",msg.encode())
+    #     if -10 < filter_pitch < 5 and msg.RC_mode != 4 :
+    #         msg.RC_mode = 4
+    #         motor5.go_list(msg.RC_mode)
+    #         lc.publish("EXAMPLE",msg.encode())
+    #     elif -20 < filter_pitch <= -10 and msg.RC_mode != 3:
+    #         msg.RC_mode = 3
+    #         motor5.go_list(msg.RC_mode)
+    #         lc.publish("EXAMPLE",msg.encode())
         
             
 
