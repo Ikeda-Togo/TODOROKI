@@ -207,8 +207,15 @@ while True :
             
             RC_flag = 1
         
-            print(msg.RC_mode)
+            print("RC_mode",msg.RC_mode)
         ##################################################################
+
+    if RC_mode != msg.RC_mode :
+        print("-------test-----------")
+        RC_mode = msg.RC_mode
+        motor5.go_list(RC_mode)
+
+
 
     # elif ser.in_waiting > 0 :
     #     recv_data = ser.read(28)
