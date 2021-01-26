@@ -214,6 +214,7 @@ while True :
         print("-------test-----------")
         RC_mode = msg.RC_mode
         motor5.go_list(RC_mode)
+        time.sleep(0.01)
 
 
 

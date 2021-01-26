@@ -53,11 +53,24 @@ try:
             msg.angle=imu.GetSensorData(recv_data) # [0]: タイムスタンプ; [1]: 加速度ピッチ; [2]: ジャイロピッチ; [3]: フィルターピッチ;
 
             print("filter pitch",msg.angle)
-            if -10 < msg.angle[3] < 5 and msg.RC_mode != 4 :
+
+            if 20 < msg.angle[3] and msg.RC_mode != 7 :
+                msg.RC_mode = 7
+                lc.publish("EXAMPLE",msg.encode())
+            elif 5 < msg.angle[3] <= 15 and msg.RC_mode != 5 :
+                msg.RC_mode = 5
+                lc.publish("EXAMPLE",msg.encode())
+            elif -10 < msg.angle[3] <= 5 and msg.RC_mode != 4 :
                 msg.RC_mode = 4
                 lc.publish("EXAMPLE",msg.encode())
             elif -20 < msg.angle[3] <= -10 and msg.RC_mode != 3:
                 msg.RC_mode = 3
+                lc.publish("EXAMPLE",msg.encode())
+            elif -27 < msg.angle[3] <= -20 and msg.RC_mode != 2:
+                msg.RC_mode = 2
+                lc.publish("EXAMPLE",msg.encode())
+            elif msg.angle[3] <= -27 and msg.RC_mode != 1:
+                msg.RC_mode = 1
                 lc.publish("EXAMPLE",msg.encode())
             else :
                 pass

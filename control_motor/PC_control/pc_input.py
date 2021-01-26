@@ -25,6 +25,7 @@ while True:
         termios.tcsetattr(fd,termios.TCSANOW,new)
 
         ch = sys.stdin.read(1)
+        print("Hello World")
 
     finally:
         termios.tcsetattr(fd,termios.TCSANOW,old)
@@ -53,4 +54,3 @@ while True:
         motor2.set_speed_and_go(0,0,0)
     elif ch=="q":
         break
-
