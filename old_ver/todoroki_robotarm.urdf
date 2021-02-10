@@ -36,7 +36,7 @@
 	<joint name="rev4" type="continuous">
 		<parent link="link4"/>
 		<child link="link5"/>
-		<origin rpy="0 0 0" xyz="0 0 0.1240"/>
+		<origin rpy="0 0 0" xyz="0 0 0.340"/>
 		<axis xyz="0 0 -1"/>
 	</joint>
 	<!-- <joint name="rev5" type="continuous"> 

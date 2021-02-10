@@ -14,23 +14,23 @@ count =0
 pos = [0]*10
 x,y,z = 0,0.2,0.5
 
-# home_pos = my_chain.forward_kinematics([0] * 6)[:,3][0:3]
-# print("forward_kinematics", home_pos)
-# home_pos = my_chain.forward_kinematics([0,0,0,1.8,0,0])[:,3][0:3]
-# print("forward_kinematics", home_pos)
-# my_chain.inverse_kinematics([2, 2, 2])
-# my_chain.plot(my_chain.inverse_kinematics(home_pos), ax)
-my_chain.plot(my_chain.inverse_kinematics([x,y,z]), ax)
 
-for i in [-0.3,-0.2,-0.1,0,0.1,0.2,0.3]:
-    x = i 
-    for j in [0.2,0.3,0.4,0.5,0.6,0.8]:
-        y = j
-        for k in [0.4,0.5 ,0.6]:
-            z = k
-            count+=1
-            my_chain.plot(my_chain.inverse_kinematics([x, y, z]), ax)
-            print(str([x,y,z]) +" : " +  str(my_chain.inverse_kinematics([x, y, z])))
+home_pos = my_chain.forward_kinematics([0,0.5,0.5,1.0,-1.8,0])[:,3][0:3]
+# my_chain.plot(my_chain.inverse_kinematics(home_pos), ax)
+my_chain.plot([0,0.5,0.5,1.0,-1.8,0], ax)
+print(str([x,y,z]) +" : " +  str(my_chain.inverse_kinematics(home_pos)))
+print(str(home_pos))
+
+
+# for i in [-0.3,-0.2,-0.1,0,0.1,0.2,0.3]:
+#     x = i 
+#     for j in [0.2,0.3,0.4,0.5,0.6,0.8]:
+#         y = j
+#         for k in [0.4,0.5 ,0.6]:
+#             z = k
+#             count+=1
+#             my_chain.plot(my_chain.inverse_kinematics([x, y, z]), ax)
+#             print(str([x,y,z]) +" : " +  str(my_chain.inverse_kinematics([x, y, z])))
 
 
 
