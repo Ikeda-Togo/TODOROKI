@@ -22,7 +22,7 @@ class App(QWidget):
         self.width = 640
         self.height = 480
         self.msg = example_t()
-        self.msg.mode = 0
+        self.msg.mode = 1
         self.msg.RC_mode = 4
         self.msg.LU_mode = 0
         self.RC_btn = [0]*8
@@ -108,7 +108,6 @@ class App(QWidget):
         if source.text()=="Lift UP":
             self.msg.LU_mode = 2
             self.msg.mode = 1
-            # self.lc.publish("EXAMPLE",self.msg.encode())
             self.LU_btn1.setStyleSheet('QPushButton {background-color: #0000FF}')
             self.LU_btn2.setStyleSheet('QPushButton {background-color: #fff}')
             self.LU_btn3.setStyleSheet('QPushButton {background-color: #fff}')
@@ -116,7 +115,6 @@ class App(QWidget):
         elif source.text()=="Center": 
             self.msg.LU_mode = 1
             self.msg.mode =1
-            # self.lc.publish("EXAMPLE",self.msg.encode())
             self.LU_btn1.setStyleSheet('QPushButton {background-color: #fff}')
             self.LU_btn2.setStyleSheet('QPushButton {background-color: #0000ff}')
             self.LU_btn3.setStyleSheet('QPushButton {background-color: #fff}')
@@ -124,7 +122,6 @@ class App(QWidget):
         elif source.text()=="Lift Down": 
             self.msg.LU_mode = 0
             self.msg.mode =1
-            # self.lc.publish("EXAMPLE",self.msg.encode())
             self.LU_btn1.setStyleSheet('QPushButton {background-color: #fff}')
             self.LU_btn2.setStyleSheet('QPushButton {background-color: #fff}')
             self.LU_btn3.setStyleSheet('QPushButton {background-color: #0000ff}')
